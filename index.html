@@ -3,1728 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natanael Alzate Torres — Analista Programador</title>
-  <meta name="description" content="Portfolio profesional de Natanael Alzate Torres. Analista Programador y Docente IT con disponibilidad inmediata en Cuenca, España. Java, Full-Stack Web, Bases de Datos." />
+  <title>Natanael Alzate Torres | Perfil híbrido en administración, formación y tecnología</title>
+  <meta
+    name="description"
+    content="CV web de Natanael Alzate Torres. Perfil híbrido con experiencia en administración, banca, gestión documental, formación, tecnología y atención al cliente. Disponible en Cuenca."
+  />
+  <meta name="theme-color" content="#0f766e" />
 
-  <!-- Canonical -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Natanael Alzate Torres" />
+  <meta property="og:title" content="Natanael Alzate Torres | Perfil híbrido en administración, formación y tecnología" />
+  <meta
+    property="og:description"
+    content="Profesional multidisciplinar con experiencia en administración, banca, formación, gestión documental y tecnología. Disponible en Cuenca."
+  />
+  <meta property="og:url" content="https://natanaelalzatetorres.com/" />
+  <meta property="og:image" content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
+  <meta property="og:image:alt" content="Retrato profesional de Natanael Alzate Torres" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Natanael Alzate Torres | Perfil híbrido en administración, formación y tecnología" />
+  <meta
+    name="twitter:description"
+    content="Profesional multidisciplinar con experiencia en administración, banca, formación, gestión documental y tecnología. Disponible en Cuenca."
+  />
+  <meta name="twitter:image" content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
+
   <link rel="canonical" href="https://natanaelalzatetorres.com/" />
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://natanaelalzatetorres.com/" />
-  <meta property="og:title"       content="Natanael Alzate Torres — Analista Programador" />
-  <meta property="og:description" content="Perfil técnico híbrido: desarrollo Java/Full-Stack y Docente IT acreditado SEPE con más de 2.400 horas de formación. Disponibilidad inmediata. Cuenca, España." />
-  <meta property="og:image"       content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
-  <meta property="og:locale"      content="es_ES" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Natanael Alzate Torres — Analista Programador" />
-  <meta name="twitter:description" content="Perfil técnico híbrido: Java · Full-Stack · Docente IT acreditado SEPE. Disponibilidad inmediata. Cuenca, España." />
-  <meta name="twitter:image"       content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-
-  <style>
-    /* ================================================================
-       CUSTOM PROPERTIES
-    ================================================================ */
-    :root {
-      --primary:        #005f73;
-      --primary-mid:    #0a8a9f;
-      --primary-light:  #94d2bd;
-      --primary-pale:   #e8f6f8;
-      --accent:         #ee9b00;
-      --success:        #25d366;
-
-      --bg:             #f6f9fb;
-      --bg-2:           #eef4f7;
-      --surface:        #ffffff;
-      --border:         #cde0e5;
-      --border-light:   #e4eef1;
-
-      --text:           #102030;
-      --text-2:         #2c4a56;
-      --text-3:         #5a7a86;
-      --text-inv:       #ffffff;
-
-      --font-serif:     'Lora', Georgia, 'Times New Roman', serif;
-      --font-sans:      'Inter', system-ui, -apple-system, sans-serif;
-
-      --nav-h:          66px;
-      --radius:         10px;
-      --radius-sm:      6px;
-      --shadow-sm:      0 1px 4px rgba(0,95,115,.07), 0 1px 2px rgba(0,0,0,.04);
-      --shadow:         0 4px 16px rgba(0,95,115,.10), 0 1px 4px rgba(0,0,0,.05);
-      --shadow-md:      0 8px 32px rgba(0,95,115,.13), 0 2px 8px rgba(0,0,0,.06);
-      --transition:     .22s cubic-bezier(.4,0,.2,1);
-    }
-
-    /* ================================================================
-       RESET & BASE
-    ================================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { display: block; max-width: 100%; }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ================================================================
-       TYPOGRAPHY
-    ================================================================ */
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      color: var(--text);
-      line-height: 1.25;
-    }
-
-    h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 700; }
-    h2 { font-size: clamp(1.35rem, 2.8vw, 1.85rem); font-weight: 600; }
-    h3 { font-size: 1.1rem; font-weight: 600; }
-    h4 { font-size: .95rem; font-weight: 600; font-family: var(--font-sans); }
-
-    p { color: var(--text-2); font-size: .97rem; }
-
-    /* ================================================================
-       LAYOUT
-    ================================================================ */
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section { padding: 5rem 0; }
-    section:nth-child(even) { background: var(--bg-2); }
-
-    /* ================================================================
-       SECTION HEADER
-    ================================================================ */
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      color: var(--primary);
-    }
-
-    .section-header h2 i {
-      font-size: 1.3rem;
-      color: var(--primary-mid);
-    }
-
-    .section-divider {
-      width: 56px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      border-radius: 2px;
-      margin: .75rem auto 0;
-    }
-
-    /* ================================================================
-       NAVBAR
-    ================================================================ */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--nav-h);
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light);
-      z-index: 900;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      text-decoration: none;
-    }
-
-    .nav-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      border: 2px solid var(--primary-light);
-    }
-
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .nav-name {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: .95rem;
-      color: var(--primary);
-    }
-
-    .nav-title {
-      font-size: .72rem;
-      color: var(--text-3);
-      font-weight: 400;
-      letter-spacing: .01em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: .25rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--text-2);
-      padding: .45rem .85rem;
-      border-radius: var(--radius-sm);
-      transition: background var(--transition), color var(--transition);
-      text-decoration: none;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: var(--primary-pale);
-      color: var(--primary);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: .5rem;
-      color: var(--text-2);
-      font-size: 1.2rem;
-    }
-
-    /* ================================================================
-       HERO
-    ================================================================ */
-    .hero {
-      padding-top: calc(var(--nav-h) + 4rem);
-      padding-bottom: 4.5rem;
-      background: linear-gradient(135deg, #f0f9fb 0%, #e8f4f8 40%, var(--bg) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -80px;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(10,138,159,.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      background: #dcfce7;
-      color: #15803d;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .03em;
-      padding: .35rem .9rem;
-      border-radius: 99px;
-      margin-bottom: 1rem;
-      border: 1px solid #bbf7d0;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse-dot 1.8s infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .6; transform: scale(.75); }
-    }
-
-    .hero-title {
-      font-size: clamp(1.7rem, 3.8vw, 2.5rem);
-      color: var(--primary);
-      margin-bottom: 1.25rem;
-      line-height: 1.2;
-    }
-
-    .hero-intro {
-      font-size: 1.02rem;
-      color: var(--text-2);
-      line-height: 1.8;
-      max-width: 640px;
-      margin-bottom: 2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: .85rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .65rem 1.4rem;
-      border-radius: var(--radius-sm);
-      font-size: .9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition);
-      text-decoration: none;
-      border: 2px solid transparent;
-      font-family: var(--font-sans);
-      background: transparent;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: var(--text-inv);
-      border-color: var(--primary);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-mid);
-      border-color: var(--primary-mid);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      color: var(--text-inv);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border-color: var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--primary);
-      background: var(--primary-pale);
-      transform: translateY(-1px);
-      text-decoration: none;
-      color: var(--primary);
-    }
-
-    .btn-whatsapp {
-      background: #25d366;
-      color: #fff;
-      border-color: #25d366;
-    }
-
-    .btn-whatsapp:hover {
-      background: #1ebe5d;
-      border-color: #1ebe5d;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37,211,102,.35);
-      text-decoration: none;
-      color: #fff;
-    }
-
-    /* Hero photo */
-    .hero-photo-wrap {
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .hero-photo-frame {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid var(--surface);
-      box-shadow: var(--shadow-md), 0 0 0 8px rgba(0,95,115,.08);
-    }
-
-    .hero-photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .hero-avail-badge {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
-      color: #fff;
-      font-size: .72rem;
-      font-weight: 600;
-      padding: .3rem .75rem;
-      border-radius: 99px;
-      white-space: nowrap;
-      border: 2px solid var(--surface);
-      box-shadow: var(--shadow-sm);
-      letter-spacing: .03em;
-    }
-
-    /* ================================================================
-       CARDS (Experience & Training)
-    ================================================================ */
-    .cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--transition), transform var(--transition);
-      overflow: hidden;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-1px);
-    }
-
-    /* ================================================================
-       DETAILS / ACCORDION
-    ================================================================ */
-    details { width: 100%; }
-
-    details summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 1.35rem 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      position: relative;
-      user-select: none;
-      transition: background var(--transition);
-    }
-
-    details summary::-webkit-details-marker { display: none; }
-    details summary::marker { display: none; }
-    details summary:hover { background: var(--primary-pale); }
-
-    .summary-toggle {
-      flex-shrink: 0;
-      margin-left: auto;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .85rem;
-      color: var(--primary);
-      transition: all var(--transition);
-      background: var(--bg);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    details[open] .summary-toggle {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-      transform: rotate(45deg);
-    }
-
-    .details-body {
-      padding: 0 1.5rem 1.35rem 1.5rem;
-      border-top: 1px solid var(--border-light);
-      border-left: 3px solid var(--primary-light);
-      margin-left: 1.5rem;
-      margin-right: 1.5rem;
-      margin-bottom: 1rem;
-      border-radius: 0 0 0 4px;
-      background: var(--primary-pale);
-    }
-
-    .details-body p,
-    .details-body ul {
-      font-size: .92rem;
-      color: var(--text-2);
-      padding-top: 1rem;
-      line-height: 1.75;
-    }
-
-    .details-body ul { padding-left: 1.1rem; }
-    .details-body ul li { margin-bottom: .35rem; }
-
-    .details-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-top: .9rem;
-    }
-
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--primary);
-      background: var(--surface);
-      border: 1.5px solid var(--primary-light);
-      border-radius: var(--radius-sm);
-      padding: .3rem .75rem;
-      transition: all var(--transition);
-      text-decoration: none;
-    }
-
-    .link-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-      text-decoration: none;
-    }
-
-    .link-btn i { font-size: .75rem; }
-
-    .card-meta {
-      display: flex;
-      flex-direction: column;
-      gap: .2rem;
-      flex: 1;
-    }
-
-    .card-title {
-      font-family: var(--font-serif);
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .card-subtitle { font-size: .85rem; color: var(--primary-mid); font-weight: 500; }
-    .card-period   { font-size: .78rem; color: var(--text-3); font-weight: 400; }
-    .card-summary-text { font-size: .88rem; color: var(--text-3); margin-top: .15rem; }
-
-    .card-icon {
-      flex-shrink: 0;
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      background: var(--primary-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-
-    /* ================================================================
-       SKILLS SECTION
-    ================================================================ */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-group {
-      background: var(--surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .skill-group-header {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      margin-bottom: 1.1rem;
-      padding-bottom: .75rem;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .skill-group-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      background: var(--primary-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1rem;
-    }
-
-    .skill-group h4 { color: var(--primary); font-size: .95rem; }
-
-    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-
-    .skill-tag {
-      background: var(--bg-2);
-      color: var(--text-2);
-      font-size: .8rem;
-      font-weight: 500;
-      padding: .3rem .75rem;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-      transition: all var(--transition);
-    }
-
-    .skill-tag:hover {
-      background: var(--primary-pale);
-      border-color: var(--primary-light);
-      color: var(--primary);
-    }
-
-    .lang-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .55rem 0;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .lang-item:last-child { border-bottom: none; }
-    .lang-name { font-size: .9rem; font-weight: 500; color: var(--text-2); }
-
-    .lang-level {
-      font-size: .75rem;
-      font-weight: 600;
-      padding: .2rem .65rem;
-      border-radius: 99px;
-    }
-
-    .lang-native { background: var(--primary-pale); color: var(--primary); }
-    .lang-b2     { background: #fffbeb; color: #b45309; }
-    .lang-b1     { background: #f0fdf4; color: #166534; }
-    .lang-a2     { background: #f8f8f8; color: var(--text-3); }
-
-    /* ================================================================
-       PROJECTS SECTION
-    ================================================================ */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--transition), transform var(--transition);
-      display: flex;
-      flex-direction: column;
-      gap: .9rem;
-    }
-
-    .project-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-
-    .project-card-header {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-    }
-
-    .project-icon {
-      flex-shrink: 0;
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      background: var(--primary-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-
-    .project-title {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .project-company {
-      font-size: .78rem;
-      color: var(--primary-mid);
-      font-weight: 500;
-      margin-top: .1rem;
-    }
-
-    .project-desc {
-      font-size: .9rem;
-      color: var(--text-2);
-      line-height: 1.65;
-      flex: 1;
-      margin: 0;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-    }
-
-    .project-tag {
-      background: var(--bg-2);
-      color: var(--text-2);
-      font-size: .75rem;
-      font-weight: 500;
-      padding: .2rem .6rem;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-    }
-
-    .project-footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      border-top: 1px solid var(--border-light);
-      padding-top: .85rem;
-      margin-top: auto;
-    }
-
-    /* ================================================================
-       CONTACT SECTION
-    ================================================================ */
-    #contacto {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
-    }
-
-    #contacto .section-header h2,
-    #contacto .section-header h2 i { color: #fff; }
-
-    #contacto .section-divider {
-      background: linear-gradient(90deg, rgba(255,255,255,.8), rgba(255,255,255,.3));
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      backdrop-filter: blur(6px);
-      transition: background var(--transition);
-    }
-
-    .contact-card:hover { background: rgba(255,255,255,.2); }
-
-    .contact-card-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .contact-card-body { flex: 1; }
-
-    .contact-card-label {
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.65);
-      font-weight: 600;
-      margin-bottom: .2rem;
-    }
-
-    .contact-card-value { font-size: .95rem; font-weight: 500; color: #fff; }
-
-    .contact-card-value a {
-      color: #fff;
-      text-decoration: none;
-      transition: opacity var(--transition);
-    }
-
-    .contact-card-value a:hover { opacity: .8; text-decoration: none; }
-
-    .contact-cta { text-align: center; }
-
-    /* ================================================================
-       FOOTER
-    ================================================================ */
-    .footer {
-      background: #081820;
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: .82rem;
-    }
-
-    .footer strong { color: rgba(255,255,255,.8); }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: .75rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,.45);
-      font-size: .8rem;
-      transition: color var(--transition);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-    }
-
-    .footer-links a:hover {
-      color: rgba(255,255,255,.8);
-      text-decoration: none;
-    }
-
-    /* ================================================================
-       MOBILE NAV
-    ================================================================ */
-    @media (max-width: 900px) {
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: var(--nav-h);
-        left: 0;
-        right: 0;
-        background: rgba(255,255,255,.98);
-        border-bottom: 1px solid var(--border-light);
-        flex-direction: column;
-        padding: 1rem;
-        gap: .25rem;
-        box-shadow: var(--shadow);
-      }
-
-      .nav-links.open { display: flex; }
-
-      .nav-links a {
-        padding: .65rem 1rem;
-        width: 100%;
-        border-radius: var(--radius-sm);
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-photo-wrap { order: -1; margin: 0 auto; }
-      .hero-actions { justify-content: center; }
-      .hero-intro { margin: 0 auto 2rem; }
-
-      .hero-photo-frame { width: 170px; height: 170px; }
-
-      section { padding: 3.5rem 0; }
-
-      .navbar { position: relative; }
-      .hero { padding-top: 3rem; }
-    }
-
-    @media (max-width: 480px) {
-      .skills-grid   { grid-template-columns: 1fr; }
-      .contact-grid  { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================================
-       SMOOTH REVEAL
-    ================================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ================================================================
-       PRINT / PDF
-    ================================================================ */
-    @media print {
-      @page { margin: 1.5cm; size: A4; }
-
-      .navbar,
-      .hero-actions,
-      .hero-avail-badge,
-      .nav-toggle,
-      .details-links,
-      .contact-cta,
-      #proyectos,
-      .footer-links { display: none !important; }
-
-      body {
-        background: #fff !important;
-        color: #000 !important;
-        font-size: 13px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .hero {
-        background: #fff !important;
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-      }
-
-      .hero::before { display: none; }
-
-      .hero-inner {
-        grid-template-columns: 1fr auto !important;
-        gap: 2rem !important;
-        text-align: left !important;
-      }
-
-      .hero-photo-frame {
-        width: 130px !important;
-        height: 130px !important;
-        box-shadow: none !important;
-      }
-
-      section { padding: 1.5rem 0 !important; }
-      section:nth-child(even) { background: #f5f5f5 !important; }
-
-      .reveal { opacity: 1 !important; transform: none !important; }
-
-      .card {
-        break-inside: avoid;
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-      }
-
-      #contacto {
-        background: var(--primary) !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .footer {
-        background: #081820 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        padding: 1rem !important;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Natanael Alzate Torres",
+      "url": "https://natanaelalzatetorres.com/",
+      "image": "https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg",
+      "jobTitle": "Perfil híbrido en administración, docencia y tecnología",
+      "email": "mailto:alzatetorres@icloud.com",
+      "telephone": "+34651377113",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cuenca",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/natanaelalzatetorres/"
+      ],
+      "knowsAbout": [
+        "Administración",
+        "Gestión documental",
+        "Atención al cliente",
+        "Banca y seguros",
+        "Docencia y teleformación",
+        "Excel y ofimática",
+        "Sage y SAP",
+        "Java y tecnologías web",
+        "Operador de drones AESA"
+      ]
+    }
+  </script>
 </head>
 <body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
 
-  <!-- ================================================================
-       NAVBAR
-  ================================================================ -->
-  <nav class="navbar" role="navigation" aria-label="Navegación principal">
-    <div class="nav-inner">
-      <a class="nav-brand" href="#inicio" aria-label="Inicio — Natanael Alzate Torres">
-        <img
-          src="Foto_perfil_Natanael_A.jpg"
-          alt="Foto de perfil de Natanael Alzate Torres"
-          class="nav-avatar"
-          loading="eager"
-          onerror="this.style.display='none'"
-        />
-        <div class="nav-brand-text">
-          <span class="nav-name">Natanael Alzate Torres</span>
-          <span class="nav-title">Analista Programador · Docente IT</span>
-        </div>
+  <header class="site-header">
+    <nav class="navbar container" id="navbar" aria-label="Navegación principal">
+      <a class="brand" href="#hero" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span class="brand-copy">
+          <strong>Natanael Alzate Torres</strong>
+          <span id="brand-subtitle">Administración · Formación · Tecnología</span>
+        </span>
       </a>
 
-      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
-        <i class="fas fa-bars"></i>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-shell" aria-label="Abrir navegación">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <ul class="nav-links" id="navLinks" role="list">
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#formacion">Formación</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
+      <div class="nav-shell" id="nav-shell">
+        <ul class="nav-links">
+          <li><a href="#profile" data-nav="profile">Perfil</a></li>
+          <li><a href="#strengths" data-nav="strengths">Valor</a></li>
+          <li><a href="#experience" data-nav="experience">Experiencia</a></li>
+          <li><a href="#projects" data-nav="projects">Proyectos</a></li>
+          <li><a href="#training" data-nav="training">Formación</a></li>
+          <li><a href="#teaching" data-nav="teaching">Docencia</a></li>
+          <li><a href="#contact" data-nav="contact">Contacto</a></li>
+        </ul>
 
-  <!-- ================================================================
-       HERO
-  ================================================================ -->
-  <section id="inicio" class="hero" aria-label="Presentación profesional">
-    <div class="container">
-      <div class="hero-inner">
-
-        <div class="hero-content">
-          <div class="hero-badge" aria-label="Disponibilidad inmediata">
-            Disponibilidad Inmediata
+        <div class="nav-tools">
+          <div class="lang-switch" role="group" aria-label="Selector de idioma">
+            <button class="lang-btn is-active" type="button" data-lang="es" aria-pressed="true">ES</button>
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
           </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-          <h1 class="hero-title">
-            Analista Programador
-          </h1>
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow" id="hero-eyebrow"></span>
+          <h1 class="hero-title" id="hero-title"></h1>
+          <p class="hero-intro" id="hero-intro"></p>
 
-          <p class="hero-intro">
-            Perfil técnico híbrido que une el desarrollo de software (Java, BBDD relacionales),
-            la gestión administrativa corporativa y la excelencia operativa. Acreditación en docencia
-            con calificación de Sobresaliente, aportando más de 2.400 horas de formación técnica.
-            Plenamente capacitado para la instrucción IT de máxima calidad, asegurando la transmisión
-            práctica de arquitecturas web y programación orientada a objetos.
-          </p>
+          <div class="chip-row" id="hero-chips" aria-label="Ámbitos de valor"></div>
 
           <div class="hero-actions">
-            <a href="#contacto" class="btn btn-primary">
-              <i class="fas fa-envelope"></i> Contactar
-            </a>
-            <a href="#experiencia" class="btn btn-outline">
-              <i class="fas fa-briefcase"></i> Ver Trayectoria
-            </a>
-            <button onclick="window.print()" class="btn btn-outline" aria-label="Descargar CV en PDF">
-              <i class="fas fa-download"></i> Descargar CV
-            </button>
+            <a class="btn btn-primary" id="cta-mail" href="mailto:alzatetorres@icloud.com"></a>
+            <button class="btn btn-secondary" id="download-pdf" type="button"></button>
+            <a class="btn btn-linkedin" id="cta-linkedin" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer"></a>
           </div>
+
+          <div class="stats-grid" id="hero-stats"></div>
         </div>
 
-        <div class="hero-photo-wrap" aria-hidden="true">
-          <div class="hero-photo-frame">
-            <img
-              src="Foto_perfil_Natanael_A.jpg"
-              alt="Natanael Alzate Torres — Analista Programador y Docente IT"
-              loading="eager"
-              onerror="this.parentElement.style.background='var(--primary-pale)'"
-            />
-          </div>
-          <div class="hero-avail-badge">
-            <i class="fas fa-map-marker-alt" style="margin-right:.3rem;font-size:.68rem;"></i>Cuenca, España
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       EXPERIENCIA PROFESIONAL
-  ================================================================ -->
-  <section id="experiencia" aria-labelledby="h2-exp">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="h2-exp">
-          <i class="fas fa-briefcase" aria-hidden="true"></i>
-          Experiencia Profesional
-        </h2>
-        <div class="section-divider" aria-hidden="true"></div>
-      </div>
-
-      <div class="cards-list">
-
-        <article class="card reveal">
-          <details>
-            <summary aria-expanded="false">
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Desarrollo Web, Sistemas y Calidad</span>
-                <span class="card-subtitle">Formación Futuras Promesas SL (F2Prom)</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>2025 – Actualidad</span>
-                <span class="card-summary-text">Desarrollo y mantenimiento técnico de aplicaciones web corporativas y plataformas LMS.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li>Desarrollo y mantenimiento técnico de aplicaciones web corporativas y plataformas LMS de e-learning.</li>
-                <li>Configuración de servidores locales, entornos de desarrollo Java (JDK) y bases de datos relacionales para formación.</li>
-                <li>Auditoría técnica de procesos y gestión de datos en plataformas de la JCCM (FOCO, FUNDAE).</li>
-              </ul>
-              <div class="details-links">
-                <a href="https://formacionfuturaspromesas.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                  <i class="fas fa-external-link-alt"></i> formacionfuturaspromesas.com
-                </a>
-                <a href="https://promesasdepapel.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                  <i class="fas fa-external-link-alt"></i> promesasdepapel.com
-                </a>
-              </div>
+        <div class="hero-panel reveal reveal-delay-1">
+          <div class="portrait-card surface-card">
+            <div class="portrait-card__frame">
+              <img
+                src="Foto_perfil_Natanael_A.jpg"
+                alt="Natanael Alzate Torres en retrato profesional"
+                loading="eager"
+              />
             </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fab fa-java"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Desarrollador Backend Java</span>
-                <span class="card-subtitle">Hybrid Company — Praga, República Checa</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>2017 – 2018</span>
-                <span class="card-summary-text">Programación Orientada a Objetos, APIs y BBDD para TV Interactiva (HbbTV).</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li>Desarrollo de lógica de negocio (backend en Java) para dar soporte a aplicaciones y servicios de televisión interactiva bajo el estándar HbbTV.</li>
-                <li>Programación de componentes interactivos dominando la pila tecnológica de HbbTV, con uso extensivo de JavaScript, HTML, CSS y APIs específicas.</li>
-                <li>Diseño, normalización y administración de Bases de Datos relacionales (SQL) para garantizar la persistencia de los datos.</li>
-              </ul>
-              <div class="details-links">
-                <a href="https://www.mihybrid.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                  <i class="fas fa-external-link-alt"></i> mihybrid.com
-                </a>
-              </div>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-store"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Desarrollador E-commerce y Marketing Digital</span>
-                <span class="card-subtitle">Pinturas COES, S.L.</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>2018 – 2021</span>
-                <span class="card-summary-text">Desarrollo Full-Stack, sincronización ERP e imagen de marca.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li>Desarrollo técnico de aplicaciones web y creación desde cero de la tienda online corporativa, empleando HTML, CSS, JavaScript y componentes de lógica de servidor en Java.</li>
-                <li>Administración de la base de datos de productos y despliegue de integraciones técnicas con ERP (Sage).</li>
-              </ul>
-              <div class="details-links">
-                <a href="https://pinturascoes.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                  <i class="fas fa-external-link-alt"></i> pinturascoes.com
-                </a>
-              </div>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-building-columns"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Asesor Financiero y Soporte de Banca Digital</span>
-                <span class="card-subtitle">CaixaBank</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>2022 – 2023</span>
-                <span class="card-summary-text">Soporte informático, manejo de CRM corporativo y alfabetización tecnológica.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li>Manejo avanzado del software financiero corporativo y CRM del banco para la extracción, análisis y gestión de la base de datos de clientes B2B/B2C.</li>
-                <li>Soporte técnico operativo y resolución de incidencias informáticas en banca electrónica.</li>
-                <li>Liderazgo en programas de alfabetización digital.</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       FORMACIÓN Y ACREDITACIONES
-  ================================================================ -->
-  <section id="formacion" aria-labelledby="h2-form">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="h2-form">
-          <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-          Formación y Acreditaciones Oficiales
-        </h2>
-        <div class="section-divider" aria-hidden="true"></div>
-      </div>
-
-      <div class="cards-list">
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
-              <div class="card-meta">
-                <span class="card-title">CP Desarrollo de Aplicaciones con Tecnología Web (IFCD0210)</span>
-                <span class="card-subtitle">Certificado de Profesionalidad — Nivel 3 · 590 horas</span>
-                <span class="card-period">Acreditación Oficial SEPE</span>
-                <span class="card-summary-text">Acreditación oficial SEPE en programación Backend, Frontend y BBDD.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>MF0491_3</strong> — Programación web en entorno cliente (180 h).</li>
-                <li><strong>MF0492_3</strong> — Programación web en entorno servidor, con enfoque en POO y Bases de Datos (240 h).</li>
-                <li><strong>MF0493_3</strong> — Implantación de aplicaciones web (90 h).</li>
-                <li><strong>MP0391</strong> — Módulo de Prácticas Profesionales No Laborales (80 h).</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-chalkboard-user"></i></div>
-              <div class="card-meta">
-                <span class="card-title">CP Docencia de la Formación Profesional para el Empleo (SSCE0110)</span>
-                <span class="card-subtitle">Certificado de Profesionalidad — Nivel 3 · 380 horas</span>
-                <span class="card-period">
-                  Acreditación Oficial SEPE &nbsp;·&nbsp;
-                  <strong style="color: var(--primary);">Calificación: Sobresaliente (S-8)</strong>
-                </span>
-                <span class="card-summary-text">Habilitación oficial SEPE para la docencia en Formación Profesional para el Empleo.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>MF1442_3</strong> — Programación didáctica de acciones formativas (60 h).</li>
-                <li><strong>MF1444_3</strong> — Impartición y tutorización de acciones formativas (100 h).</li>
-                <li><strong>MF1445_3</strong> — Evaluación del aprendizaje (60 h).</li>
-                <li><strong>Complementario</strong> — Experto en E-Learning y formación en línea (100 h).</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-university"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Formación Universitaria</span>
-                <span class="card-subtitle">UCLM · UNED</span>
-                <span class="card-period">2013 – 2024</span>
-                <span class="card-summary-text">Grado en ADE y estudios de Psicología.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>Grado en Administración y Dirección de Empresas (ADE)</strong> — Universidad de Castilla-La Mancha (UCLM). Finalizado en 2017.</li>
-                <li><strong>Estudios en Grado en Psicología</strong> — Universidad Nacional de Educación a Distancia (UNED). Curso 2023/2024 (21 créditos superados).</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Técnicas de Calidad y Mejora Continua en la Excelencia Empresarial (ADGD01)</span>
-                <span class="card-subtitle">Formación Futuras Promesas S.L. · 425 horas</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>26 de febrero de 2025 – 18 de junio de 2025</span>
-                <span class="card-summary-text">Formación homologada por el SEPE orientada a la implantación de modelos de gestión, auditorías y control metrológico.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li>Implantación del Modelo de Gestión (130 h).</li>
-                <li>Mejora Continua y Excelencia Empresarial (70 h).</li>
-                <li>Auditorías de Calidad (60 h).</li>
-                <li>Ensayos Mecánicos (50 h) y Metrología (50 h).</li>
-                <li>Introducción a la Calidad (35 h) y Estadística Aplicada (30 h).</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-              <div class="card-meta">
-                <span class="card-title">CP Actividades de Venta (COMV0108)</span>
-                <span class="card-subtitle">Certificado de Profesionalidad — Nivel 2 · 590 horas</span>
-                <span class="card-period"><i class="fas fa-calendar-alt" style="margin-right:.3rem;font-size:.72rem;"></i>5 de marzo de 2018 – 30 de enero de 2019</span>
-                <span class="card-summary-text">Acreditación oficial SEPE en técnicas de venta, atención al cliente y operaciones de comercio.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>MF0239_2</strong> — Operaciones de venta (160 h).</li>
-                <li><strong>MF0240_2</strong> — Operaciones auxiliares a la venta (140 h).</li>
-                <li><strong>MF0241_2</strong> — Información y atención al cliente/consumidor/usuario (120 h).</li>
-                <li><strong>MF1002_2</strong> — Inglés profesional para actividades comerciales (90 h).</li>
-                <li><strong>MP0009</strong> — Módulo de prácticas profesionales no laborales (80 h).</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-        <article class="card reveal">
-          <details>
-            <summary>
-              <div class="card-icon" aria-hidden="true"><i class="fas fa-certificate"></i></div>
-              <div class="card-meta">
-                <span class="card-title">Otras Certificaciones Oficiales</span>
-                <span class="card-subtitle">Operador de Drones</span>
-                <span class="card-period">Acreditación complementaria</span>
-                <span class="card-summary-text">Certificación oficial como Piloto de Drones AESA.</span>
-              </div>
-              <span class="summary-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>Piloto Oficial de Drones AESA</strong> — Categorías A1/A3. Validez hasta 2029.</li>
-              </ul>
-            </div>
-          </details>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       HABILIDADES
-  ================================================================ -->
-  <section id="habilidades" aria-labelledby="h2-skill">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="h2-skill">
-          <i class="fas fa-layer-group" aria-hidden="true"></i>
-          Habilidades Técnicas e Idiomas
-        </h2>
-        <div class="section-divider" aria-hidden="true"></div>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
-            <h4>Tecnologías de Desarrollo</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Java (POO)</span>
-            <span class="skill-tag">SQL / Bases de Datos</span>
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Desarrollo Full-Stack</span>
-            <span class="skill-tag">Backend Web</span>
-            <span class="skill-tag">HbbTV</span>
-            <span class="skill-tag">APIs REST</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
-            <h4>Sistemas y Plataformas</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">SAP (FICO / Almacén)</span>
-            <span class="skill-tag">Sage</span>
-            <span class="skill-tag">Microsoft Dynamics</span>
-            <span class="skill-tag">Moodle (LMS)</span>
-            <span class="skill-tag">CRM Corporativo</span>
-            <span class="skill-tag">JDK / Java EE</span>
-            <span class="skill-tag">FOCO (JCCM)</span>
-            <span class="skill-tag">FUNDAE</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
-            <h4>Idiomas</h4>
-          </div>
-          <div>
-            <div class="lang-item">
-              <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Español
+            <div class="portrait-card__body">
+              <span class="portrait-card__location">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span id="portrait-note"></span>
               </span>
-              <span class="lang-level lang-native">Nativo</span>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Inglés
-              </span>
-              <span class="lang-level lang-b1">B1 Certificado Cambridge</span>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Alemán
-              </span>
-              <span class="lang-level lang-a2">A2</span>
+              <div class="portrait-card__qualities">
+                <span class="floating-badge" id="badge-one"></span>
+                <span class="floating-badge" id="badge-two"></span>
+                <span class="floating-badge" id="badge-three"></span>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
+    </section>
+
+    <section class="section" id="profile">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="profile-kicker"></span>
+          <h2 id="profile-title"></h2>
+          <p id="profile-subtitle"></p>
+        </div>
+
+        <div class="profile-grid">
+          <article class="surface-card prose-card reveal" id="profile-copy"></article>
+          <div class="profile-cards" id="profile-cards"></div>
+        </div>
+
+        <aside class="feature-callout reveal" id="interest-callout"></aside>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="strengths">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="strengths-kicker"></span>
+          <h2 id="strengths-title"></h2>
+          <p id="strengths-subtitle"></p>
+        </div>
+
+        <div class="cards-grid cards-grid--three" id="strengths-grid"></div>
+        <div class="growth-strip reveal" id="growth-strip"></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="experience-kicker"></span>
+          <h2 id="experience-title"></h2>
+          <p id="experience-subtitle"></p>
+        </div>
+
+        <div class="timeline" id="experience-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="projects-kicker"></span>
+          <h2 id="projects-title"></h2>
+          <p id="projects-subtitle"></p>
+        </div>
+
+        <div class="cards-grid cards-grid--two" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="training">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="training-kicker"></span>
+          <h2 id="training-title"></h2>
+          <p id="training-subtitle"></p>
+        </div>
+
+        <div class="training-grid">
+          <div class="cert-grid" id="cert-grid"></div>
+
+          <div class="training-side">
+            <article class="surface-card skill-card reveal">
+              <div class="skill-card__header">
+                <span class="mini-label" id="skills-mini-label"></span>
+                <h3 id="skills-title"></h3>
+              </div>
+              <div class="skill-groups" id="skill-groups"></div>
+            </article>
+
+            <article class="surface-card extras-card reveal reveal-delay-1">
+              <div class="skill-card__header">
+                <span class="mini-label" id="extras-mini-label"></span>
+                <h3 id="extras-title"></h3>
+              </div>
+              <div class="extras-cloud" id="extras-cloud"></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="teaching">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" id="teaching-kicker"></span>
+          <h2 id="teaching-title"></h2>
+          <p id="teaching-subtitle"></p>
+        </div>
+
+        <div class="cards-grid cards-grid--three" id="teaching-grid"></div>
+        <div class="teaching-note reveal" id="teaching-note"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-shell surface-card reveal">
+          <div class="contact-copy">
+            <span class="section-kicker" id="contact-kicker"></span>
+            <h2 id="contact-title"></h2>
+            <p id="contact-subtitle"></p>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary" id="contact-mail" href="mailto:alzatetorres@icloud.com"></a>
+              <a class="btn btn-whatsapp" id="contact-whatsapp" href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+          </div>
+
+          <div class="contact-grid" id="contact-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p id="footer-copy"></p>
+      <a class="footer-link" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-  </section>
-
-  <!-- ================================================================
-       PROYECTOS DESTACADOS
-  ================================================================ -->
-  <section id="proyectos" aria-labelledby="h2-proyectos">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="h2-proyectos">
-          <i class="fas fa-folder-open" aria-hidden="true"></i>
-          Proyectos Destacados
-        </h2>
-        <div class="section-divider" aria-hidden="true"></div>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card reveal">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true"><i class="fas fa-chalkboard-user"></i></div>
-            <div>
-              <p class="project-title">Portal Corporativo y Plataforma LMS</p>
-              <p class="project-company">Formación Futuras Promesas SL · 2025</p>
-            </div>
-          </div>
-          <p class="project-desc">
-            Desarrollo y mantenimiento de la web corporativa y la plataforma de e-learning Moodle.
-            Configuración de servidores Java (JDK), auditoría de datos en las plataformas FOCO y FUNDAE
-            y gestión de contenidos formativos homologados por el SEPE.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">CSS3</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">Moodle (LMS)</span>
-            <span class="project-tag">SQL</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://formacionfuturaspromesas.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <i class="fas fa-external-link-alt"></i> Ver proyecto
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
-            <div>
-              <p class="project-title">Portal Web Editorial Promesas de Papel</p>
-              <p class="project-company">Formación Futuras Promesas SL · 2025</p>
-            </div>
-          </div>
-          <p class="project-desc">
-            Desarrollo del portal web de la editorial. Diseño, implementación y mantenimiento técnico
-            de la plataforma de publicación y catálogo de contenidos, con integración de gestión
-            de productos y experiencia de usuario optimizada.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">CSS3</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">Java</span>
-            <span class="project-tag">Full-Stack</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://promesasdepapel.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <i class="fas fa-external-link-alt"></i> Ver proyecto
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true"><i class="fas fa-cart-shopping"></i></div>
-            <div>
-              <p class="project-title">Tienda Online con Integración ERP</p>
-              <p class="project-company">Pinturas COES, S.L. · 2018 – 2021</p>
-            </div>
-          </div>
-          <p class="project-desc">
-            Creación desde cero de la tienda online corporativa con catálogo de productos, pasarela
-            de pedidos y sincronización bidireccional con ERP Sage. Administración de la base de datos
-            de productos e imagen de marca digital.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">CSS3</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">ERP Sage</span>
-            <span class="project-tag">SQL</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://pinturascoes.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <i class="fas fa-external-link-alt"></i> Ver proyecto
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true"><i class="fas fa-tv"></i></div>
-            <div>
-              <p class="project-title">Aplicaciones de TV Interactiva HbbTV</p>
-              <p class="project-company">Hybrid Company — Praga · 2017 – 2018</p>
-            </div>
-          </div>
-          <p class="project-desc">
-            Desarrollo de backend en Java para servicios de televisión interactiva bajo el estándar
-            HbbTV. Programación de componentes de interfaz con JavaScript y APIs propietarias,
-            diseño de bases de datos relacionales para persistencia de contenidos y metadatos.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Java (Backend)</span>
-            <span class="project-tag">HbbTV</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">APIs REST</span>
-            <span class="project-tag">SQL</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://www.mihybrid.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <i class="fas fa-external-link-alt"></i> Ver empresa
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       CONTACTO
-  ================================================================ -->
-  <section id="contacto" aria-labelledby="h2-contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="h2-contact">
-          <i class="fas fa-paper-plane" aria-hidden="true"></i>
-          Contacto
-        </h2>
-        <div class="section-divider" aria-hidden="true"></div>
-      </div>
-
-      <div class="contact-grid">
-
-        <div class="contact-card reveal">
-          <div class="contact-card-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
-          <div class="contact-card-body">
-            <p class="contact-card-label">Correo Electrónico</p>
-            <div class="contact-card-value">
-              <a href="mailto:alzatetorres@icloud.com" aria-label="Enviar correo a alzatetorres@icloud.com">
-                alzatetorres@icloud.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-card reveal">
-          <div class="contact-card-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
-          <div class="contact-card-body">
-            <p class="contact-card-label">Teléfono</p>
-            <div class="contact-card-value">
-              <a href="tel:+34651377113" aria-label="Llamar al +34 651 377 113">+34 651 377 113</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-card reveal">
-          <div class="contact-card-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
-          <div class="contact-card-body">
-            <p class="contact-card-label">Ubicación</p>
-            <div class="contact-card-value">Cuenca, España</div>
-          </div>
-        </div>
-
-        <div class="contact-card reveal">
-          <div class="contact-card-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
-          <div class="contact-card-body">
-            <p class="contact-card-label">LinkedIn</p>
-            <div class="contact-card-value">
-              <a href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn">
-                natanaelalzatetorres
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="contact-cta reveal">
-        <a
-          href="https://wa.me/34651377113"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-whatsapp"
-          aria-label="Contactar por WhatsApp"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Contactar por WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       FOOTER
-  ================================================================ -->
-  <footer class="footer" role="contentinfo">
-    <p>
-      &copy; 2025 <strong>Natanael Alzate Torres</strong> &mdash; Analista Programador.
-      Cuenca, España.
-    </p>
-    <nav class="footer-links" aria-label="Redes y contacto">
-      <a href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-      </a>
-      <a href="mailto:alzatetorres@icloud.com" aria-label="Correo electrónico">
-        <i class="fas fa-envelope" aria-hidden="true"></i> alzatetorres@icloud.com
-      </a>
-      <a href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-      </a>
-    </nav>
   </footer>
 
-  <!-- ================================================================
-       JAVASCRIPT
-  ================================================================ -->
-  <script>
-    // --- Mobile nav toggle ---
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
+  <noscript>
+    <div class="noscript-banner">
+      Esta web funciona mejor con JavaScript activado para mostrar la versión bilingüe y los elementos interactivos.
+    </div>
+  </noscript>
 
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.querySelector('i').className = 'fas fa-bars';
-      });
-    });
-
-    // --- Accordion: sync aria-expanded ---
-    document.querySelectorAll('details').forEach(det => {
-      det.addEventListener('toggle', () => {
-        det.querySelector('summary').setAttribute('aria-expanded', String(det.open));
-      });
-    });
-
-    // --- Scroll reveal ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // --- Active nav link on scroll ---
-    const navAnchors = document.querySelectorAll('.nav-links a');
-
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navAnchors.forEach(a => a.classList.remove('active'));
-          const active = document.querySelector(`.nav-links a[href="#${id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { threshold: 0.35 });
-
-    document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>

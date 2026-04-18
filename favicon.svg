@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" rx="7" fill="#005f73"></rect>
-  <text x="16" y="22" text-anchor="middle" font-family="Lora, Georgia, serif" font-weight="700" font-size="18" fill="#ffffff">N</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="faviconTitle">
+  <title id="faviconTitle">Natanael Alzate Torres</title>
+  <defs>
+    <linearGradient id="faviconGradient" x1="8" x2="56" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3e9689" />
+      <stop offset="1" stop-color="#c58b32" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="20" fill="#11212d" />
+  <rect x="13" y="15" width="8" height="34" rx="4" fill="url(#faviconGradient)" />
+  <rect x="43" y="15" width="8" height="34" rx="4" fill="url(#faviconGradient)" />
+  <path
+    d="M19 15h7.5l18.5 26.5V15H51v34h-7.1L25 22.6V49H19z"
+    fill="#fff8ee"
+  />
+  <circle cx="50" cy="14" r="4" fill="#c58b32" />
 </svg>
