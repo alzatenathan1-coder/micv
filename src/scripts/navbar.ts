@@ -1,4 +1,9 @@
+/**
+ * Navbar sticky con auto-hide en scroll up y resalte de sección activa.
+ */
 export function initNavbar(): void {
+  if (typeof window === 'undefined') return;
+
   const nav = document.getElementById('nx-navbar');
   const toggle = document.getElementById('nx-nav-toggle');
   const mobileMenu = document.getElementById('nx-nav-mobile');
@@ -24,27 +29,33 @@ export function initNavbar(): void {
         nav.dataset.state = 'visible';
       }
     } else if (!goingDown && y >= HIDE_BEFORE) {
-      nav.classList.remove('-translate-y-full', 'opacity-0');
-      nav.dataset.state = 'visible';
+      if (state !== 'visible') {
+        nav.classList.remove('-translate-y-full', 'opacity-0');
+        nav.dataset.state = 'visible';
+      }
     }
     lastY = y;
   };
 
-  window.addEventListener('scroll', update, { passive: true });
+  const onScroll = () => update();
+  window.addEventListener('scroll', onScroll, { passive: true });
   update();
 
+  const onToggleClick = () => {
+    if (!mobileMenu || !toggle) return;
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  };
+  const onMobileLinkClick = () => {
+    if (!mobileMenu || !toggle) return;
+    mobileMenu.classList.add('hidden');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
   if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-    });
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        toggle.setAttribute('aria-expanded', 'false');
-      })
-    );
+    toggle.addEventListener('click', onToggleClick);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', onMobileLinkClick));
   }
 
   const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nx-nav-link'));
@@ -52,8 +63,9 @@ export function initNavbar(): void {
     .map(l => document.querySelector(l.getAttribute('href') || ''))
     .filter((s): s is Element => !!s);
 
+  let obs: IntersectionObserver | null = null;
   if ('IntersectionObserver' in window && sections.length) {
-    const obs = new IntersectionObserver(entries => {
+    obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           const id = e.target.id;
@@ -65,6 +77,15 @@ export function initNavbar(): void {
         }
       });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-    sections.forEach(s => obs.observe(s));
+    sections.forEach(s => obs!.observe(s));
+  }
+
+  if (import.meta.hot) {
+    import.meta.hot.dispose(() => {
+      window.removeEventListener('scroll', onScroll);
+      if (toggle) toggle.removeEventListener('click', onToggleClick);
+      if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a => a.removeEventListener('click', onMobileLinkClick));
+      if (obs) obs.disconnect();
+    });
   }
 }

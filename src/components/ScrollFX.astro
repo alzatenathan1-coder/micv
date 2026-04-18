@@ -18,11 +18,12 @@
     top: 0;
     left: 0;
     height: 2px;
-    width: 0%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
     background: linear-gradient(90deg, var(--color-brand-500), var(--color-brand-300), var(--color-gold-500));
     z-index: 60;
-    will-change: width;
-    transition: width 0.08s linear;
+    will-change: transform;
   }
 
   #nx-parallax {

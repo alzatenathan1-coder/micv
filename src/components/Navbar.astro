@@ -15,7 +15,7 @@ const links = [
   <div class="container-x">
     <div class="mt-3 flex items-center justify-between gap-4 rounded-2xl border border-ink-100 bg-white/85 px-4 py-2.5 backdrop-blur-md shadow-[var(--shadow-sm)]">
       <a href="#inicio" class="flex items-center gap-3 group" aria-label={`Inicio — ${site.name}`}>
-        <img src={site.photo} alt="" class="w-9 h-9 rounded-full object-cover object-top ring-2 ring-brand-200" loading="eager" />
+        <img src={site.photo} alt={`${site.name} — foto de perfil`} class="w-9 h-9 rounded-full object-cover object-top ring-2 ring-brand-200" width="36" height="36" loading="lazy" decoding="async" />
         <span class="flex flex-col leading-tight">
           <span class="h-display text-[0.95rem] text-brand-800">{site.name}</span>
           <span class="text-[0.7rem] text-ink-400">{site.role}</span>

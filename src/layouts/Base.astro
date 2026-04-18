@@ -33,7 +33,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.jpg', Astro.site).toString()} />
+    <meta property="og:image" content={new URL('/photo.jpg', Astro.site).toString()} />
+    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
+    <meta name="twitter:image" content={new URL('/photo.jpg', Astro.site).toString()} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -93,19 +95,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <div id="nx-cursor-dot" aria-hidden="true"></div>
 
     <script>
-      import { initPreloader } from '../scripts/preloader.ts';
-      import { initScrollFX } from '../scripts/scrollfx.ts';
-      import { initNavbar } from '../scripts/navbar.ts';
-      import { initReveal } from '../scripts/reveal.ts';
-      import { initCounters } from '../scripts/counters.ts';
-      import { initCursor } from '../scripts/cursor.ts';
-
-      initPreloader();
-      initScrollFX();
-      initNavbar();
-      initReveal();
-      initCounters();
-      initCursor();
+      import { initAll } from '../scripts/main.ts';
+      initAll();
     </script>
   </body>
 </html>

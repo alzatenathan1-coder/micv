@@ -1,3 +1,7 @@
+/**
+ * Cursor personalizado con ring animado.
+ * Se desactiva automáticamente en dispositivos táctiles y con reduced-motion.
+ */
 export function initCursor(): void {
   if (typeof window === 'undefined') return;
 
@@ -15,41 +19,67 @@ export function initCursor(): void {
   let my = window.innerHeight / 2;
   let rx = mx;
   let ry = my;
+  let rafId = 0;
+  let moved = false;
 
-  window.addEventListener('mousemove', e => {
+  const onMove = (e: MouseEvent) => {
     mx = e.clientX;
     my = e.clientY;
-    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-  }, { passive: true });
+    if (!moved) {
+      rx = mx;
+      ry = my;
+      moved = true;
+    }
+    dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+  };
 
-  const raf = () => {
+  const tick = () => {
     rx += (mx - rx) * 0.18;
     ry += (my - ry) * 0.18;
-    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-    requestAnimationFrame(raf);
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+    rafId = requestAnimationFrame(tick);
   };
-  requestAnimationFrame(raf);
+
+  window.addEventListener('mousemove', onMove, { passive: true });
+  rafId = requestAnimationFrame(tick);
 
   const hoverables = 'a, button, [role="button"], input, textarea, select, label, summary, .chip, .card';
-  document.addEventListener('mouseover', e => {
+  const onOver = (e: MouseEvent) => {
     const target = e.target as HTMLElement | null;
     if (target?.closest(hoverables)) {
       document.documentElement.classList.add('nx-cursor-hover');
     }
-  });
-  document.addEventListener('mouseout', e => {
+  };
+  const onOut = (e: MouseEvent) => {
     const target = e.target as HTMLElement | null;
     if (target?.closest(hoverables)) {
       document.documentElement.classList.remove('nx-cursor-hover');
     }
-  });
+  };
+  document.addEventListener('mouseover', onOver);
+  document.addEventListener('mouseout', onOut);
 
-  window.addEventListener('mouseleave', () => {
+  const onLeave = () => {
     dot.style.opacity = '0';
     ring.style.opacity = '0';
-  });
-  window.addEventListener('mouseenter', () => {
+  };
+  const onEnter = () => {
     dot.style.opacity = '1';
     ring.style.opacity = '1';
-  });
+  };
+  window.addEventListener('mouseleave', onLeave);
+  window.addEventListener('mouseenter', onEnter);
+
+  // Cleanup en HMR (Vite) para evitar RAF duplicados y listeners huérfanos
+  if (import.meta.hot) {
+    import.meta.hot.dispose(() => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
+      window.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('mouseenter', onEnter);
+      document.documentElement.classList.remove('has-custom-cursor', 'nx-cursor-hover');
+    });
+  }
 }
