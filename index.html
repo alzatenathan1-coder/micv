@@ -4,7 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Natanael Alzate Torres — Analista Programador</title>
-  <meta name="description" content="Portfolio profesional de Natanael Alzate Torres. Analista Programador. Disponibilidad inmediata en Cuenca, España." />
+  <meta name="description" content="Portfolio profesional de Natanael Alzate Torres. Analista Programador y Docente IT con disponibilidad inmediata en Cuenca, España. Java, Full-Stack Web, Bases de Datos." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://natanaelalzatetorres.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://natanaelalzatetorres.com/" />
+  <meta property="og:title"       content="Natanael Alzate Torres — Analista Programador" />
+  <meta property="og:description" content="Perfil técnico híbrido: desarrollo Java/Full-Stack y Docente IT acreditado SEPE con más de 2.400 horas de formación. Disponibilidad inmediata. Cuenca, España." />
+  <meta property="og:image"       content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
+  <meta property="og:locale"      content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Natanael Alzate Torres — Analista Programador" />
+  <meta name="twitter:description" content="Perfil técnico híbrido: Java · Full-Stack · Docente IT acreditado SEPE. Disponibilidad inmediata. Cuenca, España." />
+  <meta name="twitter:image"       content="https://natanaelalzatetorres.com/Foto_perfil_Natanael_A.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -204,7 +224,8 @@
       text-decoration: none;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       background: var(--primary-pale);
       color: var(--primary);
     }
@@ -284,10 +305,6 @@
       line-height: 1.2;
     }
 
-    .hero-title span {
-      color: var(--primary-mid);
-    }
-
     .hero-intro {
       font-size: 1.02rem;
       color: var(--text-2);
@@ -315,6 +332,7 @@
       text-decoration: none;
       border: 2px solid transparent;
       font-family: var(--font-sans);
+      background: transparent;
     }
 
     .btn-primary {
@@ -343,6 +361,7 @@
       background: var(--primary-pale);
       transform: translateY(-1px);
       text-decoration: none;
+      color: var(--primary);
     }
 
     .btn-whatsapp {
@@ -425,9 +444,7 @@
     /* ================================================================
        DETAILS / ACCORDION
     ================================================================ */
-    details {
-      width: 100%;
-    }
+    details { width: 100%; }
 
     details summary {
       list-style: none;
@@ -443,10 +460,8 @@
 
     details summary::-webkit-details-marker { display: none; }
     details summary::marker { display: none; }
-
     details summary:hover { background: var(--primary-pale); }
 
-    /* Toggle icon */
     .summary-toggle {
       flex-shrink: 0;
       margin-left: auto;
@@ -472,7 +487,6 @@
       transform: rotate(45deg);
     }
 
-    /* Details body */
     .details-body {
       padding: 0 1.5rem 1.35rem 1.5rem;
       border-top: 1px solid var(--border-light);
@@ -492,13 +506,8 @@
       line-height: 1.75;
     }
 
-    .details-body ul {
-      padding-left: 1.1rem;
-    }
-
-    .details-body ul li {
-      margin-bottom: .35rem;
-    }
+    .details-body ul { padding-left: 1.1rem; }
+    .details-body ul li { margin-bottom: .35rem; }
 
     .details-links {
       display: flex;
@@ -531,7 +540,6 @@
 
     .link-btn i { font-size: .75rem; }
 
-    /* Card header inside summary */
     .card-meta {
       display: flex;
       flex-direction: column;
@@ -547,25 +555,10 @@
       line-height: 1.3;
     }
 
-    .card-subtitle {
-      font-size: .85rem;
-      color: var(--primary-mid);
-      font-weight: 500;
-    }
+    .card-subtitle { font-size: .85rem; color: var(--primary-mid); font-weight: 500; }
+    .card-period   { font-size: .78rem; color: var(--text-3); font-weight: 400; }
+    .card-summary-text { font-size: .88rem; color: var(--text-3); margin-top: .15rem; }
 
-    .card-period {
-      font-size: .78rem;
-      color: var(--text-3);
-      font-weight: 400;
-    }
-
-    .card-summary-text {
-      font-size: .88rem;
-      color: var(--text-3);
-      margin-top: .15rem;
-    }
-
-    /* Card icon */
     .card-icon {
       flex-shrink: 0;
       width: 44px;
@@ -617,16 +610,9 @@
       font-size: 1rem;
     }
 
-    .skill-group h4 {
-      color: var(--primary);
-      font-size: .95rem;
-    }
+    .skill-group h4 { color: var(--primary); font-size: .95rem; }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
 
     .skill-tag {
       background: var(--bg-2);
@@ -645,7 +631,6 @@
       color: var(--primary);
     }
 
-    /* Language badges */
     .lang-item {
       display: flex;
       align-items: center;
@@ -655,12 +640,7 @@
     }
 
     .lang-item:last-child { border-bottom: none; }
-
-    .lang-name {
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--text-2);
-    }
+    .lang-name { font-size: .9rem; font-weight: 500; color: var(--text-2); }
 
     .lang-level {
       font-size: .75rem;
@@ -675,6 +655,100 @@
     .lang-a2     { background: #f8f8f8; color: var(--text-3); }
 
     /* ================================================================
+       PROJECTS SECTION
+    ================================================================ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .project-card-header {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+    }
+
+    .project-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .project-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .project-company {
+      font-size: .78rem;
+      color: var(--primary-mid);
+      font-weight: 500;
+      margin-top: .1rem;
+    }
+
+    .project-desc {
+      font-size: .9rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      flex: 1;
+      margin: 0;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .project-tag {
+      background: var(--bg-2);
+      color: var(--text-2);
+      font-size: .75rem;
+      font-weight: 500;
+      padding: .2rem .6rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid var(--border-light);
+      padding-top: .85rem;
+      margin-top: auto;
+    }
+
+    /* ================================================================
        CONTACT SECTION
     ================================================================ */
     #contacto {
@@ -682,9 +756,7 @@
     }
 
     #contacto .section-header h2,
-    #contacto .section-header h2 i {
-      color: #fff;
-    }
+    #contacto .section-header h2 i { color: #fff; }
 
     #contacto .section-divider {
       background: linear-gradient(90deg, rgba(255,255,255,.8), rgba(255,255,255,.3));
@@ -692,7 +764,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
       margin-bottom: 2.5rem;
     }
@@ -735,11 +807,7 @@
       margin-bottom: .2rem;
     }
 
-    .contact-card-value {
-      font-size: .95rem;
-      font-weight: 500;
-      color: #fff;
-    }
+    .contact-card-value { font-size: .95rem; font-weight: 500; color: #fff; }
 
     .contact-card-value a {
       color: #fff;
@@ -749,9 +817,7 @@
 
     .contact-card-value a:hover { opacity: .8; text-decoration: none; }
 
-    .contact-cta {
-      text-align: center;
-    }
+    .contact-cta { text-align: center; }
 
     /* ================================================================
        FOOTER
@@ -766,10 +832,34 @@
 
     .footer strong { color: rgba(255,255,255,.8); }
 
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.45);
+      font-size: .8rem;
+      transition: color var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255,255,255,.8);
+      text-decoration: none;
+    }
+
     /* ================================================================
        MOBILE NAV
     ================================================================ */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-toggle { display: flex; }
 
       .nav-links {
@@ -803,10 +893,7 @@
       .hero-actions { justify-content: center; }
       .hero-intro { margin: 0 auto 2rem; }
 
-      .hero-photo-frame {
-        width: 170px;
-        height: 170px;
-      }
+      .hero-photo-frame { width: 170px; height: 170px; }
 
       section { padding: 3.5rem 0; }
 
@@ -815,8 +902,9 @@
     }
 
     @media (max-width: 480px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .skills-grid   { grid-template-columns: 1fr; }
+      .contact-grid  { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
 
     /* ================================================================
@@ -831,6 +919,74 @@
     .reveal.visible {
       opacity: 1;
       transform: none;
+    }
+
+    /* ================================================================
+       PRINT / PDF
+    ================================================================ */
+    @media print {
+      @page { margin: 1.5cm; size: A4; }
+
+      .navbar,
+      .hero-actions,
+      .hero-avail-badge,
+      .nav-toggle,
+      .details-links,
+      .contact-cta,
+      #proyectos,
+      .footer-links { display: none !important; }
+
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 13px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .hero {
+        background: #fff !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      .hero::before { display: none; }
+
+      .hero-inner {
+        grid-template-columns: 1fr auto !important;
+        gap: 2rem !important;
+        text-align: left !important;
+      }
+
+      .hero-photo-frame {
+        width: 130px !important;
+        height: 130px !important;
+        box-shadow: none !important;
+      }
+
+      section { padding: 1.5rem 0 !important; }
+      section:nth-child(even) { background: #f5f5f5 !important; }
+
+      .reveal { opacity: 1 !important; transform: none !important; }
+
+      .card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+      }
+
+      #contacto {
+        background: var(--primary) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .footer {
+        background: #081820 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 1rem !important;
+      }
     }
   </style>
 </head>
@@ -863,6 +1019,7 @@
         <li><a href="#experiencia">Experiencia</a></li>
         <li><a href="#formacion">Formación</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -881,11 +1038,15 @@
           </div>
 
           <h1 class="hero-title">
-            Analista Programador<br>
+            Analista Programador
           </h1>
 
           <p class="hero-intro">
-            Perfil técnico híbrido que une el desarrollo de software (Java, BBDD relacionales), la gestión administrativa corporativa y la excelencia operativa. Acreditación en docencia con calificación de Sobresaliente, aportando más de 2.400 horas de formación técnica. Plenamente capacitado para la instrucción IT de máxima calidad, asegurando la transmisión práctica de arquitecturas web y programación orientada a objetos.
+            Perfil técnico híbrido que une el desarrollo de software (Java, BBDD relacionales),
+            la gestión administrativa corporativa y la excelencia operativa. Acreditación en docencia
+            con calificación de Sobresaliente, aportando más de 2.400 horas de formación técnica.
+            Plenamente capacitado para la instrucción IT de máxima calidad, asegurando la transmisión
+            práctica de arquitecturas web y programación orientada a objetos.
           </p>
 
           <div class="hero-actions">
@@ -895,6 +1056,9 @@
             <a href="#experiencia" class="btn btn-outline">
               <i class="fas fa-briefcase"></i> Ver Trayectoria
             </a>
+            <button onclick="window.print()" class="btn btn-outline" aria-label="Descargar CV en PDF">
+              <i class="fas fa-download"></i> Descargar CV
+            </button>
           </div>
         </div>
 
@@ -931,13 +1095,10 @@
 
       <div class="cards-list">
 
-        <!-- 1. F2Prom -->
         <article class="card reveal">
           <details>
             <summary aria-expanded="false">
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-laptop-code"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></div>
               <div class="card-meta">
                 <span class="card-title">Desarrollo Web, Sistemas y Calidad</span>
                 <span class="card-subtitle">Formación Futuras Promesas SL (F2Prom)</span>
@@ -964,13 +1125,10 @@
           </details>
         </article>
 
-        <!-- 2. Hybrid Company -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fab fa-java"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fab fa-java"></i></div>
               <div class="card-meta">
                 <span class="card-title">Desarrollador Backend Java</span>
                 <span class="card-subtitle">Hybrid Company — Praga, República Checa</span>
@@ -994,13 +1152,10 @@
           </details>
         </article>
 
-        <!-- 3. Pinturas COES -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-store"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-store"></i></div>
               <div class="card-meta">
                 <span class="card-title">Desarrollador E-commerce y Marketing Digital</span>
                 <span class="card-subtitle">Pinturas COES, S.L.</span>
@@ -1023,13 +1178,10 @@
           </details>
         </article>
 
-        <!-- 4. CaixaBank -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-building-columns"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-building-columns"></i></div>
               <div class="card-meta">
                 <span class="card-title">Asesor Financiero y Soporte de Banca Digital</span>
                 <span class="card-subtitle">CaixaBank</span>
@@ -1067,13 +1219,10 @@
 
       <div class="cards-list">
 
-        <!-- CP Desarrollo Web -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-code"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
               <div class="card-meta">
                 <span class="card-title">CP Desarrollo de Aplicaciones con Tecnología Web (IFCD0210)</span>
                 <span class="card-subtitle">Certificado de Profesionalidad — Nivel 3 · 590 horas</span>
@@ -1093,13 +1242,10 @@
           </details>
         </article>
 
-        <!-- CP Docencia -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-chalkboard-user"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-chalkboard-user"></i></div>
               <div class="card-meta">
                 <span class="card-title">CP Docencia de la Formación Profesional para el Empleo (SSCE0110)</span>
                 <span class="card-subtitle">Certificado de Profesionalidad — Nivel 3 · 380 horas</span>
@@ -1122,13 +1268,10 @@
           </details>
         </article>
 
-        <!-- Formación Universitaria -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-university"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-university"></i></div>
               <div class="card-meta">
                 <span class="card-title">Formación Universitaria</span>
                 <span class="card-subtitle">UCLM · UNED</span>
@@ -1146,13 +1289,10 @@
           </details>
         </article>
 
-        <!-- ADGD01 Calidad -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-award"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
               <div class="card-meta">
                 <span class="card-title">Técnicas de Calidad y Mejora Continua en la Excelencia Empresarial (ADGD01)</span>
                 <span class="card-subtitle">Formación Futuras Promesas S.L. · 425 horas</span>
@@ -1173,13 +1313,10 @@
           </details>
         </article>
 
-        <!-- COMV0108 Actividades de Venta -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-handshake"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
               <div class="card-meta">
                 <span class="card-title">CP Actividades de Venta (COMV0108)</span>
                 <span class="card-subtitle">Certificado de Profesionalidad — Nivel 2 · 590 horas</span>
@@ -1200,13 +1337,10 @@
           </details>
         </article>
 
-        <!-- Otras Certificaciones — solo Drones -->
         <article class="card reveal">
           <details>
             <summary>
-              <div class="card-icon" aria-hidden="true">
-                <i class="fas fa-certificate"></i>
-              </div>
+              <div class="card-icon" aria-hidden="true"><i class="fas fa-certificate"></i></div>
               <div class="card-meta">
                 <span class="card-title">Otras Certificaciones Oficiales</span>
                 <span class="card-subtitle">Operador de Drones</span>
@@ -1242,7 +1376,6 @@
 
       <div class="skills-grid">
 
-        <!-- Tecnologías -->
         <div class="skill-group reveal">
           <div class="skill-group-header">
             <div class="skill-group-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
@@ -1261,7 +1394,6 @@
           </div>
         </div>
 
-        <!-- Sistemas y ERP -->
         <div class="skill-group reveal">
           <div class="skill-group-header">
             <div class="skill-group-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
@@ -1279,7 +1411,6 @@
           </div>
         </div>
 
-        <!-- Idiomas -->
         <div class="skill-group reveal">
           <div class="skill-group-header">
             <div class="skill-group-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
@@ -1288,27 +1419,153 @@
           <div>
             <div class="lang-item">
               <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>
-                Español
+                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Español
               </span>
               <span class="lang-level lang-native">Nativo</span>
             </div>
             <div class="lang-item">
               <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>
-                Inglés
+                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Inglés
               </span>
               <span class="lang-level lang-b1">B1 Certificado Cambridge</span>
             </div>
             <div class="lang-item">
               <span class="lang-name">
-                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>
-                Alemán
+                <i class="fas fa-flag" style="margin-right:.5rem;color:var(--text-3);font-size:.8rem;"></i>Alemán
               </span>
               <span class="lang-level lang-a2">A2</span>
             </div>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       PROYECTOS DESTACADOS
+  ================================================================ -->
+  <section id="proyectos" aria-labelledby="h2-proyectos">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 id="h2-proyectos">
+          <i class="fas fa-folder-open" aria-hidden="true"></i>
+          Proyectos Destacados
+        </h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true"><i class="fas fa-chalkboard-user"></i></div>
+            <div>
+              <p class="project-title">Portal Corporativo y Plataforma LMS</p>
+              <p class="project-company">Formación Futuras Promesas SL · 2025</p>
+            </div>
+          </div>
+          <p class="project-desc">
+            Desarrollo y mantenimiento de la web corporativa y la plataforma de e-learning Moodle.
+            Configuración de servidores Java (JDK), auditoría de datos en las plataformas FOCO y FUNDAE
+            y gestión de contenidos formativos homologados por el SEPE.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Moodle (LMS)</span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://formacionfuturaspromesas.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+              <i class="fas fa-external-link-alt"></i> Ver proyecto
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
+            <div>
+              <p class="project-title">Portal Web Editorial Promesas de Papel</p>
+              <p class="project-company">Formación Futuras Promesas SL · 2025</p>
+            </div>
+          </div>
+          <p class="project-desc">
+            Desarrollo del portal web de la editorial. Diseño, implementación y mantenimiento técnico
+            de la plataforma de publicación y catálogo de contenidos, con integración de gestión
+            de productos y experiencia de usuario optimizada.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Full-Stack</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://promesasdepapel.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+              <i class="fas fa-external-link-alt"></i> Ver proyecto
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true"><i class="fas fa-cart-shopping"></i></div>
+            <div>
+              <p class="project-title">Tienda Online con Integración ERP</p>
+              <p class="project-company">Pinturas COES, S.L. · 2018 – 2021</p>
+            </div>
+          </div>
+          <p class="project-desc">
+            Creación desde cero de la tienda online corporativa con catálogo de productos, pasarela
+            de pedidos y sincronización bidireccional con ERP Sage. Administración de la base de datos
+            de productos e imagen de marca digital.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">ERP Sage</span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://pinturascoes.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+              <i class="fas fa-external-link-alt"></i> Ver proyecto
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true"><i class="fas fa-tv"></i></div>
+            <div>
+              <p class="project-title">Aplicaciones de TV Interactiva HbbTV</p>
+              <p class="project-company">Hybrid Company — Praga · 2017 – 2018</p>
+            </div>
+          </div>
+          <p class="project-desc">
+            Desarrollo de backend en Java para servicios de televisión interactiva bajo el estándar
+            HbbTV. Programación de componentes de interfaz con JavaScript y APIs propietarias,
+            diseño de bases de datos relacionales para persistencia de contenidos y metadatos.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Java (Backend)</span>
+            <span class="project-tag">HbbTV</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">APIs REST</span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://www.mihybrid.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+              <i class="fas fa-external-link-alt"></i> Ver empresa
+            </a>
+          </div>
+        </article>
 
       </div>
     </div>
@@ -1330,9 +1587,7 @@
       <div class="contact-grid">
 
         <div class="contact-card reveal">
-          <div class="contact-card-icon">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </div>
+          <div class="contact-card-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
           <div class="contact-card-body">
             <p class="contact-card-label">Correo Electrónico</p>
             <div class="contact-card-value">
@@ -1344,26 +1599,32 @@
         </div>
 
         <div class="contact-card reveal">
-          <div class="contact-card-icon">
-            <i class="fas fa-phone" aria-hidden="true"></i>
-          </div>
+          <div class="contact-card-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
           <div class="contact-card-body">
             <p class="contact-card-label">Teléfono</p>
             <div class="contact-card-value">
-              <a href="tel:+34651377113" aria-label="Llamar al +34 651 377 113">
-                +34 651 377 113
-              </a>
+              <a href="tel:+34651377113" aria-label="Llamar al +34 651 377 113">+34 651 377 113</a>
             </div>
           </div>
         </div>
 
         <div class="contact-card reveal">
-          <div class="contact-card-icon">
-            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-          </div>
+          <div class="contact-card-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
           <div class="contact-card-body">
             <p class="contact-card-label">Ubicación</p>
             <div class="contact-card-value">Cuenca, España</div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-card-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+          <div class="contact-card-body">
+            <p class="contact-card-label">LinkedIn</p>
+            <div class="contact-card-value">
+              <a href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn">
+                natanaelalzatetorres
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1377,7 +1638,6 @@
           class="btn btn-whatsapp"
           aria-label="Contactar por WhatsApp"
         >
-          <!-- WhatsApp SVG icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
@@ -1395,6 +1655,17 @@
       &copy; 2025 <strong>Natanael Alzate Torres</strong> &mdash; Analista Programador.
       Cuenca, España.
     </p>
+    <nav class="footer-links" aria-label="Redes y contacto">
+      <a href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+      </a>
+      <a href="mailto:alzatetorres@icloud.com" aria-label="Correo electrónico">
+        <i class="fas fa-envelope" aria-hidden="true"></i> alzatetorres@icloud.com
+      </a>
+      <a href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
+    </nav>
   </footer>
 
   <!-- ================================================================
@@ -1411,7 +1682,6 @@
       navToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
     });
 
-    // Close nav when a link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -1420,20 +1690,14 @@
       });
     });
 
-    // --- Accordion: sync aria-expanded & toggle icon text ---
+    // --- Accordion: sync aria-expanded ---
     document.querySelectorAll('details').forEach(det => {
       det.addEventListener('toggle', () => {
-        const summary = det.querySelector('summary');
-        const toggle  = det.querySelector('.summary-toggle');
-        const open    = det.open;
-        summary.setAttribute('aria-expanded', String(open));
-        if (toggle) toggle.textContent = open ? '+' : '+'; // rotated by CSS
+        det.querySelector('summary').setAttribute('aria-expanded', String(det.open));
       });
     });
 
     // --- Scroll reveal ---
-    const revealEls = document.querySelectorAll('.reveal');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1443,30 +1707,23 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    revealEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // --- Active nav link on scroll ---
-    const sections   = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          navAnchors.forEach(a => {
-            a.style.background = '';
-            a.style.color = '';
-          });
+          navAnchors.forEach(a => a.classList.remove('active'));
           const active = document.querySelector(`.nav-links a[href="#${id}"]`);
-          if (active) {
-            active.style.background = 'var(--primary-pale)';
-            active.style.color = 'var(--primary)';
-          }
+          if (active) active.classList.add('active');
         }
       });
     }, { threshold: 0.35 });
 
-    sections.forEach(s => navObserver.observe(s));
+    document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
   </script>
 
 </body>
