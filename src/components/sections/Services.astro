@@ -1,0 +1,44 @@
+---
+import { services } from '../../data/site';
+
+const icons: Record<string, string> = {
+  teach:    '<path d="M2 3h20v14H2z"/><path d="M12 17v4"/><path d="M8 21h8"/>',
+  custom:   '<path d="M20 7h-7"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>',
+  plan:     '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="14" y2="14"/>',
+  online:   '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+  lms:      '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>',
+  freelance:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+};
+---
+<section id="servicios" class="py-20 md:py-28">
+  <div class="container-x">
+    <div class="max-w-3xl mb-12">
+      <p class="reveal eyebrow">Servicios para centros de FP y empresas</p>
+      <h2 class="reveal reveal-delay-1 h-section mt-4 text-3xl md:text-4xl text-ink-950">
+        En qué puedo colaborar contigo
+      </h2>
+      <p class="reveal reveal-delay-2 mt-4 text-ink-600 leading-relaxed">
+        Flexible en modalidad contractual. Documentación en regla, facturación ágil y
+        disponibilidad inmediata para convocatorias 2026.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map((s, i) => (
+        <article class={`reveal reveal-delay-${(i % 4) + 1} card p-6 group`}>
+          <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 text-brand-700 flex items-center justify-center group-hover:bg-brand-800 group-hover:border-brand-800 group-hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[s.icon] ?? icons.teach}></svg>
+          </div>
+          <h3 class="h-display text-xl text-ink-950 mt-4">{s.title}</h3>
+          <p class="mt-2 text-[0.95rem] text-ink-600 leading-relaxed">{s.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="reveal mt-10 text-center text-sm text-ink-400">
+      ¿Buscas algo más específico? Indícalo en el
+      <a href="#contacto" class="text-brand-700 hover:underline">formulario de contacto</a>
+      y respondo con propuesta en &lt; 24 h.
+    </p>
+  </div>
+</section>

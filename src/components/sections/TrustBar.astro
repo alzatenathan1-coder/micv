@@ -1,0 +1,19 @@
+---
+import { trust } from '../../data/site';
+---
+<section class="py-10 border-y border-ink-100 bg-white">
+  <div class="container-x">
+    <p class="text-center text-[0.75rem] tracking-[0.2em] uppercase text-ink-400 mb-6">
+      Acreditaciones y organismos que respaldan este perfil
+    </p>
+    <ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+      {trust.map(t => (
+        <li class="reveal group flex items-center gap-2" title={t.title}>
+          <span class="h-display text-lg md:text-xl text-ink-300 group-hover:text-brand-700 transition-colors">
+            {t.label}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} · ${site.role}`,
+  description = 'Docente técnico IT acreditado SEPE (SSCE0110 — Sobresaliente S-8). Analista Programador con experiencia real en Java, bases de datos y gestión de plataformas formativas. Impartiendo actualmente el curso Programación en Java (IFCD052PO, 210 h).',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.jpg', Astro.site).toString()} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: site.role,
+      email: `mailto:${site.email}`,
+      telephone: site.phone,
+      address: { '@type': 'PostalAddress', addressLocality: 'Cuenca', addressCountry: 'ES' },
+      url: site.url,
+      image: new URL('/photo.jpg', Astro.site).toString(),
+      sameAs: [site.linkedin, site.github],
+      knowsAbout: [
+        'Docencia en Formación Profesional para el Empleo',
+        'Programación Java',
+        'Bases de datos SQL',
+        'Metodologías activas de aula',
+        'Plataformas FUNDAE y FOCO',
+      ],
+      hasCredential: [
+        { '@type': 'EducationalOccupationalCredential', name: 'CP SSCE0110 — Docencia de la FP para el Empleo (Sobresaliente S-8)' },
+        { '@type': 'EducationalOccupationalCredential', name: 'CP IFCD0210 — Desarrollo de Aplicaciones con Tecnología Web' },
+      ],
+    })} />
+
+    <style is:inline>
+      :root { color-scheme: light; }
+      html { background: #F2F7F9; }
+    </style>
+  </head>
+
+  <body>
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[1000] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">
+      Saltar al contenido
+    </a>
+
+    <slot />
+
+    <div id="nx-cursor-ring" aria-hidden="true"></div>
+    <div id="nx-cursor-dot" aria-hidden="true"></div>
+
+    <script>
+      import { initNavbar } from '../scripts/navbar.ts';
+      import { initReveal } from '../scripts/reveal.ts';
+      import { initCounters } from '../scripts/counters.ts';
+      import { initCursor } from '../scripts/cursor.ts';
+
+      initNavbar();
+      initReveal();
+      initCounters();
+      initCursor();
+    </script>
+  </body>
+</html>

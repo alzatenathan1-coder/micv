@@ -1,0 +1,31 @@
+---
+const metrics = [
+  { value: '2.400', suffix: '+', label: 'Horas de formación técnica relacionada' },
+  { value: '210',   suffix: ' h',  label: 'Curso Java en activo · IFCD052PO' },
+  { value: 'S-8',   suffix: '',    label: 'Calificación Sobresaliente en SSCE0110' },
+  { value: '8',     suffix: ' años', label: 'Experiencia en desarrollo IT real' },
+];
+---
+<section class="py-16 md:py-20 bg-brand-800 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+  </div>
+  <div class="container-x relative">
+    <div class="text-center mb-10">
+      <p class="eyebrow !text-brand-200">Perfil defendible</p>
+      <h2 class="h-section mt-3 text-3xl md:text-4xl text-white max-w-2xl mx-auto">
+        Cifras contrastables que definen el perfil
+      </h2>
+    </div>
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      {metrics.map((m, i) => (
+        <li class={`reveal reveal-delay-${i + 1} rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 text-center`}>
+          <p class="h-display text-4xl md:text-5xl text-white" data-counter={m.value} data-suffix={m.suffix}>
+            {m.value}{m.suffix}
+          </p>
+          <p class="text-sm text-brand-100 mt-2 leading-snug">{m.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

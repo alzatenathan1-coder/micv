@@ -1,0 +1,97 @@
+---
+import { javaCourse } from '../../data/site';
+---
+<section id="curso-java" class="py-20 md:py-28 bg-white border-t border-ink-100">
+  <div class="container-x">
+    <div class="grid md:grid-cols-[0.4fr_0.6fr] gap-10 md:gap-16 items-start">
+      <div class="md:sticky md:top-28">
+        <p class="reveal eyebrow"><span class="dot-live"></span> Docencia en activo</p>
+        <h2 class="reveal reveal-delay-1 h-section mt-4 text-3xl md:text-4xl text-ink-950">
+          Caso real: curso Java en impartición
+        </h2>
+        <p class="reveal reveal-delay-2 mt-4 text-ink-600 leading-relaxed">
+          Programación didáctica íntegra, metodología propia y uso dirigido de IA generativa.
+          Toda la ficha es pública y verificable.
+        </p>
+        <dl class="reveal reveal-delay-3 mt-8 grid grid-cols-2 gap-4 text-sm">
+          <div class="rounded-lg bg-ink-50 p-3">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-ink-400">Código</dt>
+            <dd class="mt-1 font-medium text-ink-950">{javaCourse.code}</dd>
+          </div>
+          <div class="rounded-lg bg-ink-50 p-3">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-ink-400">Horas</dt>
+            <dd class="mt-1 font-medium text-ink-950">{javaCourse.hours} h</dd>
+          </div>
+          <div class="rounded-lg bg-ink-50 p-3 col-span-2">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-ink-400">Fechas</dt>
+            <dd class="mt-1 font-medium text-ink-950">{javaCourse.dateRange}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="reveal card p-6 md:p-8">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <span class="chip !bg-brand-800 !text-white !border-brand-800">{javaCourse.code}</span>
+          <span class="chip"><span class="dot-live"></span> En impartición</span>
+          <span class="chip !bg-ink-50 !text-ink-600 !border-ink-200">{javaCourse.hours} h</span>
+        </div>
+        <h3 class="h-display text-2xl md:text-3xl text-ink-950">{javaCourse.title}</h3>
+        <p class="text-sm text-ink-500 mt-1">{javaCourse.action} · {javaCourse.center}</p>
+
+        <div class="mt-7">
+          <p class="text-[0.75rem] uppercase tracking-widest text-ink-400 mb-3">Unidades didácticas</p>
+          <ol class="space-y-2 text-[0.92rem] text-ink-700">
+            {javaCourse.modules.map((mod, i) => (
+              <li class="flex gap-3">
+                <span class="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-[0.72rem] font-semibold flex items-center justify-center">{i + 1}</span>
+                <span>{mod}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-ink-100">
+          <p class="text-[0.75rem] uppercase tracking-widest text-ink-400 mb-3">Herramientas en aula</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip !text-[0.7rem]">Eclipse</span>
+            <span class="chip !text-[0.7rem]">Cursor IDE</span>
+            <span class="chip !text-[0.7rem]">Jupyter IJava</span>
+            <span class="chip !text-[0.7rem]">Google NotebookLM</span>
+            <span class="chip !text-[0.7rem]">Claude</span>
+            <span class="chip !text-[0.7rem]">Supermaven</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="metodologia" class="mt-24 md:mt-32 pt-14 border-t border-ink-100">
+      <div class="max-w-3xl mb-12">
+        <p class="reveal eyebrow">Metodología propia</p>
+        <h2 class="reveal reveal-delay-1 h-section mt-4 text-3xl md:text-4xl text-ink-950">
+          Flipped Classroom potenciado con IA, con evaluación continua
+        </h2>
+        <p class="reveal reveal-delay-2 mt-4 text-ink-600 leading-relaxed">
+          No es marketing. Son los principios que aplico hoy mismo en el aula, documentados
+          en la programación didáctica oficial del curso en curso. El alumno aprende a
+          <strong class="text-ink-950">dirigir</strong> la IA con precisión técnica, no a depender de ella.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {javaCourse.methodology.map((m, i) => (
+          <article class={`reveal reveal-delay-${(i % 4) + 1} card p-6 md:p-7`}>
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-11 h-11 rounded-xl bg-brand-50 border border-brand-100 text-brand-700 flex items-center justify-center h-display text-lg">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div>
+                <h3 class="h-display text-xl text-ink-950">{m.title}</h3>
+                <p class="mt-2 text-[0.95rem] text-ink-600 leading-relaxed">{m.body}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

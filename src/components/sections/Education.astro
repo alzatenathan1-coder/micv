@@ -1,0 +1,31 @@
+---
+import { education } from '../../data/site';
+---
+<section id="formacion" class="py-20 md:py-28">
+  <div class="container-x">
+    <div class="max-w-3xl mb-12">
+      <p class="reveal eyebrow">Formación y acreditaciones</p>
+      <h2 class="reveal reveal-delay-1 h-section mt-4 text-3xl md:text-4xl text-ink-950">
+        Titulaciones oficiales y formación continua
+      </h2>
+      <p class="reveal reveal-delay-2 mt-4 text-ink-600 leading-relaxed">
+        Todas las acreditaciones están disponibles en PDF bajo solicitud.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      {education.map((ed, i) => (
+        <article class={`reveal reveal-delay-${(i % 4) + 1} card p-6`}>
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <span class="text-[0.7rem] uppercase tracking-widest text-ink-400 font-semibold">{ed.code}</span>
+            {ed.official && <span class="chip !text-[0.68rem] !bg-gold-500/10 !text-gold-600 !border-gold-500/30">Oficial</span>}
+          </div>
+          <h3 class="h-display text-lg text-ink-950 mt-2">{ed.title}</h3>
+          <p class="text-[0.82rem] text-brand-700 font-medium mt-0.5">{ed.level}</p>
+          <p class="text-[0.78rem] text-ink-400 mt-0.5">{ed.highlight}</p>
+          <p class="mt-3 text-[0.92rem] text-ink-600 leading-relaxed">{ed.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
