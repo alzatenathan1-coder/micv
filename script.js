@@ -857,21 +857,63 @@ const siteContent = {
   },
 };
 
-const sectionIds = ['profile', 'strengths', 'experience', 'projects', 'training', 'teaching', 'contact'];
 const htmlRoot = document.documentElement;
 const metaDescription = document.querySelector('meta[name="description"]');
 const ogTitle = document.querySelector('meta[property="og:title"]');
 const ogDescription = document.querySelector('meta[property="og:description"]');
 const twitterTitle = document.querySelector('meta[name="twitter:title"]');
 const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-
-const navbar = document.getElementById('navbar');
-const navToggle = document.getElementById('nav-toggle');
-const navShell = document.getElementById('nav-shell');
+const panelWindow = document.getElementById('panel-window');
 const langButtons = document.querySelectorAll('.lang-btn');
 const downloadButton = document.getElementById('download-pdf');
+const dockLinks = document.querySelectorAll('[data-page-link]');
+const pageSections = document.querySelectorAll('.page-section');
 
-let currentLang = localStorage.getItem('natanael-lang') || 'es';
+const uiCopy = {
+  es: {
+    shellLabel: 'Currículum interactivo',
+    sidebarRole: 'Perfil híbrido en administración, formación, seguros y tecnología',
+    sidebarSummary:
+      'Trabajo bien cuando hace falta ordenar información, atender con criterio y aprender rápido para aportar valor desde el primer momento.',
+    emailButton: 'Escribirme',
+    linkedinButton: 'LinkedIn',
+    downloadButton: 'Descargar CV',
+    whatsappButton: 'WhatsApp',
+    homeHighlightsLabel: 'Qué me diferencia',
+    homeStatsLabel: 'Datos rápidos',
+    aboutStrengthsLabel: 'Fortalezas avaladas',
+    pages: {
+      home: { label: 'Inicio', title: 'Inicio' },
+      about: { label: 'Perfil', title: 'Perfil' },
+      resume: { label: 'Trayectoria', title: 'Trayectoria' },
+      projects: { label: 'Proyectos', title: 'Proyectos' },
+      contact: { label: 'Contacto', title: 'Contacto' },
+    },
+  },
+  en: {
+    shellLabel: 'Interactive resume',
+    sidebarRole: 'Hybrid profile in administration, training, insurance and technology',
+    sidebarSummary:
+      'I work best where information needs structure, people need clear service and fast learning turns into value from day one.',
+    emailButton: 'Email me',
+    linkedinButton: 'LinkedIn',
+    downloadButton: 'Download CV',
+    whatsappButton: 'WhatsApp',
+    homeHighlightsLabel: 'What sets me apart',
+    homeStatsLabel: 'Quick facts',
+    aboutStrengthsLabel: 'Externally validated strengths',
+    pages: {
+      home: { label: 'Home', title: 'Home' },
+      about: { label: 'Profile', title: 'Profile' },
+      resume: { label: 'Resume', title: 'Resume' },
+      projects: { label: 'Projects', title: 'Projects' },
+      contact: { label: 'Contact', title: 'Contact' },
+    },
+  },
+};
+
+let currentLang = siteContent[localStorage.getItem('natanael-lang')] ? localStorage.getItem('natanael-lang') : 'es';
+let currentPage = 'home';
 
 function setText(id, value) {
   const element = document.getElementById(id);
@@ -887,34 +929,50 @@ function setHTML(id, value) {
   }
 }
 
-function renderList(items) {
-  return `<ul class="bullets">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`;
+function iconClass(icon) {
+  return icon.startsWith('fa-brands') ? icon : `fa-solid ${icon}`;
 }
 
-function renderCardGrid(items, className) {
+function renderList(items) {
+  return `<ul class="detail-list">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`;
+}
+
+function renderBadges(items) {
+  return items.map((item) => `<span>${item}</span>`).join('');
+}
+
+function renderSidebarContacts(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="${className} reveal ${index % 3 === 1 ? 'reveal-delay-1' : index % 3 === 2 ? 'reveal-delay-2' : ''}">
-          <div class="card-icon"><i class="fa-solid ${item.icon}" aria-hidden="true"></i></div>
-          <h3>${item.title}</h3>
-          ${item.source ? `<span class="source-pill">${item.source}</span>` : ''}
-          ${item.meta ? `<div class="cert-meta"><span class="meta-pill">${item.meta}</span></div>` : ''}
-          <p>${item.text}</p>
-          ${item.bullets ? renderList(item.bullets) : ''}
+      (item) => `
+        <article class="sidebar-contact-item">
+          <i class="${iconClass(item.icon)}" aria-hidden="true"></i>
+          <div>
+            <strong>${item.title}</strong>
+            ${
+              item.href
+                ? `<span><a href="${item.href}" ${item.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>${item.text}</a></span>`
+                : `<span>${item.text}</span>`
+            }
+          </div>
         </article>
       `
     )
     .join('');
 }
 
-function renderProfileCards(items) {
+function renderTextParagraphs(items) {
+  return items.map((item) => `<p>${item}</p>`).join('');
+}
+
+function renderHomeHighlights(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="info-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
-          <div class="card-icon"><i class="fa-solid ${item.icon}" aria-hidden="true"></i></div>
-          <h3>${item.title}</h3>
+      (item) => `
+        <article class="mini-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <div class="project-meta"><span class="meta-pill">${item.source}</span></div>
+          <h4>${item.title}</h4>
           <p>${item.text}</p>
         </article>
       `
@@ -925,10 +983,10 @@ function renderProfileCards(items) {
 function renderStats(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="stat-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
+      (item) => `
+        <article class="stat-card">
           <strong>${item.value}</strong>
-          <span>${item.label}</span>
+          <p>${item.label}</p>
         </article>
       `
     )
@@ -936,51 +994,54 @@ function renderStats(items) {
 }
 
 function renderChips(items) {
-  return items
-    .map((item) => `<span class="chip"><i class="fa-solid fa-sparkles" aria-hidden="true"></i>${item}</span>`)
-    .join('');
+  return items.map((item) => `<span class="chip">${item}</span>`).join('');
 }
 
-function renderTimeline(items) {
+function renderProfileCards(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="timeline-item reveal ${index % 2 ? 'reveal-delay-1' : ''}">
-          <div class="timeline-card">
-            <div class="project-card__top">
-              <div class="card-icon"><i class="fa-solid ${item.icon}" aria-hidden="true"></i></div>
-              <div class="timeline-meta">
-                <span class="meta-pill">${item.company}</span>
-                <span class="meta-pill">${item.period}</span>
-              </div>
-            </div>
-            <h3>${item.title}</h3>
-            <p class="timeline-summary">${item.summary}</p>
-            ${renderList(item.bullets)}
-            <div class="timeline-tags">${item.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>
-          </div>
+      (item) => `
+        <article class="mini-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <h4>${item.title}</h4>
+          <p>${item.text}</p>
         </article>
       `
     )
     .join('');
 }
 
-function renderProjects(items) {
+function renderStrengthCards(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="project-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
+      (item) => `
+        <article class="feature-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <div class="project-meta"><span class="meta-pill">${item.source}</span></div>
+          <h4>${item.title}</h4>
+          <p>${item.text}</p>
+          ${renderList(item.bullets)}
+        </article>
+      `
+    )
+    .join('');
+}
+
+function renderExperience(items) {
+  return items
+    .map(
+      (item) => `
+        <article class="timeline-card">
           <div class="project-card__top">
-            <div>
-              <div class="project-meta"><span class="meta-pill">${item.tags[0]}</span></div>
-              <h3>${item.title}</h3>
+            <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+            <div class="timeline-meta">
+              <span class="meta-pill">${item.company}</span>
+              <span class="meta-pill">${item.period}</span>
             </div>
-            <a class="project-card__link" href="${item.link}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${item.title}">
-              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
           </div>
+          <h4>${item.title}</h4>
           <p>${item.summary}</p>
-          <div class="project-tags">${item.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>
+          ${renderList(item.bullets)}
         </article>
       `
     )
@@ -990,11 +1051,11 @@ function renderProjects(items) {
 function renderCerts(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="cert-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
-          <div class="card-icon"><i class="fa-solid ${item.icon}" aria-hidden="true"></i></div>
-          <div class="cert-meta"><span class="meta-pill">${item.meta}</span></div>
-          <h3>${item.title}</h3>
+      (item) => `
+        <article class="mini-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <div class="project-meta"><span class="meta-pill">${item.meta}</span></div>
+          <h4>${item.title}</h4>
           <p>${item.text}</p>
         </article>
       `
@@ -1006,23 +1067,45 @@ function renderSkillGroups(groups) {
   return groups
     .map(
       (group) => `
-        <section class="skill-group">
+        <article class="skill-group-card">
           <h4>${group.title}</h4>
           <div class="tag-cloud">${group.items.map((item) => `<span>${item}</span>`).join('')}</div>
-        </section>
+        </article>
       `
     )
     .join('');
 }
 
-function renderDossier(items) {
+function renderProjects(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="dossier-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
-          <div class="card-icon"><i class="fa-solid ${item.icon}" aria-hidden="true"></i></div>
-          <div class="cert-meta"><span class="meta-pill">${item.meta}</span></div>
-          <h3>${item.title}</h3>
+      (item) => `
+        <article class="project-card">
+          <div class="project-card__top">
+            <div>
+              <div class="project-meta"><span class="meta-pill">${item.tags[0]}</span></div>
+              <h4>${item.title}</h4>
+            </div>
+            <a class="project-link" href="${item.link}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${item.title}">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p>${item.summary}</p>
+          <div class="tag-cloud">${item.tags.map((itemTag) => `<span>${itemTag}</span>`).join('')}</div>
+        </article>
+      `
+    )
+    .join('');
+}
+
+function renderTeaching(items) {
+  return items
+    .map(
+      (item) => `
+        <article class="mini-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <div class="project-meta"><span class="meta-pill">${item.meta}</span></div>
+          <h4>${item.title}</h4>
           <p>${item.text}</p>
           ${renderList(item.bullets)}
         </article>
@@ -1031,14 +1114,14 @@ function renderDossier(items) {
     .join('');
 }
 
-function renderContacts(items) {
+function renderContactCards(items) {
   return items
     .map(
-      (item, index) => `
-        <article class="contact-card reveal ${index % 2 ? 'reveal-delay-1' : ''}">
-          <div class="card-icon"><i class="${item.icon.startsWith('fa-brands') ? item.icon : `fa-solid ${item.icon}`}" aria-hidden="true"></i></div>
-          <div class="contact-meta"><span class="meta-pill">${item.meta}</span></div>
-          <h3>${item.title}</h3>
+      (item) => `
+        <article class="mini-card">
+          <div class="card-icon"><i class="${iconClass(item.icon)}" aria-hidden="true"></i></div>
+          <div class="project-meta"><span class="meta-pill">${item.meta}</span></div>
+          <h4>${item.title}</h4>
           ${
             item.href
               ? `<p><a href="${item.href}" ${item.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>${item.text}</a></p>`
@@ -1050,8 +1133,29 @@ function renderContacts(items) {
     .join('');
 }
 
+function updateDockLabels(lang) {
+  const pages = uiCopy[lang].pages;
+  Object.keys(pages).forEach((pageId) => {
+    const labelElement = document.querySelector(`[data-page-label="${pageId}"]`);
+    const linkElement = document.querySelector(`[data-page-link="${pageId}"]`);
+    if (labelElement) {
+      labelElement.textContent = pages[pageId].label;
+    }
+    if (linkElement) {
+      linkElement.setAttribute('aria-label', pages[pageId].label);
+    }
+  });
+}
+
+function updatePanelHeader(lang, pageId) {
+  const pageMeta = uiCopy[lang].pages[pageId];
+  setText('panel-crumb', uiCopy[lang].shellLabel);
+  setText('panel-title', pageMeta.title);
+}
+
 function applyLanguage(lang) {
   const content = siteContent[lang];
+  const ui = uiCopy[lang];
 
   currentLang = lang;
   localStorage.setItem('natanael-lang', lang);
@@ -1064,185 +1168,136 @@ function applyLanguage(lang) {
   twitterTitle.setAttribute('content', content.meta.title);
   twitterDescription.setAttribute('content', content.meta.description);
 
-  setText('brand-subtitle', content.brandSubtitle);
+  setText('sidebar-location', content.hero.note);
+  setText('sidebar-role', ui.sidebarRole);
+  setText('sidebar-summary', ui.sidebarSummary);
+  setHTML('sidebar-badges', renderBadges(content.hero.badges));
+  setHTML('sidebar-contacts', renderSidebarContacts(content.contact.cards));
+  setText('sidebar-email', ui.emailButton);
+  setText('sidebar-linkedin', ui.linkedinButton);
+  setText('download-pdf', ui.downloadButton);
+  setText('sidebar-whatsapp', ui.whatsappButton);
 
-  document.querySelectorAll('[data-nav]').forEach((link) => {
-    const key = link.getAttribute('data-nav');
-    link.textContent = content.nav[key];
-  });
+  setText('home-eyebrow', content.hero.eyebrow);
+  setHTML('home-title', content.hero.title);
+  setText('home-intro', content.hero.intro);
+  setHTML('home-chips', renderChips(content.hero.chips));
+  setText('home-highlights-label', ui.homeHighlightsLabel);
+  setHTML('home-highlights', renderHomeHighlights(content.strengths.items));
+  setText('home-stats-label', ui.homeStatsLabel);
+  setHTML('home-stats', renderStats(content.hero.stats));
 
-  setText('hero-eyebrow', content.hero.eyebrow);
-  setHTML('hero-title', content.hero.title);
-  setText('hero-intro', content.hero.intro);
-  setHTML('hero-chips', renderChips(content.hero.chips));
-  setText('cta-mail', content.hero.ctaMail);
-  setText('cta-linkedin', content.hero.ctaLinkedIn);
-  setText('download-pdf', content.hero.ctaPdf);
-  setText('portrait-note', content.hero.note);
-  setText('badge-one', content.hero.badges[0]);
-  setText('badge-two', content.hero.badges[1]);
-  setText('badge-three', content.hero.badges[2]);
-  setHTML('hero-stats', renderStats(content.hero.stats));
+  setText('about-kicker', content.profile.kicker);
+  setText('about-title', content.profile.title);
+  setText('about-subtitle', content.profile.subtitle);
+  setHTML('about-copy', renderTextParagraphs(content.profile.paragraphs));
+  setHTML('about-cards', renderProfileCards(content.profile.cards));
+  setHTML('about-callout', content.profile.callout);
+  setText('about-strengths-label', ui.aboutStrengthsLabel);
+  setHTML('about-strengths-grid', renderStrengthCards(content.strengths.items));
+  setHTML('about-growth', content.strengths.growth);
 
-  setText('profile-kicker', content.profile.kicker);
-  setText('profile-title', content.profile.title);
-  setText('profile-subtitle', content.profile.subtitle);
-  setHTML(
-    'profile-copy',
-    content.profile.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')
-  );
-  setHTML('profile-cards', renderProfileCards(content.profile.cards));
-  setHTML('interest-callout', content.profile.callout);
-
-  setText('strengths-kicker', content.strengths.kicker);
-  setText('strengths-title', content.strengths.title);
-  setText('strengths-subtitle', content.strengths.subtitle);
-  setHTML('strengths-grid', renderCardGrid(content.strengths.items, 'insight-card'));
-  setHTML('growth-strip', content.strengths.growth);
-
-  setText('experience-kicker', content.experience.kicker);
-  setText('experience-title', content.experience.title);
-  setText('experience-subtitle', content.experience.subtitle);
-  setHTML('experience-list', renderTimeline(content.experience.items));
+  setText('resume-experience-kicker', content.experience.kicker);
+  setText('resume-experience-title', content.experience.title);
+  setText('resume-experience-subtitle', content.experience.subtitle);
+  setHTML('resume-experience', renderExperience(content.experience.items));
+  setText('resume-training-kicker', content.training.kicker);
+  setText('resume-training-title', content.training.title);
+  setText('resume-training-subtitle', content.training.subtitle);
+  setHTML('resume-certs', renderCerts(content.training.certs));
+  setText('resume-skills-label', content.training.skillsLabel);
+  setHTML('resume-skill-groups', renderSkillGroups(content.training.skillGroups));
+  setText('resume-extras-label', content.training.extrasLabel);
+  setHTML('resume-extras', content.training.extras.map((item) => `<span>${item}</span>`).join(''));
 
   setText('projects-kicker', content.projects.kicker);
   setText('projects-title', content.projects.title);
   setText('projects-subtitle', content.projects.subtitle);
   setHTML('projects-grid', renderProjects(content.projects.items));
-
-  setText('training-kicker', content.training.kicker);
-  setText('training-title', content.training.title);
-  setText('training-subtitle', content.training.subtitle);
-  setHTML('cert-grid', renderCerts(content.training.certs));
-  setText('skills-mini-label', content.training.skillsLabel);
-  setText('skills-title', content.training.skillsTitle);
-  setHTML('skill-groups', renderSkillGroups(content.training.skillGroups));
-  setText('extras-mini-label', content.training.extrasLabel);
-  setText('extras-title', content.training.extrasTitle);
-  setHTML('extras-cloud', content.training.extras.map((item) => `<span>${item}</span>`).join(''));
-
   setText('teaching-kicker', content.teaching.kicker);
   setText('teaching-title', content.teaching.title);
   setText('teaching-subtitle', content.teaching.subtitle);
-  setHTML('teaching-grid', renderDossier(content.teaching.items));
+  setHTML('teaching-grid', renderTeaching(content.teaching.items));
   setHTML('teaching-note', content.teaching.note);
 
   setText('contact-kicker', content.contact.kicker);
   setText('contact-title', content.contact.title);
   setText('contact-subtitle', content.contact.subtitle);
+  setHTML('contact-grid', renderContactCards(content.contact.cards));
   setText('contact-mail', content.contact.mail);
   setText('contact-whatsapp', content.contact.whatsapp);
-  setHTML('contact-grid', renderContacts(content.contact.cards));
-
   setText('footer-copy', content.footer);
+
+  updateDockLabels(lang);
+  updatePanelHeader(lang, currentPage);
 
   langButtons.forEach((button) => {
     const isActive = button.dataset.lang === lang;
     button.classList.toggle('is-active', isActive);
     button.setAttribute('aria-pressed', String(isActive));
   });
+}
 
-  navToggle.setAttribute(
-    'aria-label',
-    lang === 'es' ? 'Abrir navegación' : 'Open navigation'
-  );
+function normalizePage(pageId) {
+  return uiCopy.es.pages[pageId] ? pageId : 'home';
+}
 
-  observeRevealItems();
-  document.querySelectorAll('#hero .reveal').forEach((element) => {
-    element.classList.add('is-visible');
+function changePage(pageId, shouldUpdateHash = false) {
+  currentPage = normalizePage(pageId);
+
+  pageSections.forEach((section) => {
+    section.classList.toggle('is-active', section.dataset.page === currentPage);
   });
-}
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.14 }
-);
-
-function observeRevealItems() {
-  document.querySelectorAll('.reveal:not([data-observed])').forEach((element) => {
-    element.setAttribute('data-observed', 'true');
-    revealObserver.observe(element);
+  dockLinks.forEach((link) => {
+    link.classList.toggle('is-active', link.dataset.pageLink === currentPage);
   });
-}
 
-function handleHeaderVisibility() {
-  navbar.classList.toggle('is-visible', window.scrollY > 36);
-}
+  updatePanelHeader(currentLang, currentPage);
 
-const activeSectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      const activeId = entry.target.id;
-      document.querySelectorAll('.nav-links a').forEach((link) => {
-        link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`);
-      });
-    });
-  },
-  { rootMargin: '-40% 0px -45% 0px' }
-);
-
-sectionIds.forEach((id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    activeSectionObserver.observe(section);
+  if (panelWindow) {
+    panelWindow.scrollTo({ top: 0, behavior: 'smooth' });
   }
-});
+
+  if (shouldUpdateHash && window.location.hash !== `#${currentPage}`) {
+    window.location.hash = currentPage;
+  }
+}
+
+function syncPageFromHash() {
+  const pageFromHash = window.location.hash.replace('#', '');
+  changePage(pageFromHash || 'home', false);
+}
+
+function prepareForPrint() {
+  document.body.classList.add('print-ready');
+  pageSections.forEach((section) => section.classList.add('is-active'));
+}
+
+function cleanupAfterPrint() {
+  document.body.classList.remove('print-ready');
+  syncPageFromHash();
+}
 
 langButtons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang));
 });
 
-function prepareForPrint() {
-  document.querySelectorAll('.reveal').forEach((element) => {
-    element.classList.add('is-visible');
+dockLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    changePage(link.dataset.pageLink, true);
   });
-}
+});
 
 downloadButton.addEventListener('click', () => {
   prepareForPrint();
   window.print();
 });
 
+window.addEventListener('hashchange', syncPageFromHash);
 window.addEventListener('beforeprint', prepareForPrint);
-
-navToggle.addEventListener('click', () => {
-  const isOpen = navShell.classList.toggle('is-open');
-  navToggle.classList.toggle('is-open', isOpen);
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-  document.body.classList.toggle('menu-open', isOpen);
-});
-
-document.querySelectorAll('.nav-links a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navShell.classList.remove('is-open');
-    navToggle.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
-  });
-});
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 860) {
-    navShell.classList.remove('is-open');
-    navToggle.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
-  }
-});
-
-window.addEventListener('scroll', handleHeaderVisibility, { passive: true });
-handleHeaderVisibility();
+window.addEventListener('afterprint', cleanupAfterPrint);
 
 if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.body.classList.add('has-custom-cursor');
@@ -1255,35 +1310,28 @@ if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers
     tx: window.innerWidth / 2,
     ty: window.innerHeight / 2,
   };
-
-  const interactiveSelector =
-    'a, button, .surface-card, .timeline-card, .project-card, .insight-card, .cert-card, .dossier-card, .contact-card, .info-card';
-  let cursorIdleTimer;
+  const interactiveSelector = 'a, button, .card-shell, .mini-card, .feature-card, .timeline-card, .project-card, .dock-link';
+  let idleTimer;
 
   document.addEventListener('mousemove', (event) => {
     pointer.tx = event.clientX;
     pointer.ty = event.clientY;
-    document.body.style.setProperty('--cursor-x', `${event.clientX}px`);
-    document.body.style.setProperty('--cursor-y', `${event.clientY}px`);
     document.body.classList.add('cursor-active');
-    document.body.classList.toggle(
-      'cursor-hover',
-      Boolean(event.target.closest(interactiveSelector))
-    );
-    clearTimeout(cursorIdleTimer);
-    cursorIdleTimer = window.setTimeout(() => {
+    document.body.classList.toggle('cursor-hover', Boolean(event.target.closest(interactiveSelector)));
+    clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => {
       document.body.classList.remove('cursor-active');
-    }, 1100);
+    }, 900);
   });
 
   document.addEventListener('mouseleave', () => {
-    document.body.classList.remove('cursor-hover');
     document.body.classList.remove('cursor-active');
+    document.body.classList.remove('cursor-hover');
   });
 
   function renderCursor() {
-    pointer.x += (pointer.tx - pointer.x) * 0.18;
-    pointer.y += (pointer.ty - pointer.y) * 0.18;
+    pointer.x += (pointer.tx - pointer.x) * 0.22;
+    pointer.y += (pointer.ty - pointer.y) * 0.22;
     ring.style.transform = `translate(${pointer.x}px, ${pointer.y}px) translate(-50%, -50%)`;
     dot.style.transform = `translate(${pointer.tx}px, ${pointer.ty}px) translate(-50%, -50%)`;
     requestAnimationFrame(renderCursor);
@@ -1292,4 +1340,5 @@ if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers
   renderCursor();
 }
 
-applyLanguage(siteContent[currentLang] ? currentLang : 'es');
+applyLanguage(currentLang);
+syncPageFromHash();

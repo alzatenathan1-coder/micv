@@ -8,7 +8,7 @@
     name="description"
     content="CV web de Natanael Alzate Torres. Perfil híbrido con experiencia en administración, banca, gestión documental, formación, tecnología y atención al cliente. Disponible en Cuenca."
   />
-  <meta name="theme-color" content="#0f766e" />
+  <meta name="theme-color" content="#69b3d8" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Natanael Alzate Torres" />
@@ -33,7 +33,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -70,224 +70,197 @@
   </script>
 </head>
 <body>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
-  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--one" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--two" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--three" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
   <div class="cursor-dot" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="navbar container" id="navbar" aria-label="Navegación principal">
-      <a class="brand" href="#hero" aria-label="Ir al inicio">
-        <span class="brand-mark" aria-hidden="true">N</span>
-        <span class="brand-copy">
-          <strong>Natanael Alzate Torres</strong>
-          <span id="brand-subtitle">Administración · Formación · Tecnología</span>
-        </span>
-      </a>
-
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-shell" aria-label="Abrir navegación">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="nav-shell" id="nav-shell">
-        <ul class="nav-links">
-          <li><a href="#profile" data-nav="profile">Perfil</a></li>
-          <li><a href="#strengths" data-nav="strengths">Valor</a></li>
-          <li><a href="#experience" data-nav="experience">Experiencia</a></li>
-          <li><a href="#projects" data-nav="projects">Proyectos</a></li>
-          <li><a href="#training" data-nav="training">Formación</a></li>
-          <li><a href="#teaching" data-nav="teaching">Docencia</a></li>
-          <li><a href="#contact" data-nav="contact">Contacto</a></li>
-        </ul>
-
-        <div class="nav-tools">
-          <div class="lang-switch" role="group" aria-label="Selector de idioma">
-            <button class="lang-btn is-active" type="button" data-lang="es" aria-pressed="true">ES</button>
-            <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
-          </div>
-        </div>
+  <main class="site-shell">
+    <aside class="profile-sidebar card-shell">
+      <div class="profile-photo-wrap">
+        <img
+          class="profile-photo"
+          src="Foto_perfil_Natanael_A.jpg"
+          alt="Natanael Alzate Torres en retrato profesional"
+          loading="eager"
+        />
       </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <span class="eyebrow" id="hero-eyebrow"></span>
-          <h1 class="hero-title" id="hero-title"></h1>
-          <p class="hero-intro" id="hero-intro"></p>
+      <p class="profile-location" id="sidebar-location"></p>
+      <h1 class="profile-name" id="sidebar-name">Natanael Alzate Torres</h1>
+      <p class="profile-role" id="sidebar-role"></p>
+      <p class="profile-summary" id="sidebar-summary"></p>
 
-          <div class="chip-row" id="hero-chips" aria-label="Ámbitos de valor"></div>
+      <div class="sidebar-badges" id="sidebar-badges"></div>
+      <div class="sidebar-contacts" id="sidebar-contacts"></div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" id="cta-mail" href="mailto:alzatetorres@icloud.com"></a>
-            <button class="btn btn-secondary" id="download-pdf" type="button"></button>
-            <a class="btn btn-linkedin" id="cta-linkedin" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer"></a>
+      <div class="sidebar-actions">
+        <a class="btn btn-primary" id="sidebar-email" href="mailto:alzatetorres@icloud.com"></a>
+        <a class="btn btn-secondary" id="sidebar-linkedin" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer"></a>
+        <button class="btn btn-ghost" id="download-pdf" type="button"></button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="lang-switch" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn is-active" type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="sidebar-mini-link" id="sidebar-whatsapp" href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </aside>
+
+    <section class="panel-shell card-shell">
+      <header class="panel-head">
+        <div>
+          <p class="panel-crumb" id="panel-crumb"></p>
+          <h2 class="panel-title" id="panel-title"></h2>
+        </div>
+      </header>
+
+      <div class="panel-window" id="panel-window">
+        <section class="page-section is-active" id="page-home" data-page="home">
+          <div class="hero-copy">
+            <span class="section-kicker" id="home-eyebrow"></span>
+            <h3 class="hero-title" id="home-title"></h3>
+            <p class="hero-text" id="home-intro"></p>
           </div>
 
-          <div class="stats-grid" id="hero-stats"></div>
-        </div>
+          <div class="chip-row" id="home-chips"></div>
 
-        <div class="hero-panel reveal reveal-delay-1">
-          <div class="portrait-card surface-card">
-            <div class="portrait-card__frame">
-              <img
-                src="Foto_perfil_Natanael_A.jpg"
-                alt="Natanael Alzate Torres en retrato profesional"
-                loading="eager"
-              />
-            </div>
-            <div class="portrait-card__body">
-              <span class="portrait-card__location">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span id="portrait-note"></span>
-              </span>
-              <div class="portrait-card__qualities">
-                <span class="floating-badge" id="badge-one"></span>
-                <span class="floating-badge" id="badge-two"></span>
-                <span class="floating-badge" id="badge-three"></span>
+          <div class="home-layout">
+            <div class="stack-block">
+              <div class="section-minihead">
+                <span class="section-mini-label" id="home-highlights-label"></span>
               </div>
+              <div class="mini-grid" id="home-highlights"></div>
+            </div>
+
+            <div class="stack-block">
+              <div class="section-minihead">
+                <span class="section-mini-label" id="home-stats-label"></span>
+              </div>
+              <div class="stats-grid" id="home-stats"></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section" id="profile">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="profile-kicker"></span>
-          <h2 id="profile-title"></h2>
-          <p id="profile-subtitle"></p>
-        </div>
-
-        <div class="profile-grid">
-          <article class="surface-card prose-card reveal" id="profile-copy"></article>
-          <div class="profile-cards" id="profile-cards"></div>
-        </div>
-
-        <aside class="feature-callout reveal" id="interest-callout"></aside>
-      </div>
-    </section>
-
-    <section class="section section-tinted" id="strengths">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="strengths-kicker"></span>
-          <h2 id="strengths-title"></h2>
-          <p id="strengths-subtitle"></p>
-        </div>
-
-        <div class="cards-grid cards-grid--three" id="strengths-grid"></div>
-        <div class="growth-strip reveal" id="growth-strip"></div>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="experience-kicker"></span>
-          <h2 id="experience-title"></h2>
-          <p id="experience-subtitle"></p>
-        </div>
-
-        <div class="timeline" id="experience-list"></div>
-      </div>
-    </section>
-
-    <section class="section section-tinted" id="projects">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="projects-kicker"></span>
-          <h2 id="projects-title"></h2>
-          <p id="projects-subtitle"></p>
-        </div>
-
-        <div class="cards-grid cards-grid--two" id="projects-grid"></div>
-      </div>
-    </section>
-
-    <section class="section" id="training">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="training-kicker"></span>
-          <h2 id="training-title"></h2>
-          <p id="training-subtitle"></p>
-        </div>
-
-        <div class="training-grid">
-          <div class="cert-grid" id="cert-grid"></div>
-
-          <div class="training-side">
-            <article class="surface-card skill-card reveal">
-              <div class="skill-card__header">
-                <span class="mini-label" id="skills-mini-label"></span>
-                <h3 id="skills-title"></h3>
-              </div>
-              <div class="skill-groups" id="skill-groups"></div>
-            </article>
-
-            <article class="surface-card extras-card reveal reveal-delay-1">
-              <div class="skill-card__header">
-                <span class="mini-label" id="extras-mini-label"></span>
-                <h3 id="extras-title"></h3>
-              </div>
-              <div class="extras-cloud" id="extras-cloud"></div>
-            </article>
+        <section class="page-section" id="page-about" data-page="about">
+          <div class="section-copy">
+            <span class="section-kicker" id="about-kicker"></span>
+            <h3 class="page-heading" id="about-title"></h3>
+            <p class="page-subtitle" id="about-subtitle"></p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-tinted" id="teaching">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker" id="teaching-kicker"></span>
-          <h2 id="teaching-title"></h2>
-          <p id="teaching-subtitle"></p>
-        </div>
+          <article class="text-card" id="about-copy"></article>
+          <div class="mini-grid" id="about-cards"></div>
+          <article class="soft-banner" id="about-callout"></article>
 
-        <div class="cards-grid cards-grid--three" id="teaching-grid"></div>
-        <div class="teaching-note reveal" id="teaching-note"></div>
-      </div>
-    </section>
+          <div class="section-copy section-copy--compact">
+            <span class="section-mini-label" id="about-strengths-label"></span>
+          </div>
+          <div class="feature-grid" id="about-strengths-grid"></div>
+          <article class="soft-banner" id="about-growth"></article>
+        </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-shell surface-card reveal">
-          <div class="contact-copy">
+        <section class="page-section" id="page-resume" data-page="resume">
+          <div class="resume-layout">
+            <div class="resume-column">
+              <div class="section-copy section-copy--compact">
+                <span class="section-kicker" id="resume-experience-kicker"></span>
+                <h3 class="page-heading page-heading--small" id="resume-experience-title"></h3>
+                <p class="page-subtitle page-subtitle--small" id="resume-experience-subtitle"></p>
+              </div>
+              <div class="timeline-list" id="resume-experience"></div>
+            </div>
+
+            <div class="resume-column">
+              <div class="section-copy section-copy--compact">
+                <span class="section-kicker" id="resume-training-kicker"></span>
+                <h3 class="page-heading page-heading--small" id="resume-training-title"></h3>
+                <p class="page-subtitle page-subtitle--small" id="resume-training-subtitle"></p>
+              </div>
+              <div class="mini-grid" id="resume-certs"></div>
+
+              <div class="stack-block">
+                <div class="section-minihead">
+                  <span class="section-mini-label" id="resume-skills-label"></span>
+                </div>
+                <div class="skill-groups" id="resume-skill-groups"></div>
+              </div>
+
+              <div class="stack-block">
+                <div class="section-minihead">
+                  <span class="section-mini-label" id="resume-extras-label"></span>
+                </div>
+                <div class="tag-cloud" id="resume-extras"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="page-projects" data-page="projects">
+          <div class="section-copy">
+            <span class="section-kicker" id="projects-kicker"></span>
+            <h3 class="page-heading" id="projects-title"></h3>
+            <p class="page-subtitle" id="projects-subtitle"></p>
+          </div>
+
+          <div class="project-grid" id="projects-grid"></div>
+
+          <div class="section-copy section-copy--compact">
+            <span class="section-kicker" id="teaching-kicker"></span>
+            <h3 class="page-heading page-heading--small" id="teaching-title"></h3>
+            <p class="page-subtitle page-subtitle--small" id="teaching-subtitle"></p>
+          </div>
+          <div class="mini-grid" id="teaching-grid"></div>
+          <article class="soft-banner" id="teaching-note"></article>
+        </section>
+
+        <section class="page-section" id="page-contact" data-page="contact">
+          <div class="section-copy">
             <span class="section-kicker" id="contact-kicker"></span>
-            <h2 id="contact-title"></h2>
-            <p id="contact-subtitle"></p>
-
-            <div class="contact-actions">
-              <a class="btn btn-primary" id="contact-mail" href="mailto:alzatetorres@icloud.com"></a>
-              <a class="btn btn-whatsapp" id="contact-whatsapp" href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer"></a>
-            </div>
+            <h3 class="page-heading" id="contact-title"></h3>
+            <p class="page-subtitle" id="contact-subtitle"></p>
           </div>
 
-          <div class="contact-grid" id="contact-grid"></div>
-        </div>
+          <div class="mini-grid" id="contact-grid"></div>
+
+          <div class="contact-actions" id="contact-actions">
+            <a class="btn btn-primary" id="contact-mail" href="mailto:alzatetorres@icloud.com"></a>
+            <a class="btn btn-secondary" id="contact-whatsapp" href="https://wa.me/34651377113" target="_blank" rel="noopener noreferrer"></a>
+          </div>
+
+          <footer class="panel-footer">
+            <p id="footer-copy"></p>
+          </footer>
+        </section>
       </div>
     </section>
+
+    <nav class="page-dock" aria-label="Navegación entre secciones">
+      <a class="dock-link is-active" data-page-link="home" href="#home" aria-label="Inicio">
+        <i class="fa-solid fa-house"></i>
+        <span class="dock-label" data-page-label="home">Inicio</span>
+      </a>
+      <a class="dock-link" data-page-link="about" href="#about" aria-label="Perfil">
+        <i class="fa-solid fa-user"></i>
+        <span class="dock-label" data-page-label="about">Perfil</span>
+      </a>
+      <a class="dock-link" data-page-link="resume" href="#resume" aria-label="Trayectoria">
+        <i class="fa-solid fa-file-lines"></i>
+        <span class="dock-label" data-page-label="resume">Trayectoria</span>
+      </a>
+      <a class="dock-link" data-page-link="projects" href="#projects" aria-label="Proyectos">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="dock-label" data-page-label="projects">Proyectos</span>
+      </a>
+      <a class="dock-link" data-page-link="contact" href="#contact" aria-label="Contacto">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="dock-label" data-page-label="contact">Contacto</span>
+      </a>
+    </nav>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p id="footer-copy"></p>
-      <a class="footer-link" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </footer>
-
-  <noscript>
-    <div class="noscript-banner">
-      Esta web funciona mejor con JavaScript activado para mostrar la versión bilingüe y los elementos interactivos.
-    </div>
-  </noscript>
 
   <script src="script.js"></script>
 </body>
