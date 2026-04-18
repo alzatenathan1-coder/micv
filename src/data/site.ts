@@ -4,7 +4,7 @@ export const site = {
   role: 'Docente técnico IT · Analista Programador',
   tagline: 'Docente técnico IT · Formador homologado SEPE',
   location: 'Cuenca, España',
-  url: 'https://natanaelalzatetorres.es',
+  url: 'https://natanaelalzatetorres.com',
   email: 'alzatetorres@icloud.com',
   phone: '+34 651 377 113',
   phoneHref: '+34651377113',

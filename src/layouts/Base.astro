@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import { site } from '../data/site';
+import Preloader from '../components/Preloader.astro';
+import ScrollFX from '../components/ScrollFX.astro';
 
 interface Props {
   title?: string;
@@ -70,25 +72,36 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <style is:inline>
       :root { color-scheme: light; }
       html { background: #F2F7F9; }
+      /* Evita flash de contenido sin estilo antes de que cargue el preloader */
+      body[data-preloader="active"] .nx-page { opacity: 0; }
     </style>
   </head>
 
-  <body>
+  <body data-preloader="active">
+    <Preloader />
+    <ScrollFX />
+
     <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[1000] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">
       Saltar al contenido
     </a>
 
-    <slot />
+    <div class="nx-page">
+      <slot />
+    </div>
 
     <div id="nx-cursor-ring" aria-hidden="true"></div>
     <div id="nx-cursor-dot" aria-hidden="true"></div>
 
     <script>
+      import { initPreloader } from '../scripts/preloader.ts';
+      import { initScrollFX } from '../scripts/scrollfx.ts';
       import { initNavbar } from '../scripts/navbar.ts';
       import { initReveal } from '../scripts/reveal.ts';
       import { initCounters } from '../scripts/counters.ts';
       import { initCursor } from '../scripts/cursor.ts';
 
+      initPreloader();
+      initScrollFX();
       initNavbar();
       initReveal();
       initCounters();

@@ -1,0 +1,88 @@
+---
+---
+<!-- Barra de progreso de lectura -->
+<div id="nx-progress" aria-hidden="true"></div>
+
+<!-- Capa parallax de fondo, fija al viewport -->
+<div id="nx-parallax" aria-hidden="true">
+  <div class="nx-blob nx-blob-1" data-depth="0.15"></div>
+  <div class="nx-blob nx-blob-2" data-depth="0.28"></div>
+  <div class="nx-blob nx-blob-3" data-depth="0.08"></div>
+  <div class="nx-blob nx-blob-4" data-depth="0.38"></div>
+  <div class="nx-grid" data-depth="0.05"></div>
+</div>
+
+<style>
+  #nx-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-brand-500), var(--color-brand-300), var(--color-gold-500));
+    z-index: 60;
+    will-change: width;
+    transition: width 0.08s linear;
+  }
+
+  #nx-parallax {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .nx-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.55;
+    will-change: transform;
+    transition: transform 0.08s linear;
+  }
+  .nx-blob-1 {
+    top: -6rem;
+    right: -10rem;
+    width: 34rem;
+    height: 34rem;
+    background: radial-gradient(circle at 30% 30%, rgba(23, 150, 163, 0.35), transparent 60%);
+  }
+  .nx-blob-2 {
+    top: 35%;
+    left: -12rem;
+    width: 28rem;
+    height: 28rem;
+    background: radial-gradient(circle at 50% 50%, rgba(240, 200, 114, 0.18), transparent 60%);
+  }
+  .nx-blob-3 {
+    bottom: -10rem;
+    right: 15%;
+    width: 40rem;
+    height: 40rem;
+    background: radial-gradient(circle at 50% 50%, rgba(11, 59, 79, 0.12), transparent 60%);
+  }
+  .nx-blob-4 {
+    top: 12%;
+    left: 50%;
+    width: 18rem;
+    height: 18rem;
+    background: radial-gradient(circle at 50% 50%, rgba(94, 189, 198, 0.14), transparent 60%);
+  }
+
+  .nx-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(11, 59, 79, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 59, 79, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    will-change: transform;
+    opacity: 0.7;
+    mask-image: radial-gradient(ellipse at center, black 45%, transparent 80%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nx-blob, .nx-grid { transition: none; }
+  }
+</style>

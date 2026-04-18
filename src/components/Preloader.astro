@@ -1,0 +1,72 @@
+---
+---
+<div id="nx-preloader" class="fixed inset-0 z-[9999] bg-ink-950 flex items-center justify-center" aria-hidden="true">
+  <div class="relative flex flex-col items-center">
+    <!-- Monograma NA -->
+    <div class="relative">
+      <svg width="88" height="88" viewBox="0 0 100 100" class="nx-pre-logo" aria-hidden="true">
+        <defs>
+          <linearGradient id="nxpreG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1796A3" />
+            <stop offset="1" stop-color="#5EBDC6" />
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="92" height="92" rx="20" fill="none" stroke="url(#nxpreG)" stroke-width="2" class="nx-pre-frame" />
+        <text x="50" y="50" text-anchor="middle" dominant-baseline="central"
+          font-family="Fraunces, Georgia, serif" font-weight="600" font-size="42"
+          fill="#fff" letter-spacing="-2">NA</text>
+      </svg>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="mt-8 w-40 h-[2px] bg-white/10 overflow-hidden rounded-full">
+      <div id="nx-pre-bar" class="h-full origin-left" style="background: linear-gradient(to right, var(--color-brand-400), var(--color-brand-200));"></div>
+    </div>
+
+    <p class="mt-5 text-[0.68rem] uppercase tracking-[0.28em] text-brand-200/70">
+      Natanael Alzate Torres
+    </p>
+  </div>
+</div>
+
+<style>
+  #nx-preloader {
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.6s;
+  }
+  #nx-preloader.is-done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .nx-pre-frame {
+    stroke-dasharray: 380;
+    stroke-dashoffset: 380;
+    animation: nx-frame-draw 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .nx-pre-logo text {
+    opacity: 0;
+    animation: nx-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+  }
+  #nx-pre-bar {
+    transform: scaleX(0);
+    animation: nx-bar-fill 1.25s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+  }
+  @keyframes nx-frame-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes nx-text-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes nx-bar-fill {
+    to { transform: scaleX(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nx-pre-frame, .nx-pre-logo text, #nx-pre-bar {
+      animation: none;
+    }
+    .nx-pre-frame { stroke-dashoffset: 0; }
+    .nx-pre-logo text { opacity: 1; }
+    #nx-pre-bar { transform: scaleX(1); }
+  }
+</style>
