@@ -270,11 +270,6 @@
                 }
             });
 
-        //Google Maps
-        $("#map").googleMap();
-        $("#map").addMarker({
-            address: "Cuenca, España" // Your Address
-        });
     })
     .on("DOMSubtreeModified", subpages_resize);
 
