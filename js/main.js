@@ -60,16 +60,18 @@
                     success: function (data) {
                         var messageAlert = data.success ? 'alert-success' : 'alert-danger';
                         var messageText = data.success
-                            ? 'Mensaje enviado correctamente. ¡Gracias!'
-                            : 'Hubo un error al enviar. Inténtalo de nuevo.';
+                            ? '✅ Mensaje enviado correctamente. ¡Gracias! Le responderemos en breve.'
+                            : '⚠️ Hubo un error al enviar. Inténtalo de nuevo.';
                         var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                         $('#contact-form').find('.messages').html(alertBox);
                         if (data.success) {
                             $('#contact-form')[0].reset();
+                            if (typeof hcaptcha !== 'undefined') { hcaptcha.reset(); }
                         }
                     },
                     error: function () {
-                        $('#contact-form').find('.messages').html('<div class="alert alert-danger">Error de conexión. Inténtalo de nuevo.</div>');
+                        $('#contact-form').find('.messages').html('<div class="alert alert-danger">⚠️ Error de conexión. Inténtalo de nuevo.</div>');
+                        if (typeof hcaptcha !== 'undefined') { hcaptcha.reset(); }
                     }
                 });
                 return false;
