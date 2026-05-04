@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/docencia",       "destination": "/index-docencia.html" },
-    { "source": "/administracion", "destination": "/index-administracion.html" },
-    { "source": "/tecnico",        "destination": "/index-tecnico.html" }
+    { "source": "/docencia",       "destination": "/index-docencia" },
+    { "source": "/administracion", "destination": "/index-administracion" },
+    { "source": "/tecnico",        "destination": "/index-tecnico" }
   ]
 }
