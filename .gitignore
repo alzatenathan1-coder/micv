@@ -1,0 +1,12 @@
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Editor / SO
+.DS_Store
+.claude/
+node_modules/
