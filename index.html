@@ -5,48 +5,122 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 	<link rel="canonical" href="https://micv-jet.vercel.app/" />
 
-	<!--PV:title--><title>Natanael Alzate Torres &rarr; Desarrollo, Sistemas &amp; Docencia IT</title>
-	<meta name="description" content="Natanael Alzate Torres — analista programador y docente técnico acreditado por el SEPE, en Cuenca, España. Desarrollo de software a medida, automatización con IA y formación profesional. La web de quien hay detrás de tu proyecto." />
-	<meta property="og:title" content="Natanael Alzate Torres — Desarrollo, Sistemas &amp; Docencia IT" />
-	<meta property="og:description" content="Diseño y programo software, automatizo procesos con IA y formo a los equipos que lo usan. Autónomo disponible en Cuenca, España." /><!--/PV:title-->
+	<!--PV:title--><title>Natanael Alzate Torres &rarr; Software, IA y Formación para empresas</title>
+	<meta name="description" content="Analista programador y docente SEPE. Desarrollo webs y software a medida, automatizo procesos con IA y formo equipos desde la capital conquense y en remoto." />
+	<meta property="og:title" content="Natanael Alzate Torres — Software, IA y Formación para empresas" />
+	<meta property="og:description" content="Webs a medida, automatización de procesos e IA aplicada para pymes, centros de formación y negocios que necesitan tecnología útil." /><!--/PV:title-->
 	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://micv-jet.vercel.app/" />
+	<meta property="og:image" content="https://micv-jet.vercel.app/assets/img/hero.webp" />
+	<meta property="og:image:width" content="900" />
+	<meta property="og:image:height" content="900" />
+	<meta property="og:image:alt" content="Retrato profesional de Natanael Alzate Torres" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="robots" content="index, follow" />
+	<meta name="theme-color" content="#e0f0f2" />
 	<link rel="icon" href="favicon.ico" sizes="any" />
 	<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 	<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+	<link rel="preload" href="assets/img/hero.webp" as="image" type="image/webp" fetchpriority="high" />
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Person",
+				"@id": "https://micv-jet.vercel.app/#person",
+				"name": "Natanael Alzate Torres",
+				"url": "https://micv-jet.vercel.app/",
+				"image": "https://micv-jet.vercel.app/assets/img/hero.webp",
+				"email": "mailto:alzatetorres@icloud.com",
+				"telephone": "+34651377113",
+				"jobTitle": "Analista programador y docente tecnico",
+				"sameAs": ["https://www.linkedin.com/in/natanaelalzatetorres/"],
+				"knowsAbout": ["desarrollo web", "automatizacion con IA", "Java", "SQL", "Moodle", "FUNDAE", "SEPE", "ERP"]
+			},
+			{
+				"@type": "ProfessionalService",
+				"@id": "https://micv-jet.vercel.app/#service",
+				"name": "Natanael Alzate Torres",
+				"url": "https://micv-jet.vercel.app/",
+				"image": "https://micv-jet.vercel.app/assets/img/hero.webp",
+				"priceRange": "€€",
+				"founder": { "@id": "https://micv-jet.vercel.app/#person" },
+				"areaServed": ["capital conquense", "Castilla-La Mancha", "Espana", "remoto"],
+				"address": {
+					"@type": "PostalAddress",
+					"addressRegion": "Castilla-La Mancha",
+					"addressCountry": "ES"
+				},
+				"makesOffer": [
+					{ "@type": "Offer", "url": "https://micv-jet.vercel.app/casos", "itemOffered": { "@type": "Service", "name": "Desarrollo web a medida" } },
+					{ "@type": "Offer", "url": "https://micv-jet.vercel.app/automatizacion-ia", "itemOffered": { "@type": "Service", "name": "Automatizacion de procesos con IA" } },
+					{ "@type": "Offer", "url": "https://micv-jet.vercel.app/tecnico", "itemOffered": { "@type": "Service", "name": "Formacion tecnica y auditoria e-learning" } }
+				]
+			},
+			{
+				"@type": "FAQPage",
+				"@id": "https://micv-jet.vercel.app/#faq",
+				"mainEntity": [
+					{
+						"@type": "Question",
+						"name": "¿Haces webs para negocios pequeños o solo proyectos técnicos?",
+						"acceptedAnswer": { "@type": "Answer", "text": "Trabajo con negocios de proximidad, comercios, profesionales y pymes que necesitan web, contenido, estructura y llamadas a acción claras." }
+					},
+					{
+						"@type": "Question",
+						"name": "¿Puedes automatizar tareas administrativas con IA?",
+						"acceptedAnswer": { "@type": "Answer", "text": "Sí. Empiezo con un diagnóstico pequeño: qué tarea se repite, qué dato se usa, quién valida y qué herramienta ya existe." }
+					},
+					{
+						"@type": "Question",
+						"name": "¿Puedes ayudar a centros de formación con Moodle, FOCO o FUNDAE?",
+						"acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajo con programaciones didácticas, seguimiento, auditorías, soporte técnico y plataformas LMS." }
+					}
+				]
+			}
+		]
+	}
+	</script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/vibes.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
 </head>
 
-<body class="loading">
+<body id="top" class="loading">
+	<a class="skip-link" href="#content">Saltar al contenido</a>
 	<header>
 		<div class="wrap">
-			<span class="me jelly noline push drift left" role="button" href="#">Natanael <span class="crest">Alzate</span><span class="context"></span></span>
+			<a class="me jelly noline push drift left" href="#top" aria-label="Volver al inicio">Natanael <span class="crest">Alzate</span><span class="context"></span></a>
 		</div>
 	</header>
 
 	<section class="mast-contain">
 		<div class="mast">
 			<div class="wrap">
-				<!--PV:h1--><h1 class="drift right">Diseño y <code>programo</code> el software que tu empresa necesita, automatizo con IA lo que la frena y formo a los equipos que lo&nbsp;usan.</h1><!--/PV:h1-->
+				<!--PV:h1--><h1 class="drift right"><code>Programo</code> webs, automatizaciones y formación técnica para que tu empresa trabaje mejor, venda con más claridad y dependa menos del copia-pega.</h1><!--/PV:h1-->
 				<div class="mast-photo drift left">
-					<img src="assets/img/hero.webp" width="900" height="900" alt="Natanael Alzate Torres" />
+					<img src="assets/img/hero.webp" width="900" height="900" alt="Natanael Alzate Torres" fetchpriority="high" decoding="async" />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<main>
+	<main id="content">
 		<div class="wrap">
 
 			<!--PV:intro--><section class="push" data-section="intro">
-				<p>Soy <strong>Natanael Alzate Torres</strong>: analista programador y docente técnico acreditado por el <a class="brilliant" href="#cv">[<span>SEPE</span>]</a>, en Cuenca, España. Combino ocho años de desarrollo real &mdash;Java, bases de datos y ERPs&mdash; con la formación profesional y la automatización con IA. ¿Llegaste hasta aquí desde una web que diseñé? Esto es exactamente lo que hay detrás.</p>
+				<p>Soy <strong>Natanael Alzate Torres</strong>: analista programador y docente técnico acreditado por el <a class="brilliant" href="#cv">[<span>SEPE</span>]</a>. Trabajo desde la capital conquense para negocios de proximidad, centros de formación y empresas que necesitan tecnología útil: web a medida, automatización con IA y equipos capaces de usarla.</p>
+				<p>Si llegaste hasta aquí desde una web que diseñé, esto es exactamente lo que hay detrás: análisis de negocio, código limpio, criterio docente y una obsesión bastante práctica por que cada pantalla tenga sentido.</p>
 				<p><a class="rgbsplit" href="mailto:alzatetorres@icloud.com">Escríbeme</a>, hablamos por <a class="rgbsplit" href="https://wa.me/34651377113" target="_blank" rel="noopener">WhatsApp</a> o conéctate en <a class="rgbsplit proper" href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener">LinkedIn</a>.</p>
 				<div class="btn-row">
 					<a class="btn" href="#contact">Hablemos</a>
 					<a class="btn ghost" href="#work">Ver mi trabajo</a>
 				</div>
 				<p class="cv-links">Mi perfil orientado a:
+					<a href="automatizacion-ia.html">Automatización con IA</a> ·
+					<a href="casos.html">Casos de éxito</a> ·
 					<a href="tecnico.html">Técnico de formación</a> ·
 					<a href="docencia.html">Docencia IT</a> ·
 					<a href="administracion.html">Administración</a> ·
@@ -55,7 +129,7 @@
 			</section><!--/PV:intro-->
 
 			<!--PV:specialty--><section class="pull" data-section="specialty">
-				<h2>Más de 2.400 horas de formación impartidas y ocho años en IT real: la mezcla de aula y código que convierte la tecnología compleja en algo que tu equipo entiende, usa y mantiene.</h2>
+				<h2>Más de 2.400 horas de formación impartidas y ocho años en IT real: la mezcla de aula, código y negocio que convierte la tecnología compleja en algo que tu equipo entiende, usa y mantiene.</h2>
 			</section><!--/PV:specialty-->
 
 			<!--PV:services--><section class="push" id="servicios" data-section="services">
@@ -64,27 +138,64 @@
 					<article class="service">
 						<span class="num">01</span>
 						<div>
-							<h3>Docencia en Logística 4.0 y Certificados de Profesionalidad</h3>
-							<p>Formo a tu plantilla en operativa de almacén, aprovisionamiento y digitalización de la cadena de suministro, conectando el trabajo de cada día con los sistemas de gestión (SGA / WMS) y los cuadros de mando. Con certificados de profesionalidad oficiales del SEPE.</p>
+							<h3>Webs a medida para negocios que necesitan vender mejor</h3>
+							<p>Diseño y programo páginas rápidas, claras y mantenibles para empresas locales, comercios y proyectos profesionales. Sin plantilla genérica: contenido, estructura y código pensados para que Google entienda el servicio y el cliente sepa qué hacer.</p>
 						</div>
 					</article>
 					<article class="service">
 						<span class="num">02</span>
 						<div>
 							<h3>Automatización de procesos e IA administrativa</h3>
-							<p>Detecto las tareas repetitivas que se comen las horas de tu equipo y las automatizo con agentes de IA conectados de forma segura a tu ERP (SAP FICO, Sage). Menos copia-pega; más tiempo para lo que de verdad importa.</p>
+							<p>Detecto las tareas repetitivas que se comen las horas de tu equipo y las convierto en flujos más simples: formularios, bases de datos, informes, agentes de IA y conexiones seguras con ERP como SAP FICO o Sage.</p>
 						</div>
 					</article>
 					<article class="service">
 						<span class="num">03</span>
 						<div>
-							<h3>Auditoría y cumplimiento e-learning (FUNDAE / FOCO)</h3>
-							<p>Dejo tu plataforma Moodle y tu documentación listas para pasar las auditorías de la JCCM y FUNDAE a la primera, con programaciones didácticas completas y sin sustos de última hora.</p>
+							<h3>Formación técnica, LMS y cumplimiento e-learning</h3>
+							<p>Formo a equipos y dejo plataformas Moodle, documentación SEPE, FOCO y FUNDAE listas para revisión. La parte técnica y la parte didáctica van juntas: menos improvisación, más trazabilidad.</p>
 						</div>
 					</article>
 				</div>
-				<p class="method"><strong class="tag">Método</strong> Mi marco «Ingeniería de Aula» fusiona la precisión técnica con la andragogía: Flipped Classroom apoyado en asistentes de IA para un aprendizaje práctico, medible por rúbricas y pensado para el profesional en activo.</p>
+				<p class="method"><strong class="tag">Método</strong> Primero mapa de negocio; después arquitectura, contenido y automatización. El resultado no es solo una web bonita: es un sistema pequeño, rápido y medible que se puede explicar, mantener y mejorar.</p>
 			</section><!--/PV:services-->
+
+			<section class="push proof-section" data-section="proximity">
+				<h2 class="margin-sml">Pensado para negocios de proximidad que necesitan moverse mejor.</h2>
+				<div class="proof-grid">
+					<article>
+						<h3>Comercios y servicios</h3>
+						<p>Webs que explican qué haces, eliminan dudas y llevan al cliente a reservar, llamar o escribir sin perderse.</p>
+					</article>
+					<article>
+						<h3>Centros de formación</h3>
+						<p>LMS, documentación, programaciones, FUNDAE y FOCO con visión técnica y docente, no solo administrativa.</p>
+					</article>
+					<article>
+						<h3>Pymes con procesos manuales</h3>
+						<p>Automatización de informes, formularios, expedientes, CRM y tareas repetitivas con IA controlada.</p>
+					</article>
+					<article>
+						<h3>Marcas que quieren escalar</h3>
+						<p>Arquitectura web preparada para casos, servicios, SEO, catálogo, datos y mejoras progresivas.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="route-section" data-section="routes">
+				<div class="route-card">
+					<span class="eyebrow">// versión A</span>
+					<h2>Consultor web + IA + formación para empresas.</h2>
+					<p>La ruta principal para captar negocios, pymes y profesionales que necesitan web clara, automatización práctica y acompañamiento técnico.</p>
+					<a class="btn" href="automatizacion-ia.html">Ver automatización IA</a>
+				</div>
+				<div class="route-card">
+					<span class="eyebrow">// versión B</span>
+					<h2>Técnico de formación, LMS y FUNDAE.</h2>
+					<p>La ruta para centros de formación, academias y entidades que necesitan Moodle, FOCO, SEPE, auditorías y programaciones didácticas.</p>
+					<a class="btn ghost" href="tecnico.html">Ver perfil formación</a>
+				</div>
+			</section>
 
 			<section class="cv-timeline" id="cv" data-section="cv">
 				<p class="push cv-intro">8+ años construyendo.<br />Del backend de TV interactiva al aula.<br />Del código a la consultoría con IA.</p>
@@ -248,37 +359,37 @@
 					<div class="hpanel hpanel-intro">
 						<span class="eyebrow">// portfolio</span>
 						<h2>Trabajo seleccionado.</h2>
-						<p>Negocios reales con webs que diseño y programo de principio a fin: identidad, código y listas para vender. Desliza&nbsp;&rarr;</p>
+						<p>Proyectos reales para negocios de proximidad y marcas online: identidad, contenido, código y páginas listas para vender. Desliza&nbsp;&rarr;</p>
 					</div>
 
-					<a class="hcard" href="https://barbernorden.vercel.app/" target="_blank" rel="noopener">
+					<a class="hcard" href="casos.html#norden-barber">
 						<div class="frame">
 							<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">barbernorden.vercel.app</span></div>
-							<div class="shot"><img src="assets/img/portfolio/norden-barber.webp" loading="lazy" alt="Web de Norden Barber" /></div>
+							<div class="shot"><img src="assets/img/portfolio/norden-barber.webp" width="880" height="2190" loading="lazy" decoding="async" alt="Web de Norden Barber" /></div>
 						</div>
 						<div class="meta"><h3>Norden Barber</h3><span class="cat">Barbería · Reservas</span></div>
 					</a>
 
-					<a class="hcard" href="https://stefaniavictoria.com/" target="_blank" rel="noopener">
+					<a class="hcard" href="casos.html#stefania-studio">
 						<div class="frame">
 							<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">stefaniavictoria.com</span></div>
-							<div class="shot"><img src="assets/img/portfolio/stefania-studio.webp" loading="lazy" alt="Web de Stefania Panzariu Studio" /></div>
+							<div class="shot"><img src="assets/img/portfolio/stefania-studio.webp" width="880" height="1262" loading="lazy" decoding="async" alt="Web de Stefania Panzariu Studio" /></div>
 						</div>
 						<div class="meta"><h3>Stefania Panzariu Studio</h3><span class="cat">Estética · Branding</span></div>
 					</a>
 
-					<a class="hcard" href="https://promesasdepapel.com/" target="_blank" rel="noopener">
+					<a class="hcard" href="casos.html#promesas-papel">
 						<div class="frame">
 							<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">promesasdepapel.com</span></div>
-							<div class="shot"><img src="assets/img/portfolio/promesas-papel.webp" loading="lazy" alt="Web de Promesas de Papel" /></div>
+							<div class="shot"><img src="assets/img/portfolio/promesas-papel.webp" width="880" height="2190" loading="lazy" decoding="async" alt="Web de Promesas de Papel" /></div>
 						</div>
 						<div class="meta"><h3>Promesas de Papel</h3><span class="cat">Librería · Cultura</span></div>
 					</a>
 
-					<a class="hcard" href="https://pinturascoes.com/" target="_blank" rel="noopener">
+					<a class="hcard" href="casos.html#pinturas-coes">
 						<div class="frame">
 							<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">pinturascoes.com</span></div>
-							<div class="shot"><img src="assets/img/portfolio/pinturas-coes.webp" loading="lazy" alt="Web de Pinturas COES" /></div>
+							<div class="shot"><img src="assets/img/portfolio/pinturas-coes.webp" width="880" height="2190" loading="lazy" decoding="async" alt="Web de Pinturas COES" /></div>
 						</div>
 						<div class="meta"><h3>Pinturas COES</h3><span class="cat">Industria · E-commerce</span></div>
 					</a>
@@ -298,17 +409,43 @@
 				<div class="about-grid">
 					<div class="about-bio">
 						<p>Soy analista programador, pero antes estudié Administración y Dirección de Empresas: por eso leo un negocio antes de escribir una sola línea de código. Llevo más de ocho años moviéndome entre el desarrollo de software, la administración de sistemas corporativos y el aula.</p>
-						<p>Diseño y programo webs a medida de principio a fin, integro herramientas como SAP, Sage o Moodle, y formo a quienes quieren dedicarse a esto: mi acreditación oficial en docencia, con calificación de Sobresaliente, me obliga a explicar lo complejo de forma sencilla. Hoy combino esa base con la automatización de procesos y la IA aplicada a la empresa.</p>
+						<p>Diseño y programo webs a medida de principio a fin, integro herramientas como SAP, Sage o Moodle, y formo a quienes quieren dedicarse a esto: mi acreditación oficial en docencia, con calificación de Sobresaliente, me obliga a explicar lo complejo de forma sencilla. Hoy combino esa base con la automatización de procesos y la IA aplicada a empresas del entorno del Júcar y el Huécar, además de proyectos en remoto.</p>
 						<p>Cuando cierro el portátil, piloto drones. Y siempre ando estudiando algo &mdash; ahora, Psicología en la UNED.</p>
 					</div>
 					<ul class="about-facts">
-						<li><span class="k">Ubicación</span><span class="v">Cuenca, España</span></li>
+						<li><span class="k">Área</span><span class="v">Capital conquense · remoto</span></li>
 						<li><span class="k">Situación</span><span class="v">Autónomo disponible</span></li>
 						<li><span class="k">Idiomas</span><span class="v">ES · EN&nbsp;B1 · DE&nbsp;A2</span></li>
 						<li><span class="k">Desarrollo</span><span class="v">Java · SQL · HTML/CSS/JS</span></li>
 						<li><span class="k">Sistemas</span><span class="v">SAP · Sage · Dynamics · Moodle</span></li>
 						<li><span class="k">También</span><span class="v">IA aplicada · Drones (AESA)</span></li>
 					</ul>
+				</div>
+			</section>
+
+			<section class="push faq-section" data-section="faq">
+				<h2 class="margin-sml">Preguntas que suelen decidir un proyecto.</h2>
+				<div class="faq-list">
+					<details>
+						<summary>¿Haces webs para negocios pequeños o solo proyectos técnicos?</summary>
+						<p>Trabajo especialmente bien con negocios de proximidad, comercios, profesionales y pymes. Si necesitas web, contenido, estructura y llamadas a acción claras, puedes ver <a href="casos.html">casos de éxito completos</a>.</p>
+					</details>
+					<details>
+						<summary>¿Puedes automatizar tareas administrativas con IA?</summary>
+						<p>Sí. Empiezo con un diagnóstico pequeño: qué tarea se repite, qué dato se usa, quién valida y qué herramienta ya existe. La página de <a href="automatizacion-ia.html">automatización con IA</a> detalla proceso y entregables.</p>
+					</details>
+					<details>
+						<summary>¿Trabajas presencial y en remoto?</summary>
+						<p>Sí. Trabajo desde la capital conquense y también en remoto. Para proyectos locales, la cercanía ayuda; para automatización y formación técnica, la documentación pesa más que la distancia.</p>
+					</details>
+					<details>
+						<summary>¿Puedes ayudar a centros de formación con Moodle, FOCO o FUNDAE?</summary>
+						<p>Sí. Esa es la versión B del proyecto: <a href="tecnico.html">técnico de formación, LMS y FUNDAE</a>, con programaciones didácticas, seguimiento, auditorías y soporte técnico.</p>
+					</details>
+					<details>
+						<summary>¿Qué pasa después de publicar la web?</summary>
+						<p>Se mide: indexación, rendimiento, consultas reales en Search Console y comportamiento de formularios o llamadas. Con esos datos se ajustan snippets, contenidos y enlaces internos.</p>
+					</details>
 				</div>
 			</section>
 
@@ -322,7 +459,7 @@
 							<li><span class="k">Teléfono</span><a href="tel:+34651377113">+34 651 377 113</a></li>
 							<li><span class="k">WhatsApp</span><a href="https://wa.me/34651377113" target="_blank" rel="noopener">Enviar mensaje</a></li>
 							<li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/natanaelalzatetorres/" target="_blank" rel="noopener">in/natanaelalzatetorres</a></li>
-							<li><span class="k">Ubicación</span><span>Cuenca, España</span></li>
+							<li><span class="k">Área</span><span>Capital conquense · remoto</span></li>
 						</ul>
 					</div>
 					<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">

@@ -13,6 +13,7 @@
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var extra = 0;
         var enabled = false;
+        var ticking = false;
 
         function vw() { return document.documentElement.clientWidth; }
         function shouldEnable() { return vw() >= 900 && !reduce; }
@@ -29,12 +30,19 @@
             update();
         }
 
-        function update() {
+        function updateNow() {
+            ticking = false;
             if (!enabled) return;
             var total = sec.offsetHeight - window.innerHeight;        // == extra
             var p = total > 0 ? (-sec.getBoundingClientRect().top) / total : 0;
             if (p < 0) p = 0; else if (p > 1) p = 1;
             track.style.transform = "translate3d(" + (-p * extra) + "px,0,0)";
+        }
+
+        function update() {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(updateNow);
         }
 
         window.addEventListener("scroll", update, { passive: true });
@@ -54,8 +62,10 @@
         var status = form.querySelector(".form-status");
         form.addEventListener("submit", function (e) {
             e.preventDefault();
-            status.className = "form-status";
-            status.textContent = "Enviando…";
+            if (status) {
+                status.className = "form-status";
+                status.textContent = "Enviando…";
+            }
             var data = new FormData(form);
             fetch("https://api.web3forms.com/submit", {
                 method: "POST",
@@ -65,17 +75,23 @@
             .then(function (r) { return r.json(); })
             .then(function (json) {
                 if (json.success) {
-                    status.className = "form-status ok";
-                    status.textContent = "¡Gracias! Te responderé lo antes posible.";
+                    if (status) {
+                        status.className = "form-status ok";
+                        status.textContent = "¡Gracias! Te responderé lo antes posible.";
+                    }
                     form.reset();
                 } else {
-                    status.className = "form-status err";
-                    status.textContent = "No se pudo enviar. Escríbeme a alzatetorres@icloud.com.";
+                    if (status) {
+                        status.className = "form-status err";
+                        status.textContent = "No se pudo enviar. Escríbeme a alzatetorres@icloud.com.";
+                    }
                 }
             })
             .catch(function () {
-                status.className = "form-status err";
-                status.textContent = "No se pudo enviar. Escríbeme a alzatetorres@icloud.com.";
+                if (status) {
+                    status.className = "form-status err";
+                    status.textContent = "No se pudo enviar. Escríbeme a alzatetorres@icloud.com.";
+                }
             });
         });
     }
@@ -85,7 +101,9 @@
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var sel = "[data-section=specialty] h2, [data-section=services] h2, .service, .method,"
             + " [data-section=more] h2, .about-bio, .about-facts, .cv-intro, .cv .cv-wrap,"
-            + " [data-section=contact] h2, .contact-info, .contact-form";
+            + " [data-section=contact] h2, .contact-info, .contact-form,"
+            + " .proof-section h2, .proof-grid article, .route-card, .case-copy, .case-shot,"
+            + " .process-section h2, .process-list li, .faq-section h2, .faq-list details, .final-cta";
         var els = Array.prototype.slice.call(document.querySelectorAll(sel));
         if (!els.length) return;
         if (reduce || !("IntersectionObserver" in window)) return;   // se quedan visibles
