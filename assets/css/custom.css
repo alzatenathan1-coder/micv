@@ -258,30 +258,54 @@ section[data-section=services] { margin-inline-start: 0; }
     margin-block-end: var(--cvGap);
 }
 .process-list {
+    --node: 2.75rem;
+    --pgap: clamp(1.6rem, 3vw, 2.75rem);
     counter-reset: process;
     display: grid;
-    gap: 1px;
-    background: color-mix(in srgb, var(--color-fill), transparent 88%);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--pgap);
+    list-style: none;
 }
 .process-list li {
-    background: var(--color-bg);
-    display: grid;
-    grid-template-columns: 2.6rem 1fr;
-    gap: 1rem;
-    padding: 1.1rem 0;
-}
-.process-list li:before {
-    color: var(--color-fill-light);
-    content: counter(process, decimal-leading-zero);
     counter-increment: process;
+    position: relative;
+    padding-block-start: calc(var(--node) + 1.05rem);
+}
+.process-list li::before {                 /* nodo numerado */
+    content: counter(process, decimal-leading-zero);
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    display: grid;
+    place-items: center;
+    width: var(--node);
+    height: var(--node);
+    border-radius: 50%;
+    background: rgba(var(--cb-highlight), 1);
+    color: var(--color-bg);
     font-family: var(--font-mono);
-    font-size: var(--size-s);
+    font-size: .82rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(var(--cb-highlight), .26);
+    z-index: 1;
+}
+.process-list li:not(:last-child)::after { /* conector de progresión */
+    content: "";
+    position: absolute;
+    inset-block-start: calc(var(--node) / 2 - 1px);
+    inset-inline-start: var(--node);
+    inset-inline-end: calc(var(--pgap) * -1);
+    height: 2px;
+    background: linear-gradient(to right, rgba(var(--cb-highlight), .45), rgba(var(--cb-highlight), .12));
 }
 .process-list strong {
     display: block;
     font-size: var(--size-m);
     line-height: 1.2;
-    margin-block-end: .25em;
+    margin-block-end: .35em;
+}
+.process-list span {
+    display: block;
 }
 .final-cta {
     margin-inline-start: 0;
@@ -365,9 +389,29 @@ section[data-section=services] { margin-inline-start: 0; }
     .faq-list summary {
         font-size: 1.2rem;
     }
-    .process-list li {
+}
+
+/* Proceso: timeline vertical en pantallas estrechas */
+@media screen and (width < 900px) {
+    .process-list {
         grid-template-columns: 1fr;
-        gap: .35rem;
+        gap: 0;
+    }
+    .process-list li {
+        min-height: var(--node);
+        padding: 0 0 var(--size-m) calc(var(--node) + 1.1rem);
+    }
+    .process-list li:last-child {
+        padding-block-end: 0;
+    }
+    .process-list li:not(:last-child)::after {  /* línea vertical */
+        inset-block-start: var(--node);
+        inset-block-end: 0;
+        inset-inline-start: calc(var(--node) / 2 - 1px);
+        inset-inline-end: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(to bottom, rgba(var(--cb-highlight), .45), rgba(var(--cb-highlight), .12));
     }
 }
 
