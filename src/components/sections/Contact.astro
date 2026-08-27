@@ -1,7 +1,10 @@
 ---
 import { site } from '../../data/site';
 /* NC-03: el formulario ya no usa `action="mailto:"`, que los navegadores
-   ignoran silenciosamente. Ahora envía a un endpoint real (Web3Forms). */
+   ignoran silenciosamente. Ahora envía a un endpoint real (Web3Forms).
+   Si falta la clave, NO se publica un formulario que no envía: se muestran
+   los canales directos. Un formulario roto es peor que no tenerlo. */
+const formListo = site.formKey.length > 0;
 ---
 <section id="contacto" class="border-t border-ink-100 bg-white/60">
   <div class="container-x grid gap-12 py-20 md:py-24 lg:grid-cols-[1fr_1.25fr]">
@@ -34,6 +37,7 @@ import { site } from '../../data/site';
       <a href={site.whatsapp} rel="noopener" class="btn btn-whatsapp mt-6">Escribir por WhatsApp</a>
     </div>
 
+    {formListo ? (
     <form
       action={site.formEndpoint}
       method="POST"
@@ -91,5 +95,21 @@ import { site } from '../../data/site';
 
       <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">Enviar mensaje</button>
     </form>
+    ) : (
+    <div class="flex flex-col justify-center rounded-xl rounded-tr-sm border border-ink-100 bg-ink-50 p-8 md:p-10">
+      <p class="h-display text-[1.25rem] font-semibold text-ink-950">Escríbeme directamente</p>
+      <p class="mt-3 max-w-[44ch] text-[0.96rem] leading-relaxed text-ink-600">
+        Prefiero el correo o WhatsApp: llega antes y contesto yo. Cuéntame qué necesitas,
+        en qué plazo y con quién trabajarías.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href={`mailto:${site.email}?subject=${encodeURIComponent('Consulta desde natanaelalzatetorres.com')}`} class="btn btn-primary">Enviar un correo</a>
+        <a href={site.whatsapp} rel="noopener" class="btn btn-whatsapp">WhatsApp</a>
+      </div>
+      <p class="mt-6 font-mono text-[0.72rem] leading-relaxed text-ink-400">
+        Respuesta en menos de 24 h · Cuenca y provincia · remoto
+      </p>
+    </div>
+    )}
   </div>
 </section>
