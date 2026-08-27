@@ -1,0 +1,47 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../data/site';
+---
+<Legal
+  title="Política de privacidad"
+  description="Cómo se tratan los datos personales enviados a través del formulario de contacto de natanaelalzatetorres.com."
+  heading="Política de privacidad"
+  updated="27 de agosto de 2026"
+>
+  <p>Esta política explica qué datos personales se recogen en este sitio, para qué se usan y qué derechos tienes sobre ellos, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).</p>
+
+  <h2>Responsable del tratamiento</h2>
+  <ul>
+    <li><strong>Responsable:</strong> {site.name}</li>
+    <li><strong>NIF:</strong> __nif__</li>
+    <li><strong>Contacto:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+  </ul>
+
+  <h2>Qué datos se recogen</h2>
+  <p>Solo los que introduces en el formulario de contacto: <strong>nombre, correo electrónico, teléfono (opcional), tipo de necesidad y el mensaje</strong> que escribas. No se recogen categorías especiales de datos, y te pido que no incluyas información sensible en el mensaje.</p>
+
+  <h2>Para qué se usan</h2>
+  <ul>
+    <li>Responder a tu consulta y, en su caso, preparar una propuesta de colaboración.</li>
+    <li>Mantener el histórico de la comunicación mientras dure la relación profesional.</li>
+  </ul>
+  <p>No se usan para envíos comerciales automatizados ni se elaboran perfiles.</p>
+
+  <h2>Base jurídica</h2>
+  <p>Tu <strong>consentimiento</strong>, que otorgas al marcar la casilla del formulario (art. 6.1.a RGPD), y la <strong>aplicación de medidas precontractuales</strong> a petición tuya cuando la consulta busca contratar un servicio (art. 6.1.b RGPD).</p>
+
+  <h2>Plazo de conservación</h2>
+  <p>Los datos se conservan mientras se gestiona tu consulta y, después, durante el plazo legal de prescripción de posibles responsabilidades. Puedes pedir la supresión antes en cualquier momento.</p>
+
+  <h2>Destinatarios y encargados</h2>
+  <p>El formulario se procesa mediante <strong>Web3Forms</strong>, que actúa como encargado del tratamiento y entrega el mensaje en el buzón del responsable. El sitio se aloja en <strong>Vercel Inc.</strong>, que puede tratar datos de conexión con las garantías de transferencia internacional previstas en el capítulo V del RGPD. No se ceden datos a otros terceros salvo obligación legal.</p>
+
+  <h2>Tus derechos</h2>
+  <p>Puedes ejercer los derechos de <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong>, así como retirar el consentimiento en cualquier momento, escribiendo a <a href={`mailto:${site.email}`}>{site.email}</a> e indicando el derecho que ejerces. Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
+
+  <h2>Cookies</h2>
+  <p>Este sitio <strong>no usa cookies de analítica, publicidad ni seguimiento</strong>. No se instalan cookies que requieran consentimiento previo. Las fuentes tipográficas y las imágenes se sirven desde el propio dominio, sin peticiones a terceros.</p>
+
+  <h2>Seguridad</h2>
+  <p>El sitio se sirve por HTTPS. Los mensajes viajan cifrados hasta el proveedor del formulario y desde ahí al buzón de correo del responsable.</p>
+</Legal>

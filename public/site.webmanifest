@@ -1,0 +1,15 @@
+{
+  "name": "Natanael Alzate Torres",
+  "short_name": "N. Alzate",
+  "description": "Analista programador y docente técnico acreditado. Cuenca y remoto.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2F7F9",
+  "theme_color": "#0F1E2A",
+  "lang": "es-ES",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/favicon.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

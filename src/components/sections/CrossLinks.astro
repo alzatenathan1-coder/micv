@@ -1,0 +1,13 @@
+---
+import type { CrossLink } from '../../data/content';
+interface Props { links: CrossLink[] }
+const { links } = Astro.props;
+---
+<section class="container-x pt-9 pb-0">
+  <p class="flex flex-wrap items-center gap-x-2 gap-y-2 text-[0.85rem] text-ink-400">
+    <span class="font-mono text-[0.72rem] uppercase tracking-[0.12em]">Otros perfiles</span>
+    {links.map(l => (
+      <a href={l.href} class="rounded-sm border border-ink-200 px-2.5 py-1 text-ink-600 transition-colors hover:border-brand-300 hover:text-brand-700">{l.label}</a>
+    ))}
+  </p>
+</section>

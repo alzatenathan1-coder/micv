@@ -1,0 +1,31 @@
+---
+import type { FaqItem } from '../../data/content';
+interface Props { items: FaqItem[]; heading?: string }
+const { items, heading = 'Preguntas que suelen decidir un proyecto' } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map(i => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a },
+  })),
+};
+---
+{items.length > 0 && (
+<section id="faq" class="container-x py-20 md:py-24">
+  <h2 class="h-section max-w-[24ch] text-ink-950">{heading}</h2>
+
+  <!-- Lista abierta en vez de acordeón: el contenido queda visible e indexable -->
+  <dl class="mt-11 grid gap-x-12 gap-y-8 md:grid-cols-2">
+    {items.map(i => (
+      <div class="reveal">
+        <dt class="h-display text-[1.02rem] font-semibold leading-snug text-ink-950" style="text-wrap:balance">{i.q}</dt>
+        <dd class="mt-2.5 max-w-[54ch] text-[0.94rem] leading-relaxed text-ink-600">{i.a}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>
+)}

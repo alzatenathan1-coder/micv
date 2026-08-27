@@ -1,20 +1,80 @@
 ---
 import '../styles/global.css';
-import { site } from '../data/site';
-import Preloader from '../components/Preloader.astro';
+import { site, facts } from '../data/site';
+import { timeline, formacion } from '../data/content';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import ScrollFX from '../components/ScrollFX.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Deja el JSON-LD de Person solo en la home para no duplicar la entidad. */
+  personSchema?: boolean;
 }
 
 const {
   title = `${site.name} · ${site.role}`,
-  description = 'Docente técnico IT acreditado SEPE (SSCE0110 — Sobresaliente S-8). Analista Programador con experiencia real en Java, bases de datos y gestión de plataformas formativas. Impartiendo actualmente el curso Programación en Java (IFCD052PO, 210 h).',
+  description = 'Analista programador y docente técnico acreditado por el SEPE. Desarrollo web, automatización con IA, gestión de formación FUNDAE y FOCO, y sistemas de calidad. Cuenca y remoto.',
+  personSchema = false,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+/* NC-01 / NC-02: canonical y og:url siempre contra Astro.site,
+   que astro.config.mjs fija en https://natanaelalzatetorres.com
+   Con build.format:'file' el pathname llega como /calidad.html; Vercel
+   sirve /calidad gracias a cleanUrls, así que el canonical debe ir sin .html */
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+const canonical = new URL(cleanPath, Astro.site).toString();
+const ogImage = new URL(site.ogImage, Astro.site).toString();
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.role,
+  email: `mailto:${site.email}`,
+  telephone: site.phone,
+  address: { '@type': 'PostalAddress', addressLocality: 'Cuenca', addressRegion: 'Castilla-La Mancha', addressCountry: 'ES' },
+  url: site.url,
+  image: new URL(site.photo, Astro.site).toString(),
+  /* NC-05 / NC-07: solo perfiles verificados y con contenido. */
+  sameAs: [site.linkedin],
+  knowsAbout: [
+    'Docencia en Formación Profesional para el Empleo',
+    'Programación Java',
+    'Bases de datos SQL',
+    'Gestión de plataformas LMS Moodle',
+    'Justificación FUNDAE y FOCO',
+    'Calidad y mejora continua',
+    'Automatización de procesos con IA',
+  ],
+  knowsLanguage: [
+    { '@type': 'Language', name: 'Español', alternateName: 'es' },
+    { '@type': 'Language', name: 'Inglés', alternateName: 'en' },
+    { '@type': 'Language', name: 'Alemán', alternateName: 'de' },
+  ],
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad de Castilla-La Mancha' },
+  hasCredential: formacion.map(f => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: f.title,
+    description: f.detail,
+  })),
+  worksFor: { '@type': 'Organization', name: timeline[0].org },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Cuenca' },
+    { '@type': 'AdministrativeArea', name: 'Castilla-La Mancha' },
+  ],
+};
+
+const webpage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonical,
+  inLanguage: 'es-ES',
+  isPartOf: { '@type': 'WebSite', name: site.name, url: site.url },
+};
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -30,73 +90,54 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/photo.jpg', Astro.site).toString()} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
-    <meta name="twitter:image" content={new URL('/photo.jpg', Astro.site).toString()} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
+    <!-- NC-10 -->
+    <meta name="theme-color" content="#F2F7F9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F1E2A" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Arma las animaciones solo si hay JS: sin JS, todo el contenido se ve igual. -->
+    <script is:inline>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('js-on');
+      }
+    </script>
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: site.name,
-      jobTitle: site.role,
-      email: `mailto:${site.email}`,
-      telephone: site.phone,
-      address: { '@type': 'PostalAddress', addressLocality: 'Cuenca', addressCountry: 'ES' },
-      url: site.url,
-      image: new URL('/photo.jpg', Astro.site).toString(),
-      sameAs: [site.linkedin, site.github],
-      knowsAbout: [
-        'Docencia en Formación Profesional para el Empleo',
-        'Programación Java',
-        'Bases de datos SQL',
-        'Metodologías activas de aula',
-        'Plataformas FUNDAE y FOCO',
-      ],
-      hasCredential: [
-        { '@type': 'EducationalOccupationalCredential', name: 'CP SSCE0110 — Docencia de la FP para el Empleo (Sobresaliente S-8)' },
-        { '@type': 'EducationalOccupationalCredential', name: 'CP IFCD0210 — Desarrollo de Aplicaciones con Tecnología Web' },
-      ],
-    })} />
-
-    <style is:inline>
-      :root { color-scheme: light; }
-      html { background: #F2F7F9; }
-      /* Evita flash de contenido sin estilo antes de que cargue el preloader */
-      body[data-preloader="active"] .nx-page { opacity: 0; }
-    </style>
+    <script type="application/ld+json" set:html={JSON.stringify(webpage)} />
+    {personSchema && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
   </head>
 
-  <body data-preloader="active">
-    <Preloader />
-    <ScrollFX />
-
-    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[1000] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">
-      Saltar al contenido
-    </a>
-
-    <div class="nx-page">
+  <body class="bg-grain">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded focus:bg-ink-950 focus:px-4 focus:py-2 focus:text-white">Saltar al contenido</a>
+    <Navbar />
+    <main id="main" class="nx-page">
       <slot />
-    </div>
-
-    <div id="nx-cursor-ring" aria-hidden="true"></div>
-    <div id="nx-cursor-dot" aria-hidden="true"></div>
-
+    </main>
+    <Footer />
+    <ScrollFX />
     <script>
-      import { initAll } from '../scripts/main.ts';
-      initAll();
+      import { initReveal } from '../scripts/reveal';
+      import { initScrollFX } from '../scripts/scrollfx';
+      initReveal();
+      initScrollFX();
+      document.body.classList.add('has-loaded');
     </script>
   </body>
 </html>

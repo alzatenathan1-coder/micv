@@ -1,0 +1,18 @@
+---
+interface Props { steps: { step: string; body: string }[] }
+const { steps } = Astro.props;
+---
+<section id="proceso" class="container-x py-20 md:py-24">
+  <h2 class="h-section text-ink-950">Cómo trabajamos</h2>
+  <ol class="mt-11 grid gap-8 md:grid-cols-4">
+    {steps.map((s, i) => (
+      <li class="reveal relative pt-6">
+        <span aria-hidden="true" class="absolute left-0 top-0 h-px w-full bg-ink-200"></span>
+        <span aria-hidden="true" class="absolute left-0 top-0 h-px w-8 bg-brand-500"></span>
+        <span class="font-mono text-[0.75rem] tabular-nums text-brand-600">Paso {i + 1}</span>
+        <h3 class="h-display mt-2 text-[1.02rem] font-semibold text-ink-950">{s.step}</h3>
+        <p class="mt-2 text-[0.92rem] leading-relaxed text-ink-600">{s.body}</p>
+      </li>
+    ))}
+  </ol>
+</section>

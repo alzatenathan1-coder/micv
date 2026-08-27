@@ -1,0 +1,29 @@
+---
+import Base from './Base.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Extras from '../components/sections/Extras.astro';
+import Process from '../components/sections/Process.astro';
+import Timeline from '../components/sections/Timeline.astro';
+import Portfolio from '../components/sections/Portfolio.astro';
+import About from '../components/sections/About.astro';
+import Faq from '../components/sections/Faq.astro';
+import Contact from '../components/sections/Contact.astro';
+import CrossLinks from '../components/sections/CrossLinks.astro';
+import type { Profile } from '../data/content';
+
+interface Props { profile: Profile }
+const { profile: p } = Astro.props;
+---
+<Base title={p.title} description={p.description} personSchema={p.slug === 'home'}>
+  <Hero profile={p} />
+  <CrossLinks links={p.crossLinks} />
+  <Services items={p.services} note={p.servicesNote} />
+  {p.extras && <Extras heading={p.extras.heading} items={p.extras.items} />}
+  {p.process && <Process steps={p.process} />}
+  {p.showPortfolio && <Portfolio detailed={p.slug === 'casos'} />}
+  {p.showTimeline && <Timeline />}
+  {p.showAbout && <About />}
+  {p.faq && <Faq items={p.faq} />}
+  <Contact />
+</Base>

@@ -1,0 +1,35 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../data/site';
+---
+<Legal
+  title="Aviso legal"
+  description="Datos identificativos del titular de natanaelalzatetorres.com y condiciones de uso del sitio."
+  heading="Aviso legal"
+  updated="27 de agosto de 2026"
+>
+  <h2>Titular del sitio</h2>
+  <ul>
+    <li><strong>Titular:</strong> {site.name}</li>
+    <li><strong>NIF:</strong> __nif__</li>
+    <li><strong>Domicilio a efectos de notificaciones:</strong> __domicilio__, Cuenca, España</li>
+    <li><strong>Correo electrónico:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+    <li><strong>Teléfono:</strong> {site.phone}</li>
+    <li><strong>Actividad:</strong> servicios de desarrollo web, automatización de procesos, formación técnica y consultoría de calidad</li>
+  </ul>
+
+  <h2>Objeto</h2>
+  <p>Este aviso regula el acceso y uso de <strong>natanaelalzatetorres.com</strong>. La navegación por el sitio atribuye la condición de usuario e implica la aceptación de estas condiciones.</p>
+
+  <h2>Condiciones de uso</h2>
+  <p>El usuario se compromete a hacer un uso lícito del sitio y a no emplearlo para actividades contrarias a la ley, a la buena fe o al orden público. Queda prohibida la reproducción total o parcial de los contenidos sin autorización previa y por escrito del titular.</p>
+
+  <h2>Propiedad intelectual e industrial</h2>
+  <p>Los textos, el diseño, el código fuente y los elementos gráficos del sitio son titularidad de {site.name}, salvo los materiales de terceros identificados como tales. Los proyectos mostrados en la sección de casos pertenecen a sus respectivos clientes y se muestran a título de referencia profesional.</p>
+
+  <h2>Exclusión de responsabilidad</h2>
+  <p>El titular no se hace responsable del uso que terceros hagan de la información publicada, ni de los daños derivados de interrupciones del servicio ajenas a su control. Los enlaces a sitios externos se ofrecen únicamente como referencia y no implican supervisión de sus contenidos.</p>
+
+  <h2>Legislación aplicable</h2>
+  <p>Estas condiciones se rigen por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales del domicilio del titular, salvo que la normativa de consumo disponga otro fuero.</p>
+</Legal>

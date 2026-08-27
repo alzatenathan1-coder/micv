@@ -1,4 +1,21 @@
 @import "tailwindcss";
+@import "@fontsource-variable/fraunces/opsz.css";
+
+/* Satoshi y SF Mono se sirven desde public/fonts (assets propios del proyecto). */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2-variations");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SFMono";
+  src: url("/fonts/SFMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   /* Paleta */
@@ -32,9 +49,9 @@
   --color-whatsapp: #25D366;
 
   /* Tipografía */
-  --font-sans:    "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
-  --font-mono:    "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-sans:    "Satoshi", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif; /* @fontsource-variable */
+  --font-mono:    "SFMono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Radios */
   --radius-sm: 6px;
@@ -68,7 +85,7 @@
     background: transparent;
     color: var(--color-ink-950);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     position: relative;
@@ -97,16 +114,18 @@
 @layer components {
   .h-display {
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.08;
   }
 
   .h-section {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    font-size: clamp(1.55rem, 3.1vw, 2.15rem);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.12;
+    text-wrap: balance;
   }
 
   .eyebrow {
@@ -221,13 +240,14 @@
     border-color: var(--color-brand-200);
   }
 
-  .reveal {
+  /* Sin JS el contenido se ve. La animación solo se arma si html.js-on existe. */
+  html.js-on .reveal {
     opacity: 0;
     transform: translateY(18px);
     transition: opacity 0.7s var(--ease-out-expo),
                 transform 0.7s var(--ease-out-expo);
   }
-  .reveal.is-visible {
+  html.js-on .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -244,7 +264,8 @@
 }
 
 /* Entrance del contenido tras preloader */
-.nx-page {
+.nx-page { opacity: 1; transform: none; }
+html.js-on .nx-page {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.9s var(--ease-out-expo),
