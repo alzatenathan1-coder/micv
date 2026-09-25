@@ -1,0 +1,93 @@
+---
+/* LSSI art. 22.2 + guía AEPD: la analítica no se carga hasta que el visitante acepta,
+   rechazar cuesta lo mismo que aceptar y la elección se puede cambiar desde el pie. */
+const GA_ID = 'G-J54BVF29X5';
+---
+<div class="cc glass" data-cc hidden role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
+  <p class="text-[0.88rem] leading-relaxed text-ink-800">
+    Uso <strong>Google Analytics</strong> para saber qué páginas se visitan y mejorar el sitio. Solo se activa si aceptas.
+    <a href="/privacidad#cookies" class="link-underline text-brand-700">Más información</a>
+  </p>
+  <div class="mt-3 flex gap-2">
+    <button type="button" class="btn btn-ghost flex-1 text-[0.82rem]" data-cc-choice="denied">Rechazar</button>
+    <button type="button" class="btn btn-ghost flex-1 text-[0.82rem]" data-cc-choice="granted">Aceptar</button>
+  </div>
+</div>
+
+<script is:inline define:vars={{ GA_ID }}>
+  (function () {
+    var KEY = 'nx-consent';
+    var MAX_AGE = 365 * 24 * 3600 * 1000;
+    var box = document.querySelector('[data-cc]');
+
+    function read() {
+      try {
+        var c = JSON.parse(localStorage.getItem(KEY) || 'null');
+        return c && Date.now() - c.t < MAX_AGE ? c.v : null;
+      } catch (e) { return null; }
+    }
+    function save(v) {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: v, t: Date.now() })); } catch (e) {}
+    }
+    function loadGA() {
+      if (window.__nxGA) return;
+      window.__nxGA = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+    }
+    function clearGA() {
+      window['ga-disable-' + GA_ID] = true;
+      var host = location.hostname.replace(/^www\./, '');
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (name.indexOf('_ga') !== 0) return;
+        ['', '; domain=' + host, '; domain=.' + host].forEach(function (d) {
+          document.cookie = name + '=; Max-Age=0; path=/' + d;
+        });
+      });
+    }
+    function show() { box.hidden = false; }
+
+    var current = read();
+    if (current === 'granted') loadGA();
+    else if (current === null) show();
+
+    box.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-cc-choice]');
+      if (!btn) return;
+      var v = btn.getAttribute('data-cc-choice');
+      save(v);
+      box.hidden = true;
+      if (v === 'granted') loadGA();
+      else if (window.__nxGA) { clearGA(); location.reload(); }
+      else clearGA();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-cc-open]')) { e.preventDefault(); show(); }
+    });
+  })();
+</script>
+
+<style>
+  .cc {
+    position: fixed;
+    z-index: 70;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: 24rem;
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .94);
+  }
+  @media (min-width: 640px) {
+    .cc { left: 1.5rem; right: auto; bottom: 1.5rem; }
+  }
+</style>

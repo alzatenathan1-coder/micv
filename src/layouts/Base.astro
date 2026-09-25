@@ -5,6 +5,7 @@ import { timeline, formacion } from '../data/content';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ScrollFX from '../components/ScrollFX.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title?: string;
@@ -137,6 +138,7 @@ const webpage = {
     </main>
     <Footer contactHref={contactHref} />
     <ScrollFX />
+    <CookieConsent />
     <!-- Raíl de capítulos: lo construye story.ts a partir de [data-chapter] -->
     <nav class="story-rail" aria-label="Capítulos de la página" data-rail hidden></nav>
     <script>
