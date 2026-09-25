@@ -14,6 +14,7 @@ export function initScrollFX(): void {
   const layers = parallax
     ? Array.from(parallax.querySelectorAll<HTMLElement>('[data-depth]'))
     : [];
+  const tilt = document.querySelector<HTMLElement>('[data-tilt]');
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = matchMedia('(pointer: coarse)').matches;
@@ -59,6 +60,10 @@ export function initScrollFX(): void {
     if (enableMouseFX && parallax) {
       parallax.style.setProperty('--mx', `${(smoothMX * 100).toFixed(2)}%`);
       parallax.style.setProperty('--my', `${(smoothMY * 100).toFixed(2)}%`);
+    }
+    if (enableMouseFX && tilt) {
+      tilt.style.setProperty('--dx', dx.toFixed(3));
+      tilt.style.setProperty('--dy', dy.toFixed(3));
     }
   };
 

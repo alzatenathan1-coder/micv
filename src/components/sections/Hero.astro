@@ -17,8 +17,8 @@ const stats = (p.stats ?? []).map(s => {
   data-chapter="Inicio" data-chapter-skip
   class:list={['relative overflow-hidden border-b border-ink-100', animated && 'lg:flex lg:min-h-[calc(100svh-4rem)] lg:items-center lg:pb-16']}
 >
-  <div class="container-x grid w-full gap-12 py-16 md:py-24 lg:grid-cols-[1.55fr_1fr] lg:items-end">
-    <div class="max-w-[46ch] lg:max-w-none">
+  <div class="hero-grid container-x w-full pt-10 pb-16 md:py-24">
+    <div class="hero-copy max-w-[46ch] lg:max-w-none">
       <p class="eyebrow hero-in" style="--d:0">{p.eyebrow}</p>
       {animated ? (
         <h1 class="h-display mt-5 text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-ink-950">
@@ -58,21 +58,45 @@ const stats = (p.stats ?? []).map(s => {
       )}
     </div>
 
-    <!-- Bloque-tesis desplazado: rompe la simetría del hero centrado -->
-    <aside class="hero-in relative lg:-mb-6" style="--d:6">
-      <div class="glass flex items-start gap-4 rounded-2xl rounded-tl-sm p-5 md:p-6">
+    <!-- Retrato: arco de marca y la cabeza rompe el marco por arriba -->
+    <div class="hero-visual">
+    <figure class="hero-portrait hero-in" style="--d:1" data-tilt>
+      <span class="hp-outline" aria-hidden="true"></span>
+      <span class="hp-arch" aria-hidden="true"></span>
+      <picture>
+        <source type="image/avif" srcset="/img/retrato-400.avif 400w, /img/retrato-660.avif 660w" sizes="(min-width: 1024px) 460px, 280px" />
+        <source type="image/webp" srcset="/img/retrato-400.webp 400w, /img/retrato-660.webp 660w" sizes="(min-width: 1024px) 460px, 280px" />
         <img
-          src={site.photo} alt={site.name}
-          width="200" height="200" loading="eager" decoding="async" fetchpriority="high"
-          class="h-16 w-16 shrink-0 rounded-lg rounded-br-sm border border-ink-100 object-cover md:h-20 md:w-20"
+          src="/img/retrato-660.webp" alt={`Retrato de ${site.name}`}
+          width="660" height="740" loading="eager" decoding="async" fetchpriority="high"
+          class="hp-img"
         />
-        <div>
-          <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-brand-600">Por qué yo</p>
-          <p class="mt-2 text-[0.95rem] leading-relaxed text-ink-800">{p.claim}</p>
-        </div>
+      </picture>
+      <figcaption class="hp-tag glass">
+        <span class="hp-tag-dot" aria-hidden="true"></span>
+        <span>
+          <span class="block text-[0.86rem] font-semibold leading-tight text-ink-950">{site.name}</span>
+          <span class="block font-mono text-[0.64rem] uppercase tracking-[0.12em] text-ink-600">Cuenca · remoto</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <aside class="hero-claim hero-in" style="--d:6">
+      <div class="glass rounded-2xl rounded-tl-sm p-5 md:p-6">
+        <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-brand-600">Por qué yo</p>
+        <p class="mt-2 text-[0.95rem] leading-relaxed text-ink-800">{p.claim}</p>
       </div>
     </aside>
+    </div>
   </div>
+
+  <!-- Recorte del retrato en unidades relativas: cúpula del arco + franja superior para la cabeza -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+    <clipPath id="hp-clip" clipPathUnits="objectBoundingBox">
+      <rect x="0" y="0" width="1" height="0.36" />
+      <path d="M0,1 L0,0.686 A0.5,0.446 0 0 1 1,0.686 L1,1 Z" />
+    </clipPath>
+  </svg>
 
   {animated && (
     <a href="#showcase" class="scroll-cue hero-in" style="--d:7" aria-label="Bajar al primer capítulo">
