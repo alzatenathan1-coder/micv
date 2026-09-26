@@ -3,26 +3,25 @@ import { about } from '../../data/content';
 import { site } from '../../data/site';
 import ChapterLabel from '../ChapterLabel.astro';
 ---
-<section id="sobre-mi" data-chapter="Quién hay detrás" class="border-y border-ink-100 bg-white/50">
+<section id="sobre-mi" data-chapter="Quién hay detrás" class="border-y border-ink-200 bg-white">
   <div class="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-[1.5fr_1fr]">
     <div>
       <ChapterLabel title="Quién hay detrás" />
       <h2 class="h-section mt-3 text-ink-950">{about.heading}</h2>
       <div class="mt-7 flex max-w-[66ch] flex-col gap-4 text-[1.02rem] leading-relaxed text-ink-600">
-        {about.paragraphs.map((t, i) => <p class:list={['reveal', `reveal-delay-${i + 1}`]}>{t}</p>)}
+        {about.paragraphs.map(t => <p>{t}</p>)}
       </div>
     </div>
 
     <div class="lg:pt-4">
-      <!-- Reveal Image Mask: la foto se descubre de abajo arriba al entrar -->
-      <div class="reveal mask-reveal mb-7 w-44 overflow-hidden rounded-2xl rounded-br-sm border border-ink-100">
+      <div class="mb-7 w-44 overflow-hidden border border-ink-300">
         <img
           src={site.photo} alt={site.name}
           width="480" height="480" loading="lazy" decoding="async"
           class="aspect-square w-full object-cover"
         />
       </div>
-      <dl class="flex flex-col gap-px overflow-hidden rounded-lg border border-ink-100 bg-ink-100">
+      <dl class="flex flex-col gap-px overflow-hidden border border-ink-200 bg-ink-200">
         {about.data.map(d => (
           <div class="flex items-baseline gap-4 bg-ink-50 px-4 py-2.5">
             <dt class="w-24 shrink-0 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-ink-400">{d.k}</dt>

@@ -21,7 +21,7 @@ const schema = {
   <!-- Lista abierta en vez de acordeón: el contenido queda visible e indexable -->
   <dl class="mt-11 grid gap-x-12 gap-y-8 md:grid-cols-2">
     {items.map(i => (
-      <div class="reveal">
+      <div >
         <dt class="h-display text-[1.02rem] font-semibold leading-snug text-ink-950" style="text-wrap:balance">{i.q}</dt>
         <dd class="mt-2.5 max-w-[54ch] text-[0.94rem] leading-relaxed text-ink-600">{i.a}</dd>
       </div>

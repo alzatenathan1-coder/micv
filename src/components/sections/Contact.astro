@@ -7,25 +7,19 @@ import ChapterLabel from '../ChapterLabel.astro';
    en la propia página en vez de dejar al usuario en una respuesta de la API.
    Si algún día falta la clave, NO se publica un formulario que no envía. */
 const formListo = site.formKey.length > 0;
-const field = 'w-full min-w-0 rounded-sm border border-ink-200 bg-white px-3 py-2.5 text-[0.92rem] text-ink-950 outline-none transition-colors focus:border-brand-500';
+const field = 'w-full min-w-0 rounded-sm border border-ink-200 bg-white px-3 py-2.5 text-[0.92rem] text-ink-950 focus:border-brand-700';
 ---
-<section id="contacto" data-chapter="Tu proyecto" class="relative overflow-hidden border-t border-ink-100 bg-white/60">
-  <!-- Lamp (Aceternity, 21st.dev) en versión clara: un haz se abre sobre el último capítulo -->
-  <div class="lamp reveal" aria-hidden="true">
-    <span class="lamp-beam"></span>
-    <span class="lamp-glow"></span>
-    <span class="lamp-line"></span>
-  </div>
-  <div class="container-x relative grid grid-cols-1 gap-12 pb-20 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1fr_1.25fr]">
+<section id="contacto" data-chapter="Tu proyecto" class="border-t border-ink-950 bg-white">
+  <div class="container-x relative grid grid-cols-1 gap-12 py-20 md:py-28 lg:grid-cols-[1fr_1.25fr]">
     <div>
       <ChapterLabel title="Tu proyecto" />
-      <h2 class="h-display mt-3 text-[clamp(2.2rem,5vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-ink-950">Hablemos<span class="text-gradient">.</span></h2>
+      <h2 class="h-display mt-3 text-[clamp(2.2rem,5vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-ink-950">Hablemos</h2>
       <p class="mt-5 max-w-[46ch] text-[1rem] leading-relaxed text-ink-600">
         Un proyecto web, una automatización, una convocatoria docente o una oferta de empleo:
         cuéntamelo por el formulario o por correo y te respondo yo, por escrito, en menos de 24 horas laborables.
       </p>
 
-      <dl class="mt-8 flex flex-col gap-px overflow-hidden rounded-lg border border-ink-100 bg-ink-100">
+      <dl class="mt-8 flex flex-col gap-px overflow-hidden border border-ink-200 bg-ink-200">
         <div class="flex items-baseline gap-4 bg-ink-50 px-4 py-3">
           <dt class="w-20 shrink-0 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-ink-400">Email</dt>
           <dd><a class="text-[0.92rem] text-ink-800 hover:text-brand-700" href={`mailto:${site.email}`}>{site.email}</a></dd>
@@ -51,7 +45,7 @@ const field = 'w-full min-w-0 rounded-sm border border-ink-200 bg-white px-3 py-
       action={site.formEndpoint}
       method="POST"
       data-email={site.email}
-      class="rounded-xl rounded-tr-sm border border-ink-100 bg-ink-50 p-6 md:p-8"
+      class="border border-ink-300 bg-ink-50 p-6 md:p-8"
     >
       <input type="hidden" name="access_key" value={site.formKey} />
       <input type="hidden" name="subject" value="Nuevo contacto desde natanaelalzatetorres.com" />
@@ -105,7 +99,7 @@ const field = 'w-full min-w-0 rounded-sm border border-ink-200 bg-white px-3 py-
       </div>
     </form>
     ) : (
-    <div class="flex flex-col justify-center rounded-xl rounded-tr-sm border border-ink-100 bg-ink-50 p-8 md:p-10">
+    <div class="flex flex-col justify-center border border-ink-300 bg-ink-50 p-8 md:p-10">
       <p class="h-display text-[1.25rem] font-semibold text-ink-950">Escríbeme directamente</p>
       <p class="mt-3 max-w-[44ch] text-[0.96rem] leading-relaxed text-ink-600">
         Cuéntame qué necesitas, en qué plazo y con quién trabajarías. Contesto yo.

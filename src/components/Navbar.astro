@@ -6,7 +6,7 @@ const { contactHref = '/#contacto' } = Astro.props;
 // build.format:'file' entrega /calidad.html: se normaliza para marcar la página activa.
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/(index)?$/, '') || '/';
 ---
-<header class="sticky top-0 z-40 border-b border-ink-100/80 bg-ink-50/85 backdrop-blur-md">
+<header class="sticky top-0 z-40 border-b border-ink-200 bg-ink-50">
   <nav class="container-x flex items-center gap-4 py-3" aria-label="Principal">
     <a href="/" class="h-display shrink-0 text-[1.05rem] font-semibold tracking-tight text-ink-950">
       Natanael&nbsp;Alzate
@@ -37,7 +37,7 @@ const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/(index)?$/, ''
           <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
         </svg>
       </summary>
-      <ul class="absolute right-0 top-11 w-60 rounded-lg border border-ink-100 bg-white p-2 shadow-lg">
+      <ul class="absolute right-0 top-11 w-60 rounded-sm border border-ink-300 bg-white p-2 shadow-md">
         {navAll.map(n => (
           <li>
             <a
