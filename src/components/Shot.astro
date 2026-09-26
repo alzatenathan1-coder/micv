@@ -7,7 +7,7 @@ interface Props {
   class?: string;
 }
 const { project: p, aspect = 'aspect-[3/2]', class: extra } = Astro.props;
-// Captura enmarcada como ventana de navegador: el dominio real queda a la vista.
+// Captura con el dominio real al pie.
 // En escritorio, al pasar el ratón la captura se desplaza y muestra la página entera (.shot).
 const host = new URL(p.url).host;
 const Tag = p.proximamente ? 'div' : 'a';
@@ -18,18 +18,13 @@ const h = Math.round((w * rh) / rw);
 ---
 <Tag
   {...(p.proximamente ? {} : { href: p.url, rel: 'noopener', 'aria-label': `Abrir ${p.name} (${host})` })}
-  class:list={['group block overflow-hidden rounded-xl border border-ink-100 bg-white shadow-sm transition-shadow hover:shadow-md', extra]}
+  class:list={['group flex flex-col overflow-hidden border border-ink-300 bg-white', extra]}
 >
-  <span class="flex items-center gap-1.5 border-b border-ink-100 bg-ink-50 px-3 py-2" aria-hidden="true">
-    <span class="h-2 w-2 rounded-full bg-ink-200"></span>
-    <span class="h-2 w-2 rounded-full bg-ink-200"></span>
-    <span class="h-2 w-2 rounded-full bg-ink-200"></span>
-    <span class="ml-2 truncate font-mono text-[0.7rem] text-ink-400">{host}{p.proximamente && ' · próximamente'}</span>
-  </span>
   <img
     src={p.img}
     alt={`Captura de la web ${p.name}`}
     width={w} height={h} loading="lazy" decoding="async"
     class:list={['shot w-full object-cover', aspect]}
   />
+  <span class="border-t border-ink-300 px-3 py-2 font-mono text-[0.7rem] text-ink-600">{host}{p.proximamente && ' · próximamente'}</span>
 </Tag>

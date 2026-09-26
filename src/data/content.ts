@@ -19,8 +19,6 @@ export interface Profile {
   ctaSecondary?: { label: string; href: string };
   stats?: Stat[];        // cifras verificables bajo los CTA
   /** Titular animado: arranque fijo + frases que rotan (la h1 completa queda en `h1`). */
-  h1Lead?: string;
-  rotating?: string[];
   /** Manifiesto que se ilumina palabra a palabra con el scroll. *palabra* = acento. */
   manifesto?: string;
   cv?: string;
@@ -44,7 +42,7 @@ export interface Profile {
 
 export const timeline = [
   {
-    years: '2025 — hoy',
+    years: '2025-hoy',
     role: 'Desarrollo web, sistemas y calidad',
     org: 'F2Prom',
     body: 'Mantengo en producción las webs corporativas y la plataforma LMS de e-learning de una empresa de formación, del servidor a la base de datos. Además llevo calidad interna, control documental y contabilidad de costes.',
@@ -52,34 +50,34 @@ export const timeline = [
   },
   {
     years: '2026',
-    role: 'Docente — Programación en Java (IFCD052PO)',
+    role: 'Docente de Programación en Java (IFCD052PO)',
     org: 'HAZERTA',
     body: 'Impartición del curso de Programación en Java, 210 h, con metodología propia de Flipped Classroom apoyada en IA: NotebookLM, Cursor IDE y Claude.',
     result: 'Diseño íntegro de la programación didáctica, rúbricas y material de aula, de cero a entrega.',
   },
   {
     years: '2026',
-    role: 'Docente — Data Mining y Business Intelligence (IFCT032PO)',
+    role: 'Docente de Data Mining y Business Intelligence (IFCT032PO)',
     org: 'Fundación Empleo y Sostenibilidad',
     body: 'Cuarenta horas de selección, limpieza, transformación, análisis y visualización de datos para decisiones operativas.',
     result: 'Conceptos técnicos explicados a un grupo con perfiles muy distintos, sin bajar el nivel.',
   },
   {
-    years: '2022 — 23',
+    years: '2022-2023',
     role: 'Asesor financiero y soporte de banca digital',
     org: 'CaixaBank',
     body: 'CRM y software financiero del banco para extraer, analizar y gestionar la base de clientes B2B y B2C, con soporte técnico en banca electrónica.',
     result: 'Programas de alfabetización digital: tecnología acercada a quien más la temía.',
   },
   {
-    years: '2018 — 21',
+    years: '2018-2021',
     role: 'Desarrollo de e-commerce y marketing digital',
     org: 'Pinturas COES',
     body: 'Tienda online corporativa construida desde cero con HTML, CSS, JavaScript y Java en servidor para un fabricante con más de treinta años de marca.',
     result: 'Catálogo técnico digitalizado, base de datos de productos e integración con el ERP Sage.',
   },
   {
-    years: '2017 — 18',
+    years: '2017-2018',
     role: 'Desarrollador backend Java',
     org: 'Hybrid Company · Praga',
     body: 'Lógica de negocio en Java para aplicaciones de televisión interactiva bajo el estándar europeo HbbTV.',
@@ -209,7 +207,7 @@ export interface Capability {
 export const capabilities: Capability[] = [
   {
     title: 'Desarrollo web a medida',
-    body: 'Webs rápidas y mantenibles, de la arquitectura de contenidos al despliegue, sin plantillas genéricas.',
+    body: 'Webs rápidas y mantenibles, de la arquitectura de contenidos al despliegue.',
     skills: ['Next.js', 'React', 'Astro', 'Tailwind CSS', 'HTML · CSS · JS', 'Vite', 'WebP y carga diferida'],
     evidence: [
       { label: 'Logístikos · Next.js', href: '/casos#logistikos' },
@@ -239,7 +237,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: 'Privacidad y cumplimiento web',
-    body: 'RGPD, LSSI y cookies aplicados en el código, no solo en el texto legal.',
+    body: 'RGPD, LSSI y cookies aplicados en el código y en el texto legal.',
     skills: ['RGPD y LOPDGDD', 'Guía de cookies AEPD', 'Bloqueo previo de analítica', 'Aviso legal y privacidad'],
     evidence: [
       { label: 'Logístikos · gestor de consentimiento propio', href: '/casos#logistikos' },
@@ -308,14 +306,7 @@ export const profiles: Profile[] = [
     description: 'Portfolio de Natanael Alzate Torres: seis webs publicadas en Next.js, React y Astro, docencia IT acreditada, formación FUNDAE y FOCO y calidad ADGD01.',
     eyebrow: 'Portfolio · Cuenca y remoto · autónomo disponible',
     h1: 'Construyo webs y sistemas que funcionan en producción, y formo a los equipos que los usan.',
-    h1Lead: 'Construyo',
-    rotating: [
-      'webs que funcionan en producción.',
-      'sistemas que aguantan una auditoría.',
-      'automatizaciones que devuelven horas.',
-      'cursos técnicos que se entienden.',
-    ],
-    manifesto: 'Primero entiendo el *negocio*. Después escribo el *código*. Y al final se lo explico a tu *equipo* para que lo use y lo mantenga sin depender de mí. Así trabajo desde 2017: en Praga, en una fábrica de pinturas, en un banco y en el aula.',
+    manifesto: 'Primero entiendo el negocio. Después escribo el código. Y al final se lo explico a tu equipo para que lo use y lo mantenga sin depender de mí. Así trabajo desde 2017: en Praga, en una fábrica de pinturas, en un banco y en el aula.',
     intro: [
       'Soy Natanael Alzate Torres, analista programador y docente técnico acreditado por el SEPE. Aquí está lo que he construido, las capacidades que hay detrás y dónde comprobar cada una: todos los proyectos están publicados y enlazados.',
       'Si llegas desde el pie de una web firmada por Nathan Torres, estás en el sitio correcto: es mi firma como desarrollador.',
@@ -330,11 +321,11 @@ export const profiles: Profile[] = [
       { value: String(facts.anosDesde), label: 'primer software en producción' },
     ],
     services: [
-      { title: 'Webs a medida para negocios que necesitan vender mejor', body: 'Diseño y programo páginas rápidas, claras y mantenibles para empresas, comercios y proyectos profesionales. Sin plantilla genérica: contenido, estructura y código pensados para que Google entienda el servicio y el cliente sepa qué hacer.' },
+      { title: 'Webs a medida para negocios que necesitan vender mejor', body: 'Diseño y programo páginas rápidas y mantenibles para empresas, comercios y proyectos profesionales. Contenido, estructura y código pensados para que Google entienda el servicio y el cliente sepa qué hacer.' },
       { title: 'Automatización de procesos e IA administrativa', body: 'Detecto las tareas repetitivas que se comen las horas de tu equipo y las convierto en flujos más simples: formularios, bases de datos, informes, agentes de IA y conexiones seguras con ERP como Sage o SAP FICO.' },
-      { title: 'Formación técnica, LMS y cumplimiento e-learning', body: 'Formo a equipos y dejo plataformas Moodle, documentación SEPE, FOCO y FUNDAE listas para revisión. La parte técnica y la didáctica van juntas: menos improvisación, más trazabilidad.' },
+      { title: 'Formación técnica, LMS y cumplimiento e-learning', body: 'Formo a equipos y dejo plataformas Moodle, documentación SEPE, FOCO y FUNDAE listas para revisión. La parte técnica y la didáctica van juntas, con cada paso documentado.' },
     ],
-    servicesNote: 'Primero mapa de negocio; después arquitectura, contenido y automatización. El resultado no es solo una web bonita: es un sistema pequeño, rápido y medible que se puede explicar, mantener y mejorar.',
+    servicesNote: 'Primero entiendo el negocio; después vienen la arquitectura, el contenido y la automatización. Entrego sistemas pequeños y documentados que tu equipo puede mantener.',
     faq: [
       { q: '¿Haces webs para negocios pequeños o solo proyectos técnicos?', a: 'Las dos cosas: desde una landing de reservas para una barbería hasta una web B2B de nueve páginas con simulador y API propia. Cada proyecto de esta página enlaza a la web publicada para que lo compruebes.' },
       { q: '¿Puedes automatizar tareas administrativas con IA?', a: 'Sí. Empiezo con un diagnóstico pequeño: qué tarea se repite, qué dato se usa, quién valida y qué herramienta ya existe. La página de automatización detalla proceso y entregables.' },
@@ -361,9 +352,9 @@ export const profiles: Profile[] = [
     eyebrow: 'Impartiendo ahora · Java IFCD052PO, 210 h',
     h1: 'Enseño tecnología que uso: programar, manejar los datos y sostener los sistemas.',
     intro: [
-      'Soy Natanael Alzate Torres, docente técnico IT acreditado por el SEPE (SSCE0110, nivel 3, nota media 8,2). Combino programación real desde 2017 —Java, bases de datos, ERP— con el aula: imparto certificados de profesionalidad, programación y análisis de datos a profesionales en activo.',
+      'Soy Natanael Alzate Torres, docente técnico IT acreditado por el SEPE (SSCE0110, nivel 3, nota media 8,2). Combino programación real desde 2017 (Java, bases de datos, ERP) con el aula: imparto certificados de profesionalidad, programación y análisis de datos a profesionales en activo.',
     ],
-    claim: '250 horas impartidas en 2026 entre programación en Java (210 h) y Data Mining con Business Intelligence (40 h). Materia técnica convertida en aprendizaje práctico, medible y aplicable desde el primer día.',
+    claim: '250 horas impartidas en 2026 entre programación en Java (210 h) y Data Mining con Business Intelligence (40 h). Materia técnica explicada con ejercicios sobre casos reales y evaluada con rúbricas.',
     ctaPrimary: { label: 'Colaborar con tu centro', href: '#contacto' },
     ctaSecondary: { label: 'Descargar CV docente', href: cvs.docencia },
     cv: cvs.docencia,

@@ -4,13 +4,13 @@ import ChapterLabel from '../ChapterLabel.astro';
 interface Props { heading: string; items: Service[] }
 const { heading, items } = Astro.props;
 ---
-<section data-chapter="En detalle" class="border-y border-ink-100 bg-white/50">
+<section data-chapter="En detalle" class="border-y border-ink-200 bg-white">
   <div class="container-x py-20 md:py-24">
     <ChapterLabel title="En detalle" />
     <h2 class="h-section mt-3 max-w-[26ch] text-ink-950">{heading}</h2>
     <div class="mt-11 grid gap-x-10 gap-y-9 sm:grid-cols-2">
       {items.map(it => (
-        <div class="reveal border-t border-ink-200 pt-5">
+        <div class="border-t border-ink-200 pt-5">
           <h3 class="h-display text-[1.02rem] font-semibold text-ink-950">{it.title}</h3>
           <p class="mt-2.5 max-w-[52ch] text-[0.94rem] leading-relaxed text-ink-600">{it.body}</p>
         </div>
