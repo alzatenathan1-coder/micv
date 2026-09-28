@@ -95,7 +95,11 @@ export interface Formacion {
 }
 
 export const formacion: Formacion[] = [
-  { year: '2026', title: 'Microsoft Office Specialist (MOS)', detail: 'Nivel Expert en Excel y Associate en Excel, Word, PowerPoint y Outlook. Certificación oficial Microsoft emitida por Certiport, con exámenes prácticos sobre la aplicación real, no tipo test.', badge: '/img/badges/mos-excel-associate.webp' },
+  { year: '2026', title: 'Microsoft Office Specialist: Excel Expert', detail: 'Certificación oficial Microsoft emitida por Certiport. Fórmulas avanzadas, análisis de datos y macros, con examen práctico en Excel real, no tipo test.' },
+  { year: '2026', title: 'Microsoft Office Specialist: Excel Associate', detail: 'Certificación oficial Microsoft emitida por Certiport. Fórmulas, tablas y análisis de datos en Excel real, no tipo test.', badge: '/img/badges/mos-excel-associate.webp' },
+  { year: '2026', title: 'Microsoft Office Specialist: Word Associate', detail: 'Certificación oficial Microsoft emitida por Certiport. Creación de documentos, formato, tablas y referencias.' },
+  { year: '2026', title: 'Microsoft Office Specialist: PowerPoint Associate', detail: 'Certificación oficial Microsoft emitida por Certiport. Diseño de diapositivas, gráficos, transiciones y animaciones.' },
+  { year: '2026', title: 'Microsoft Office Specialist: Outlook Associate', detail: 'Certificación oficial Microsoft emitida por Certiport. Gestión de correo, calendario, contactos y tareas.' },
   { year: '2025', title: 'Calidad y Mejora Continua (ADGD01)', detail: '425 h presenciales, certificado registrado en FOCO. Modelos de gestión, mejora continua, auditorías, metrología y estadística aplicada.' },
   { year: '2025', title: 'Docencia de la FP para el Empleo (SSCE0110)', detail: 'Certificado de profesionalidad nivel 3, 380 h, nota media 8,2.' },
   { year: '2017', title: 'Desarrollo de Aplicaciones con Tecnologías Web (IFCD0210)', detail: 'Certificado de profesionalidad nivel 3, 590 h.' },
