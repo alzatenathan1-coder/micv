@@ -88,6 +88,7 @@ export const timeline = [
 ];
 
 export const formacion = [
+  { year: '2026', title: 'Microsoft Office Specialist: Excel Associate', detail: 'Certificación oficial Microsoft (Microsoft 365 Apps) emitida por Certiport. Examen práctico sobre fórmulas, tablas y análisis de datos en Excel real, no tipo test.' },
   { year: '2025', title: 'Calidad y Mejora Continua (ADGD01)', detail: '425 h presenciales, certificado registrado en FOCO. Modelos de gestión, mejora continua, auditorías, metrología y estadística aplicada.' },
   { year: '2025', title: 'Docencia de la FP para el Empleo (SSCE0110)', detail: 'Certificado de profesionalidad nivel 3, 380 h, nota media 8,2.' },
   { year: '2017', title: 'Desarrollo de Aplicaciones con Tecnologías Web (IFCD0210)', detail: 'Certificado de profesionalidad nivel 3, 590 h.' },
@@ -272,6 +273,7 @@ export const capabilities: Capability[] = [
     body: 'Procedimientos, trazabilidad e indicadores que aguantan una auditoría, con el dato sacado del sistema real.',
     skills: ['Control documental', 'Auditoría interna', 'Indicadores', 'Contabilidad de costes', 'Excel avanzado', 'SAP FICO · Sage · Dynamics'],
     evidence: [
+      { label: 'MOS: Excel Associate · Microsoft', href: '/#trayectoria' },
       { label: 'ADGD01 · 425 h', href: '/calidad' },
       { label: 'F2Prom · calidad interna y costes', href: '/calidad' },
       { label: 'CaixaBank · CRM y datos de clientes', href: '/#trayectoria' },
