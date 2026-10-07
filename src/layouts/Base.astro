@@ -13,6 +13,8 @@ interface Props {
   personSchema?: boolean;
   /** La página incluye la sección #contacto (las de perfil sí; legales, 404 y gracias no). */
   hasContact?: boolean;
+  /** Páginas de servicio que no deben indexarse (404, gracias). */
+  noindex?: boolean;
 }
 
 const {
@@ -20,6 +22,7 @@ const {
   description = 'Analista programador y docente técnico acreditado por el SEPE. Desarrollo web, automatización con IA, gestión de formación FUNDAE y FOCO, y sistemas de calidad. Cuenca y remoto.',
   personSchema = false,
   hasContact = false,
+  noindex = false,
 } = Astro.props;
 const contactHref = hasContact ? '#contacto' : '/#contacto';
 
@@ -91,7 +94,9 @@ const webpage = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={site.name} />
-    <link rel="canonical" href={canonical} />
+    {noindex
+      ? <meta name="robots" content="noindex, follow" />
+      : <link rel="canonical" href={canonical} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />

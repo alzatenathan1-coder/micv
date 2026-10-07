@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
 ---
-<Base title={`Página no encontrada · ${site.name}`} description="La página que buscas no existe. Vuelve al inicio o escríbeme directamente.">
+<Base title={`Página no encontrada · ${site.name}`} description="La página que buscas no existe. Vuelve al inicio o escríbeme directamente." noindex>
   <section class="min-h-[80vh] grid place-items-center">
     <div class="container-x text-center max-w-2xl">
       <p class="eyebrow">Error 404</p>

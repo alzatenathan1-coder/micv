@@ -11,7 +11,6 @@ export default defineConfig({
       // Páginas de servicio fuera del índice: no aportan a búsqueda.
       filter: (page) => !/\/(gracias|404)\/?$/.test(page),
       changefreq: 'monthly',
-      lastmod: new Date(),
       serialize(item) {
         const priority = item.url.replace('https://natanaelalzatetorres.com', '').replace(/\/$/, '') === ''
           ? 1.0
