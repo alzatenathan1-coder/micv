@@ -9,7 +9,6 @@ import Portfolio from '../components/sections/Portfolio.astro';
 import Capabilities from '../components/sections/Capabilities.astro';
 import Showcase from '../components/sections/Showcase.astro';
 import Manifesto from '../components/sections/Manifesto.astro';
-import Marquee from '../components/sections/Marquee.astro';
 import About from '../components/sections/About.astro';
 import Faq from '../components/sections/Faq.astro';
 import Contact from '../components/sections/Contact.astro';
@@ -29,7 +28,6 @@ const story = Boolean(p.portfolioFirst);
   {story && <Showcase />}
   {story && p.manifesto && <Manifesto text={p.manifesto} />}
   {story && p.showPortfolio && <Portfolio detailed={detailed} />}
-  {story && <Marquee />}
   {story && p.showCapabilities && <Capabilities />}
   <Services items={p.services} note={p.servicesNote} />
   {p.extras && <Extras heading={p.extras.heading} items={p.extras.items} />}
