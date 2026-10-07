@@ -407,7 +407,7 @@ export const profiles: Profile[] = [
       { href: '/administracion', label: 'Administración' },
       { href: '/casos', label: 'Proyectos' },
     ],
-    showTimeline: true, showPortfolio: false, showAbout: true,
+    showTimeline: false, showPortfolio: false, showAbout: false,
   },
 
   /* ---------------------------------------------------------------- 3 */
@@ -457,7 +457,7 @@ export const profiles: Profile[] = [
       { href: '/automatizacion-ia', label: 'Automatización con IA' },
       { href: '/administracion', label: 'Administración' },
     ],
-    showTimeline: true, showPortfolio: false, showAbout: true,
+    showTimeline: false, showPortfolio: false, showAbout: false,
   },
 
   /* ---------------------------------------------------------------- 4 */
@@ -500,7 +500,7 @@ export const profiles: Profile[] = [
       { href: '/automatizacion-ia', label: 'Automatización con IA' },
       { href: '/docencia', label: 'Docencia IT' },
     ],
-    showTimeline: true, showPortfolio: false, showAbout: true,
+    showTimeline: false, showPortfolio: false, showAbout: false,
   },
 
   /* ---------------------------------------------------------------- 5 */
@@ -542,7 +542,7 @@ export const profiles: Profile[] = [
       { href: '/tecnico', label: 'Formación y LMS' },
       { href: '/casos', label: 'Proyectos' },
     ],
-    showTimeline: true, showPortfolio: false, showAbout: true,
+    showTimeline: false, showPortfolio: false, showAbout: false,
   },
 
   /* ---------------------------------------------------------------- 6 */
