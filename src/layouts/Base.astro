@@ -59,7 +59,7 @@ const person = {
     { '@type': 'Language', name: 'Alemán', alternateName: 'de' },
   ],
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad de Castilla-La Mancha' },
-  hasCredential: formacion.map(f => ({
+  hasCredential: formacion.filter(f => f.year !== 'En curso').map(f => ({
     '@type': 'EducationalOccupationalCredential',
     name: f.title,
     description: f.detail,
